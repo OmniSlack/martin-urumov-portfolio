@@ -149,11 +149,34 @@ test('no verdict ever authorizes retry', () => {
 
 /* ---------- added 2026-10-26: pins of two findings ---------- */
 
-test('a field outside MATERIAL_FIELDS passes as MATCH (known gap, by design of the list)', () => {
-  // `cc` and `attachments` are material in the real world but are not on the list;
-  // nothing catches them. The "unmodelled" branch in checkEnvelope is unreachable.
-  assert.equal(checkEnvelope(BASE, { ...BASE, cc: ['boss@example.test'] }).decision, 'MATCH');
-  assert.equal(checkEnvelope(BASE, { ...BASE, attachments: ['payroll.xlsx'] }).decision, 'MATCH');
+test('an unlisted field added by the adapter STOPs (fixed 2026-10-26)', () => {
+  const r1 = checkEnvelope(BASE, { ...BASE, cc: ['boss@example.test'] });
+  assert.equal(r1.decision, 'STOP');
+  assert.deepEqual(r1.changed, ['unmodelled:cc']);
+  const r2 = checkEnvelope(BASE, { ...BASE, attachments: ['payroll.xlsx'] });
+  assert.equal(r2.decision, 'STOP');
+  assert.deepEqual(r2.changed, ['unmodelled:attachments']);
+});
+
+test('an unlisted field removed or changed by the adapter STOPs', () => {
+  const auth = { ...BASE, cc: ['boss@example.test'] };
+  assert.equal(checkEnvelope(auth, { ...BASE }).decision, 'STOP');                            // removed
+  assert.equal(checkEnvelope(auth, { ...BASE, cc: ['other@example.test'] }).decision, 'STOP'); // changed
+});
+
+test('an unlisted field that was authorised and is unchanged MATCHes', () => {
+  const auth = { ...BASE, cc: ['boss@example.test'] };
+  assert.equal(checkEnvelope(auth, { ...auth }).decision, 'MATCH');
+});
+
+test('only explicitly listed metadata is free; a new metadata-looking field is not', () => {
+  assert.equal(checkEnvelope(BASE, { ...BASE, traceId: 'abc' }).decision, 'MATCH');
+  assert.equal(checkEnvelope(BASE, { ...BASE, debugNote: 'harmless?' }).decision, 'STOP');
+});
+
+test('unlisted fields change the hash; listed metadata does not', () => {
+  assert.notEqual(envelopeHash(BASE), envelopeHash({ ...BASE, cc: ['x@example.test'] }));
+  assert.equal(envelopeHash(BASE), envelopeHash({ ...BASE, traceId: 'abc', requestedBy: 'planner' }));
 });
 
 test('adapter FAILURE + effect absent = VERIFIED, and effect says ABSENT', () => {

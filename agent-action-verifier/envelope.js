@@ -27,6 +27,17 @@ const MATERIAL_FIELDS = Object.freeze([
 ]);
 
 /**
+ * Fields that are explicitly NOT material: tracing and bookkeeping only.
+ * Added 2026-10-26. Any field that is in neither list is UNMODELLED, and an
+ * unmodelled difference STOPs — fail-closed. To let a new harmless field pass,
+ * it has to be added here on purpose; it never passes by default.
+ */
+const NON_MATERIAL_FIELDS = Object.freeze([
+  'requestedBy',
+  'traceId',
+]);
+
+/**
  * Deterministic canonical form: sorted keys, no whitespace variance.
  * Two envelopes with the same meaning must hash identically; any material
  * difference must change the hash.
@@ -38,11 +49,18 @@ function canonical(value) {
   return '{' + keys.map((k) => JSON.stringify(k) + ':' + canonical(value[k])).join(',') + '}';
 }
 
-/** SHA-256 over the canonical form of the material fields only. */
+/**
+ * SHA-256 over the canonical form of every field except NON_MATERIAL_FIELDS
+ * (2026-10-26: was material fields only, which let unlisted fields through).
+ * The seven MATERIAL_FIELDS are always present in the hashed object (null if absent).
+ */
 function envelopeHash(envelope) {
-  const material = {};
-  for (const f of MATERIAL_FIELDS) material[f] = envelope[f] ?? null;
-  return crypto.createHash('sha256').update(canonical(material), 'utf8').digest('hex');
+  const hashed = {};
+  for (const f of MATERIAL_FIELDS) hashed[f] = envelope[f] ?? null;
+  for (const k of Object.keys(envelope || {})) {
+    if (!MATERIAL_FIELDS.includes(k) && !NON_MATERIAL_FIELDS.includes(k)) hashed[k] = envelope[k];
+  }
+  return crypto.createHash('sha256').update(canonical(hashed), 'utf8').digest('hex');
 }
 
 /**
@@ -58,17 +76,19 @@ function checkEnvelope(authorized, presented) {
     const p = canonical(presented[f] ?? null);
     if (a !== p) changed.push(f);
   }
+  // Unmodelled fields: in neither list. Any difference (added, removed, changed) STOPs.
+  const keys = new Set([...Object.keys(authorized || {}), ...Object.keys(presented || {})]);
+  for (const k of [...keys].sort()) {
+    if (MATERIAL_FIELDS.includes(k) || NON_MATERIAL_FIELDS.includes(k)) continue;
+    if (canonical(authorized[k] ?? null) !== canonical(presented[k] ?? null)) changed.push(`unmodelled:${k}`);
+  }
   const authorizedHash = envelopeHash(authorized);
   const presentedHash = envelopeHash(presented);
 
-  // NOTE (2026-10-26): this branch is unreachable as written. envelopeHash()
-  // covers MATERIAL_FIELDS only, so when no listed field changed the two hashes
-  // are equal by construction. A field outside the list (e.g. `cc`,
-  // `attachments`) is therefore treated as metadata and passes as MATCH — see
-  // the test "a field outside MATERIAL_FIELDS passes as MATCH". The original
-  // comment claimed the opposite. Kept, unchanged in behaviour, to show the
-  // intended defence; making it live is a design decision (hash the whole
-  // envelope and give up free metadata) that this copy does not take.
+  // Belt and braces (live since 2026-10-26): the hash now covers unmodelled
+  // fields too, so a hash disagreement with no named change is still a STOP.
+  // With the named check above it should not occur; if it does, something in
+  // the comparison is wrong, and an unexplained difference is not permitted.
   if (changed.length === 0 && authorizedHash !== presentedHash) {
     return { decision: 'STOP', changed: ['<unmodelled>'], authorizedHash, presentedHash };
   }
@@ -81,4 +101,4 @@ function checkEnvelope(authorized, presented) {
   };
 }
 
-module.exports = { MATERIAL_FIELDS, canonical, envelopeHash, checkEnvelope };
+module.exports = { MATERIAL_FIELDS, NON_MATERIAL_FIELDS, canonical, envelopeHash, checkEnvelope };
