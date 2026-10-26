@@ -1,0 +1,155 @@
+# node --test   (2026-10-26 UTC)
+TAP version 13
+# Subtest: 165 entries, unique ids, in the original order
+ok 1 - 165 entries, unique ids, in the original order
+  ---
+  duration_ms: 1.794213
+  type: 'test'
+  ...
+# Subtest: found_by: 51 human, 114 instrument — and per entry as in the original
+ok 2 - found_by: 51 human, 114 instrument — and per entry as in the original
+  ---
+  duration_ms: 0.36739
+  type: 'test'
+  ...
+# Subtest: 22 families defined, the same set as the original
+ok 3 - 22 families defined, the same set as the original
+  ---
+  duration_ms: 0.194117
+  type: 'test'
+  ...
+# Subtest: every entry's family exists, and is the original one
+ok 4 - every entry's family exists, and is the original one
+  ---
+  duration_ms: 0.267041
+  type: 'test'
+  ...
+# Subtest: detectors: the same five, and every entry's detector is the original one
+ok 5 - detectors: the same five, and every entry's detector is the original one
+  ---
+  duration_ms: 0.233213
+  type: 'test'
+  ...
+# Subtest: every entry is complete: what, form (> 30 chars), how_found, date
+ok 6 - every entry is complete: what, form (> 30 chars), how_found, date
+  ---
+  duration_ms: 0.228269
+  type: 'test'
+  ...
+# Subtest: no Cyrillic in the data files
+ok 7 - no Cyrillic in the data files
+  ---
+  duration_ms: 1.539743
+  type: 'test'
+  ...
+# Subtest: openHand() equals the original otvorena_dlan()
+ok 8 - openHand() equals the original otvorena_dlan()
+  ---
+  duration_ms: 0.427033
+  type: 'test'
+  ...
+# Subtest: oldNew() equals the original star_nov()
+ok 9 - oldNew() equals the original star_nov()
+  ---
+  duration_ms: 0.483622
+  type: 'test'
+  ...
+# Subtest: byFamily() equals the original po_semeystva(): same groups, same order
+ok 10 - byFamily() equals the original po_semeystva(): same groups, same order
+  ---
+  duration_ms: 0.873782
+  type: 'test'
+  ...
+# Subtest: compare() equals the original sravni() on the same nine inputs (Bulgarian and code)
+ok 11 - compare() equals the original sravni() on the same nine inputs (Bulgarian and code)
+  ---
+  duration_ms: 2.452329
+  type: 'test'
+  ...
+# Subtest: compare() returns COUNTING_NAMES_NOT_THINGS for a reproduction of \#18
+ok 12 - compare() returns COUNTING_NAMES_NOT_THINGS for a reproduction of \#18
+  ---
+  duration_ms: 0.261755
+  type: 'test'
+  ...
+# Subtest: compare() returns COUNTING_NAMES_NOT_THINGS for a reproduction of B-6
+ok 13 - compare() returns COUNTING_NAMES_NOT_THINGS for a reproduction of B-6
+  ---
+  duration_ms: 0.10192
+  type: 'test'
+  ...
+# Subtest: compare() returns DETECTOR_THAT_DOES_NOT_DETECT for a reproduction of \#22
+ok 14 - compare() returns DETECTOR_THAT_DOES_NOT_DETECT for a reproduction of \#22
+  ---
+  duration_ms: 0.084021
+  type: 'test'
+  ...
+# Subtest: compare() returns LOOKS_LIKE_PROTECTION for a reproduction of \#16
+ok 15 - compare() returns LOOKS_LIKE_PROTECTION for a reproduction of \#16
+  ---
+  duration_ms: 0.062606
+  type: 'test'
+  ...
+# Subtest: compare() returns PRECISION_THAT_IS_NOT_PRECISE for a reproduction of \#21
+ok 16 - compare() returns PRECISION_THAT_IS_NOT_PRECISE for a reproduction of \#21
+  ---
+  duration_ms: 0.293741
+  type: 'test'
+  ...
+# Subtest: compare() returns MEASUREMENT_INCLUDES_ITSELF for a reproduction of \#24
+ok 17 - compare() returns MEASUREMENT_INCLUDES_ITSELF for a reproduction of \#24
+  ---
+  duration_ms: 0.127933
+  type: 'test'
+  ...
+# Subtest: compare() returns DETECTOR_THAT_DOES_NOT_DETECT for a reproduction of \#7
+ok 18 - compare() returns DETECTOR_THAT_DOES_NOT_DETECT for a reproduction of \#7
+  ---
+  duration_ms: 0.090341
+  type: 'test'
+  ...
+# Subtest: clean text gives no finding
+ok 19 - clean text gives no finding
+  ---
+  duration_ms: 0.864253
+  type: 'test'
+  ...
+# Subtest: exceptions mark a finding, they never silence it (B-9)
+ok 20 - exceptions mark a finding, they never silence it (B-9)
+  ---
+  duration_ms: 0.157045
+  type: 'test'
+  ...
+# Subtest: the module's own self-test passes
+ok 21 - the module's own self-test passes
+  ---
+  duration_ms: 0.495795
+  type: 'test'
+  ...
+1..21
+# tests 21
+# suites 0
+# pass 21
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 105.339344
+
+# node register.js --selftest
+ok   S1. every entry points to an existing family
+ok   S2. every entry carries its FORM, not only the case
+ok   S3. every entry says HOW it was found
+ok   S4. every named detector exists
+ok   S5. the highest number as a count is caught
+ok   S6. \b around Cyrillic is caught
+ok   S7. presence instead of content is caught
+ok   S8. clean text is not marked
+ok   S9. families repeat — the largest has 24 cases
+ok   S10. every entry is attributed to A or B (114+51=165)
+ok   S11. found_by is explicit everywhere, not guessed from the text
+ok   S12. an empty register gives null, not 1.0
+ok   S13. every entry carries a date
+ok   S14. old 20, new 145, uncovered 0
+
+all pass.

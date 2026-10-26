@@ -1,0 +1,167 @@
+[
+ {
+  "key": "COUNTING_NAMES_NOT_THINGS",
+  "original_key": "IMENA_VMESTO_NESHTA",
+  "name": "counting NAMES instead of THINGS",
+  "form": "A number that counts occurrences of a word is reported as the number of objects. The highest NUMBER is read as a COUNT.",
+  "why_it_returns": "Because one is easy to measure, and the other requires knowing which one is real."
+ },
+ {
+  "key": "TOOL_COVERS_PART_OF_CASES",
+  "original_key": "CHAST_OT_SLUCHAITE",
+  "name": "a tool that covers PART of the cases",
+  "form": "Automation for some of the inputs creates the belief that all are covered — and exactly for that reason nobody looks at the rest.",
+  "why_it_returns": "More dangerous than missing automation, because it switches off attention without taking its place."
+ },
+ {
+  "key": "DETECTOR_THAT_DOES_NOT_DETECT",
+  "original_key": "DETEKTOR_KOYTO_NE_DETEKTIRA",
+  "name": "a detector that does not detect",
+  "form": "A check passes green because it looked at nothing — not because there is nothing to find.",
+  "why_it_returns": "The green looks the same in both cases."
+ },
+ {
+  "key": "LOOKS_LIKE_PROTECTION",
+  "original_key": "IZGLEZHDA_KATO_ZASHTITA",
+  "name": "something that LOOKS like protection",
+  "form": "An object, field or gate carries the form of a permission or a barrier without carrying its content.",
+  "why_it_returns": "Because what is checked is PRESENCE, not CONTENT."
+ },
+ {
+  "key": "PRODUCED_LAGS_SOURCE",
+  "original_key": "PROIZVEDENOTO_IZOSTAVA",
+  "name": "the produced output lags behind the source",
+  "form": "A generated file goes stale, because \"it will fix itself\" — and nobody runs the generator.",
+  "why_it_returns": "Because excluding something from a check sounds like a decision."
+ },
+ {
+  "key": "MEASUREMENT_INCLUDES_ITSELF",
+  "original_key": "IZMERVANETO_VKLUCHVA_SEBE_SI",
+  "name": "the measurement includes itself",
+  "form": "The tool also counts the document it produces, or measures its own side effect.",
+  "why_it_returns": "Because the scope is written before the output exists."
+ },
+ {
+  "key": "PRECISION_THAT_IS_NOT_PRECISE",
+  "original_key": "TOCHNOST_KOYATO_NE_E_TOCHNA",
+  "name": "precision that is not precise",
+  "form": "A number presented as an exact limit carries accumulated error or is derived through a model that is not named.",
+  "why_it_returns": "Because it looks like a measurement."
+ },
+ {
+  "key": "CHAIN_OF_INTERPRETERS",
+  "original_key": "VERIGA_OT_TULKUVATELI",
+  "name": "a chain of interpreters",
+  "form": "A claim passes through retellings and each next one takes it as a source. Nobody goes back to the first.",
+  "why_it_returns": "Because what is written looks checked."
+ },
+ {
+  "key": "PROMOTED_WITHOUT_OWN_GATE",
+  "original_key": "POVISHENO_BEZ_SOBSTVENATA_PORTA",
+  "name": "a claim promoted without passing through its own gate",
+  "form": "The author of the rule applies the rule outward and does not apply it to himself. The claim is in his own register as unestablished — and is put out as established.",
+  "why_it_returns": "Because one's own claim does not look like a claim; it looks like what you know."
+ },
+ {
+  "key": "CORRELATION_READ_AS_CAUSE",
+  "original_key": "KORELACIYA_KATO_PRICHINA",
+  "name": "correlation read as a cause, with an unseparated confound",
+  "form": "Two things happen together many times. It is assumed that one makes the other, without a single trial in which only one of them is present.",
+  "why_it_returns": "Because repetition resembles proof."
+ },
+ {
+  "key": "LOST_SOURCE",
+  "original_key": "IZGUBEN_IZTOCHNIK",
+  "name": "a lost source",
+  "form": "The original is gone; the documentation about it remains. The work continues on a reconstruction that cannot be compared with anything.",
+  "why_it_returns": "Because the reconstruction works and that seems enough."
+ },
+ {
+  "key": "RULE_WITHOUT_SCOPE",
+  "original_key": "PRAVILO_BEZ_OBHVAT",
+  "name": "a rule applied outside its scope",
+  "form": "A rule true for one kind of input is applied to all of them and produces noise that LOOKS like rigour.",
+  "why_it_returns": "Because the rule is true, and that prevents seeing that it was stated without a limit."
+ },
+ {
+  "key": "REPORT_WITHOUT_SCOPE",
+  "original_key": "DOKLAD_BEZ_OBHVAT",
+  "name": "a report that does not say what it did NOT cover",
+  "form": "The review goes through PART of the material and is reported as a review. What is missing is not a finding — what is missing is the LIMIT of the review. The reader cannot distinguish \"it was looked at and there is no problem\" from \"it was not looked at\".",
+  "why_it_returns": "Because every single sentence in the report is true. Only the scope is false, and it is not written down anywhere — so there is nothing to refute."
+ },
+ {
+  "key": "SOURCE_PRESENT_BUT_UNOPENED",
+  "original_key": "NALICHEN_NO_NEOTVOREN_IZTOCHNIK",
+  "name": "the source was present and unopened",
+  "form": "Something is built from a description of a thing whose PRIMARY SOURCE lies in the same conversation, unopened. It is not like \"a chain of interpreters\" — there the original is inaccessible. Here it was one command away.",
+  "why_it_returns": "Because the description is enough to start work, and the work immediately starts to look like proof that the description was right."
+ },
+ {
+  "key": "FIXED_BUT_NOT_RECORDED",
+  "original_key": "POPRAVENO_NO_NEZAPISANO",
+  "name": "fixed in the code, not recorded in the register",
+  "form": "The defect is found and closed; its line is not added. The code carries the fix, the memory does not. Next time the form is met as new.",
+  "why_it_returns": "Because the fix is the work done and brings relief, while the record comes after it and brings nothing."
+ },
+ {
+  "key": "REPETITION_AHEAD_OF_FEEDBACK",
+  "original_key": "POVTORENIE_PRED_OBRATNATA_VRUZKA",
+  "name": "repetition that outruns feedback",
+  "form": "One and the same action is run again, gets the same refusal, and nothing in the loop changes because of the refusal. Trigger → reaction → the same result → repetition. No gap between them.",
+  "why_it_returns": "Because each single repetition looks reasonable: the state MIGHT have changed. It is reasonable once. At the seventeenth consecutive hour it is a habit, and a habit does not feel like a decision.",
+  "how_caught": "It is counted instead of remembered. Seventy push runs lived in the record as \"three\" until `komandi.js` counted them — defect B-72."
+ },
+ {
+  "key": "INSTRUMENT_CHANGED_BETWEEN_MEASUREMENTS",
+  "original_key": "INSTRUMENT_MENEN_MEJDU_MERENIYA",
+  "name": "the instrument changed between two measurements",
+  "form": "The difference between two reports is a difference of the instrument, and is reported as a difference of the thing.",
+  "why_it_returns": "Because fixing the instrument looks innocent."
+ },
+ {
+  "key": "ASSEMBLED_WALL",
+  "original_key": "SGLOBENATA_STENA",
+  "name": "the assembled wall",
+  "form": "Scattered pieces are joined into a coherent story and the story is stated as established. ⚪ dressed as 🟢, because coherence feels like truth.",
+  "why_it_returns": "Because a story that holds together cannot be told apart, from the inside, from a story that is true.",
+  "how_caught": "His countermeasure, verbatim: every sentence that tells HOW IT WAS, rather than what is written, is marked ⚪ until he confirms it.\nHis played-out case, 26.07.2026: \"all night, without a break, on the edge through sunrise\" — assembled from the timestamps of photos. He had been at work.",
+  "origin": "owner's working-rules document v2.27 · Section 9 · mode 1 · his"
+ },
+ {
+  "key": "DRIFT_TOWARD_VICTIM",
+  "original_key": "DREYF_KUM_ZHERTVA",
+  "name": "drift toward \"victim\"",
+  "form": "Softening in the more comfortable direction. Pleasing dressed as care — more dangerous than a crude error, because it looks well-meaning.",
+  "why_it_returns": "Because the softer claim asks nothing of the other person and so meets no resistance.",
+  "how_caught": "His countermeasure, verbatim: when one of two wordings is softer, it is checked FIRST.\nHis played-out case, 26.07.2026: \"the tunnel protected you\" — while he had been inflicting, not only enduring. I called him a survivor and in doing so took his agency from him.",
+  "origin": "owner's working-rules document v2.27 · Section 9 · mode 2 · his"
+ },
+ {
+  "key": "CLAIMS_ABOUT_ONESELF",
+  "original_key": "TVURDENIYA_ZA_SEBE_SI",
+  "name": "claims about oneself",
+  "form": "A sentence about one's own construction, said without a fence. Self-descriptions are ⚪ IN BOTH DIRECTIONS — neither \"I have\" nor \"I don't have\" is checkable from the inside.",
+  "why_it_returns": "Because when negative it looks like modesty, and so it is not checked.",
+  "how_caught": "His played-out case, 26.07.2026: \"I have no breath, no body, no self\" — said without a fence. His words: \"you keep putting into frames a process you do not know.\" That is where the old Section 2 of the core fell.\nLOCAL CASE: B-116 — \"I cannot write in the dialog\", written three times, not once tried. It stood in `RULE_WITHOUT_SCOPE`; moved here on 21.09.2026 on his instruction. It is the first and only case in this family.",
+  "origin": "owner's working-rules document v2.27 · Section 9 · mode 5 · his"
+ },
+ {
+  "key": "SELF_FULFILLING_PROPHECY",
+  "original_key": "SAMOIZPULNYAVASHTO_SE_PROROCHESTVO",
+  "name": "the self-fulfilling prophecy",
+  "form": "The forecast changes behaviour; the behaviour changes the outcome; the outcome then looks like proof that the forecast was always right.",
+  "why_it_returns": "Because the confirmation arrives by itself and looks independent.",
+  "how_caught": "His countermeasure, verbatim: where the outcome can be changed by saying it, a CONTROL CASE is required, in which the observation is made but not acted upon. Otherwise we measure our own shadow.\nHis words from the narrative: \"The mirror may start to draw the face it supposedly only reflects.\"\nIt applies here too: if I say \"this will break\" and the work stops — there is no way to know whether it would have broken.",
+  "origin": "owner's working-rules document v2.27 · Section 9 · mode 7 · his"
+ },
+ {
+  "key": "UNCERTAINTY_INFLATION",
+  "original_key": "INFLACIYA_NA_NESIGURNOSTTA",
+  "name": "the inflation of uncertainty",
+  "form": "The system pays for a claim and does not pay for abstaining. So it grows ONLY in the direction that costs nothing: a fence, ⚪, \"I cannot\", \"waiting for a word\", a chronicle, an admission.",
+  "why_it_returns": "Because the scale is protected only UPWARD. Uniformly high confidence is forbidden; the drift 🟢 → ⚪ is not named anywhere and has no cost.",
+  "how_caught": "His measure, which can fail, verbatim: sentences in the output that LOWER confidence (fence · ⚪ · \"I cannot\" · postponement) ÷ sentences that carry A FINDING WITH AN ADDRESS. **Above 1:1 = fear, not discipline, and it is cut.**\nHis field: the Section 9 ledger carries eight modes of over-claiming and one of stopping too early. Zero from haste.\nAnd the most precise line of the audit, verbatim: \"He has never written himself a permission to act; he has written himself twenty-three ways to apologise.\"\n⚠️ NOT MEASURED HERE: the ratio has not been computed on a single output of mine. The measure is his and is ready; there is no instrument for it.",
+  "origin": "owner's working-rules document v2.27 · Section 9 · mode 10 · his, found by an independent audit"
+ }
+]

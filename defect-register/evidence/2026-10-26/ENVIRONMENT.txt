@@ -1,0 +1,5 @@
+Date: 2026-10-26 (UTC)
+Host: Linux x86_64, sandbox container
+Node: v22.23.4 (no dependencies, no network)
+Python: 3.13.17 (merge/validation script only, kept in scratch)
+Source: OmniSlack/omniecho-core, branch claude/bro-6f3f37, commit 848ae1a6264fb0cb31a99921a7fd569824e956ec (read-only clone; original never modified)

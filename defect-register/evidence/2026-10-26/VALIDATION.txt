@@ -1,0 +1,16 @@
+# Validation of the translation merge — 2026-10-26
+# 13 translated part files (scratch) merged against verify/greshki.js @ 848ae1a
+register.json cyrillic chars: 0
+families.json cyrillic chars: 0
+entries 165 unique ids 165 Counter({'instrument': 114, 'human': 51}) families used 18 families defined 22
+order identical: True
+
+# Original module, unmodified, in a scratch copy: node verify/greshki.js --selftest
+848ae1a6264fb0cb31a99921a7fd569824e956ec
+self-test lines: 14 ok, 0 FAIL (S1-S14; the port's own self-test carries the same 14 checks, see TESTS.txt)
+
+# Cyrillic characters in this folder (Python regex [U+0400-U+04FF], all files):
+0
+
+# Equivalence: see TESTS.txt — openHand, oldNew, byFamily, compare (9 inputs), per-entry found_by/family/detector all equal to the original helpers' outputs in fixtures/original-helper-outputs.json
+# Health details in B-128 and B-137 generalised in translation (marked in the text).
