@@ -4,7 +4,7 @@
 
 ## Purpose
 
-A control layer that decides whether an AI agent may carry out a protected action, and makes the database — not prompt text — enforce the decision. Before an action can run it needs an exact match of identity, version and dependency digest, a separate risk decision that is not itself a permission, an open gate with no active hold, and a single-use permit that has not expired — checked again at dispatch. An ambiguous outcome is recorded as `UNKNOWN`, never retried, and nothing reaches `VERIFIED` except through independent verification after completion.
+A control layer that decides whether an AI agent may carry out a protected action, and makes the database — not prompt text — enforce the decision. Before an action can run it needs an exact match of identity, version and dependency digest, a separate risk decision that is not itself a permission, an open gate with no active hold, and a single-use permit that has not expired — checked again at dispatch. An ambiguous outcome is recorded as `UNKNOWN`, never retried, and an attempt reaches `VERIFIED` only from `COMPLETED` (state machine and database trigger). Which caller may make that step is not restricted; see Limitations.
 
 ## Components (names used in the code)
 
@@ -65,6 +65,7 @@ From the package's own `LIMITATIONS.md`, unchanged:
 - Verification is local, not production-deployment evidence. No remote deployment, no real Adapter action, no real external effect was verified.
 - The tests prove the enumerated authority, persistence, concurrency and fail-closed behaviours; they do not prove arbitrary statements.
 - `node_modules` is excluded; dependency identity is `package-lock.json`. OS, Node binary, Docker image and PostgreSQL binary are not frozen.
+- **No separation of duties in the database (found 2026-10-26, AI assistant, reading `src/postgres/repository.ts`).** All writes go through one connection with one set of rights. The same caller can record a Core `CLEAR` (`recordCoreDecision`, line 183) and issue the permit that requires it (`issuePermit`, line 100). The repository has no method that writes `VERIFIED`, and the database trigger only checks that the step comes from `COMPLETED`, so any session with write rights can make it with a plain `UPDATE`. This is read from the code; no test demonstrates it yet. The dual gate therefore proves that both records exist, not that two different parties made them. Separate PostgreSQL roles (one that may only write Core decisions, one that may only issue permits, one that may only verify) are not implemented and not tested.
 - The Verifier has no probe of its own; obtaining a genuinely independent reading of the world is unsolved by design.
 - The 2026-10-26 run used the frozen package's own `node_modules` and a local PostgreSQL 16 through a `docker` shim, not Docker.
 

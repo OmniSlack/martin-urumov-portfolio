@@ -67,6 +67,23 @@ On 2026-07-27 two digests were submitted to four OpenTimestamps calendars. The s
 - 🟡 It covers the rules that were already in method core v2.12 (by its version history: the rows dated 2026-07-24 to 2026-07-27 above). Checking this against the text needs the v2.12 file itself, which is in the private archive.
 - It does not prove who was first. Many parts have prior art, which the method core itself lists; the claim is the configuration, not the parts.
 
+### Prior art for the three-part check (searched 2026-10-26)
+
+The specification row above combines three practices: a control of equal cost, measuring part of the cases without acting on them, and testing the detector first on a planted case. A first literature search (two independent passes: the AI assistant, and a separate model whose sources were then spot-checked) found:
+
+| Part | Known as | Source checked |
+|---|---|---|
+| control of equal cost | attention placebo control; assay sensitivity | Popp & Schneider (2015), *Trials* 16:150, [PMC4404062](https://pmc.ncbi.nlm.nih.gov/articles/PMC4404062); ICH E10 (2000), §1.5 |
+| measure without acting | shadow mode | S. Prakash, "Shadow Before Enforce" (2026-08-22), [link](https://agenticlab.sunilprakash.com/patterns/shadow-before-enforce/) |
+| planted case first | fault seeding; mutation testing; proof test | [SFU course notes on fault seeding](https://www2.cs.sfu.ca/~cameron/Teaching/473/seeding_mutation_adequacy.html); IEC 61508-4 (not opened) |
+| measure without acting + planted case | shadow mode with known positives seeded into traffic | Prakash (2026-08-22), as above |
+| equal-cost control + planted case | three-arm trial: placebo and an active control of known effect | ICH E10 (2000), §2.1.5.1.1 |
+
+- 🟢 Each part is established practice in its own field, and two of the three pairs are published.
+- 🟡 Neither pass found all three as one protocol. Two short searches do not show that none exists.
+- 🔴 The second pass listed three patents and an arXiv paper as matches; on opening them, the titles, authors or contents did not match its description. Those entries are not used here. No patent search has been completed.
+- The fair description is therefore: three known practices from clinical trials, software testing and operations, combined into one check. Not a new method.
+
 What this table does and does not show:
 - 🟢 The v2.26 hash above is the same value recorded in the handoff note of 2026-07-31.
 - 🟡 The dates in the first table are the dates written inside the documents, and a file can carry any date. The exception is the Bitcoin timestamp above, which fixes 2026-07-27 independently; versions after v2.12 have no independent timestamp.

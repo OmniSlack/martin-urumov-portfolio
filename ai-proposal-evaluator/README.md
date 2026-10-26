@@ -8,6 +8,9 @@ Decides, for one proposal made by an AI system (a claim, a confidence, a request
 
 ## How it works
 
+Terms used in the code, in plain words: **reaction gap** = the time in nanoseconds between receiving a proposal and returning a decision, with a timestamp for each check made in between; **Observer** = a record of one call (input, timing, returned object) sealed with SHA-256, with no write access to what it records; **mirrored observers** = two such records made independently and compared, plus one that checks their timings and one that checks whether the others were really independent.
+
+
 `new Core().evaluate(proposal, context)` runs every gate on one severity ladder, `STOP > HOLD > CLEAR`, where `STOP` is terminal for that verdict. It returns a frozen object: `decision`, `reasons[]` (one sentence per gate that fired, prefixed `Gate NN Block:`), `provenance`, `reactionGapNs`, `reactionGapMarkers[]` (what was checked, and when), `timestamp`.
 
 **16 gates return a refusal** — 14 in `core.js` and Gate 16 / Gate 17 in `predict.js` / `causal.js`:
