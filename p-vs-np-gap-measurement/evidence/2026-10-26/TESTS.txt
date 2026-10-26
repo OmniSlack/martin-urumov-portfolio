@@ -1,0 +1,11 @@
+# node --version: v22.23.4
+# node --test-reporter=spec
+✔ step counts are deterministic and match the recorded run (154.323017ms)
+✔ exhaustion costs exactly 2^n·(n+1) steps (n additions + 1 comparison per subset) (12.983735ms)
+✔ checking costs |certificate| + 1 steps, never more than n + 1 (0.516657ms)
+✔ first-hit steps do not grow monotonically — that column measures luck (1.828386ms)
+✔ the no-answer target really has no answer (odd target, even numbers) (0.732074ms)
+✔ a wrong certificate is rejected (0.18852ms)
+ℹ tests 6
+ℹ pass 6
+ℹ fail 0

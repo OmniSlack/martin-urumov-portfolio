@@ -1,0 +1,47 @@
+# node p_vs_np_gap.js — this folder, 2026-10-26
+# vs BASELINE: all 58 numeric tokens identical; text translated to English
+P versus NP — a measured gap, not a solved problem
+
+Subset sum: given n numbers and a target, find a subset
+that sums to the target.
+
+  n   search space   EXHAUSTION steps   first-hit steps   check steps   ratio
+  8            256               2304               450             4         576
+ 10           1024              11264               847             4        2816
+ 12           4096              53248             13572             5       10650
+ 14          16384             245760              3915             3       81920
+ 16          65536            1114112            418914             5      222822
+ 18         262144            4980736           2918723             6      830123
+ 20        1048576           22020096            692790             9     2446677
+ 22        4194304           96468992            496685             9    10718777
+
+  From n=8 to n=22:
+    certificate: from 8 to 22 bits — LINEAR
+    search space: from 256 to 4194304 — DOUBLES with every added number
+    exhaustion: from 2304 to 96468992 steps
+    checking: from 4 to 9 steps
+
+  Does exhaustion grow at EVERY step: yes
+  Does the first hit grow at every step: NO
+    -> nor should it: where the first answer sits is random.
+       That column measures LUCK. That is why exhaustion is beside it.
+
+  All checks passed: yes
+  Exhaustion found no answer where there is none: yes
+
+  THE GAP THE QUESTION ASKS ABOUT
+    The certificate grows by one number per step of n.
+    The search space doubles per step of n.
+    Checking stays almost free. Searching does not.
+
+⚠️ WHAT THIS DOES NOT PROVE
+  That finding is slow with THIS algorithm does not mean a fast one
+  does not exist. Subset sum has better algorithms than this one:
+  dynamic programming, and meet-in-the-middle. The curve above is
+  the curve of exhaustion, not of the problem.
+
+  Proving P ≠ NP means showing that NO algorithm can — including
+  ones nobody has invented. No measurement reaches that far, and
+  that is exactly the difficulty.
+
+  We measure the gap the question asks about. We do not answer the question.

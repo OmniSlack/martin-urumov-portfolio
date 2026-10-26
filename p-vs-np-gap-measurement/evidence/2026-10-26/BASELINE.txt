@@ -1,0 +1,17 @@
+# node verify/pnp.js — original, OmniSlack/omniecho-core @ 848ae1a, unmodified copy, 2026-10-26
+# The original prints its text in Bulgarian. Kept here: the SHA-256 of the raw output, every line
+# that contains no Bulgarian text, and the full list of numeric tokens in order (58), which AFTER.txt matches.
+# sha256(raw output) = 6072f9a25c240011635654933f38403fe988c6604490a28507ed9bb541103ea2
+
+# lines without Bulgarian text (the table rows):
+  8            256               2304               450          4         576
+ 10           1024              11264               847          4        2816
+ 12           4096              53248             13572          5       10650
+ 14          16384             245760              3915          3       81920
+ 16          65536            1114112            418914          5      222822
+ 18         262144            4980736           2918723          6      830123
+ 20        1048576           22020096            692790          9     2446677
+ 22        4194304           96468992            496685          9    10718777
+
+# all numeric tokens, in order:
+8 256 2304 450 4 576 10 1024 11264 847 4 2816 12 4096 53248 13572 5 10650 14 16384 245760 3915 3 81920 16 65536 1114112 418914 5 222822 18 262144 4980736 2918723 6 830123 20 1048576 22020096 692790 9 2446677 22 4194304 96468992 496685 9 10718777 8 22 8 22 256 4194304 2304 96468992 4 9
