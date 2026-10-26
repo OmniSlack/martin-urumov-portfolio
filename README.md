@@ -11,6 +11,8 @@ Supporting materials for my CV. Each folder is one project. Every folder's READM
 | Folder | Kind | What it is | Proof |
 |---|---|---|---|
 | [`payload-policy-validator/`](payload-policy-validator/) | tool, Python | Gate that decides whether an agent's action payload may run or must stop for a human; two independent thresholds, fail-closed | 17 regression tests, one per documented defect of the previous version |
+| [`batch-file-gateway/`](batch-file-gateway/) | tool, Python | Batch file gateway: boundary isolation, then DLP on the isolated text, then exclusive-create write; one fsync'd audit line per file; exit code reflects the outcome | 15 tests; five documented defects of the previous version, each pinned by a test |
+| [`status-flow-validator/`](status-flow-validator/) | tool, Python | Two-stage check of a request: status chain in order, payload clean; rejection log never contains the payload | 6 privacy tests + 4 self-test scenarios |
 
 More folders are added one at a time, each with its own evidence.
 
