@@ -1,0 +1,2 @@
+Date: 2026-10-26 (UTC) · Linux x86_64 sandbox · Python 3.13.17 · numpy 2.5.3 · matplotlib 3.11.2
+Commands: python3 -m unittest test_observer_gated_control -v (TESTS.txt) · observer_gated_control.py (METRICS_*.txt, chart_*.png) · tools/seed_sweep.py (SEED_SWEEP.txt)

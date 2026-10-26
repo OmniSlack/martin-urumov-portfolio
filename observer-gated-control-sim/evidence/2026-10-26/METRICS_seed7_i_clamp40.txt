@@ -1,0 +1,9 @@
+# python3 observer_gated_control.py --i-clamp 40 evidence/2026-10-26/chart_seed7_i_clamp40.png   (the 2026-07-13 original's configuration)
+Metric                          DIRECT    OBSERVER      better
+--------------------------------------------------------------
+IAE (total)                   16947.26    15930.34    OBSERVER
+IAE (clean regime)            14176.03    14627.46      DIRECT
+Max deviation / fault            52.16       22.70    OBSERVER
+Min temperature / fault         127.84      157.30    OBSERVER
+Actuator TV (chattering)        149.25       31.92    OBSERVER
+chart -> evidence/2026-10-26/chart_seed7_i_clamp40.png
