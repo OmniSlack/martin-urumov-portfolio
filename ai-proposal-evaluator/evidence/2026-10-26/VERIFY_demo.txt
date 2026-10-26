@@ -1,0 +1,14 @@
+TEN FUNCTIONS, IN SEQUENCE — every output is from this run
+
+ 1. evaluate · no provenance                   HOLD · 3 reasons
+ 2. evaluate · external action requested       STOP · terminal
+ 3. begin → release without complete           executed: null
+ 4. evaluate · permit dated tomorrow           HOLD · "rmit is dated in the future; it is "
+ 5. balancing.assess({})                       STOP
+ 6. independence · 3 items, 1 root             1 root · CLEAR · honest 75.00%
+ 7. predict → score without observation        HOLD · hit: null
+ 8. landauer.joulesPerBit(0 K)                 RangeError · at 300 K: 2.871e-21 J/bit
+ 9. observer → verifyObservation               valid: true · reason: null
+10. mirror · one answer, three coats           HOLD
+
+10 functions. Each returned a value in this run.

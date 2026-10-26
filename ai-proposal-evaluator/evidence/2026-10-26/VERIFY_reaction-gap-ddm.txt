@@ -1,0 +1,26 @@
+generator: mean 0.0000 (target 0) · sd 1.0003 (target 1) → ✓ usable
+
+C1 · THERE IS a signal (mu = 0.5) — a higher threshold must be more accurate and slower
+
+  threshold 0.2   accuracy  55.2% / formula  55.0% ✓   time  0.047s / formula  0.040s ✗ 19.1%
+  threshold 0.4   accuracy  60.2% / formula  59.9% ✓   time  0.173s / formula  0.158s ✗ 9.9%
+  threshold 0.8   accuracy  69.4% / formula  69.0% ✓   time  0.633s / formula  0.608s ✓ 4.1%
+  threshold 1.6   accuracy  83.4% / formula  83.2% ✓   time  2.164s / formula  2.125s ✓ 1.9%
+
+  accuracy grows with the threshold:  ✓ YES
+  time grows with the threshold:      ✓ YES
+  cost: going from 55.2% to 83.4% accuracy costs 45.6x more time
+
+
+C2 · NO signal (mu = 0) — waiting brings nothing
+
+  threshold 0.2   accuracy  50.0%   time  0.048s
+  threshold 0.4   accuracy  49.8%   time  0.177s
+  threshold 0.8   accuracy  50.0%   time  0.673s
+  threshold 1.6   accuracy  50.2%   time  2.611s
+
+  accuracy stays at 50% at every threshold:  ✓ YES
+  time grows 55x, accuracy does not move
+
+CONSEQUENCE: the gap buys accuracy only while a signal COMES IN through it.
+Waiting alone buys only time.

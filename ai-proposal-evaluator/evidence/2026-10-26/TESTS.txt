@@ -1,0 +1,24 @@
+# node --test   (v22.23.4, 2026-10-26)
+# tests 247
+# suites 0
+# pass 247
+# fail 0
+# cancelled 0
+# skipped 0
+
+# per file
+ablation.test.js                             # pass 6 # fail 0 
+adversarial-caller-object-freeze.test.js     # pass 7 # fail 0 
+adversarial-core-boundaries.test.js          # pass 12 # fail 0 
+adversarial-cumulative-limit.test.js         # pass 6 # fail 0 
+adversarial-cumulative-precision.test.js     # pass 6 # fail 0 
+adversarial-modules.test.js                  # pass 17 # fail 0 
+adversarial-permit-bounds.test.js            # pass 5 # fail 0 
+adversarial-solution-certificate.test.js     # pass 8 # fail 0 
+balancing.test.js                            # pass 45 # fail 0 
+causal.test.js                               # pass 16 # fail 0 
+core.test.js                                 # pass 56 # fail 0 
+independence.test.js                         # pass 15 # fail 0 
+landauer.test.js                             # pass 13 # fail 0 
+observer.test.js                             # pass 20 # fail 0 
+predict.test.js                              # pass 15 # fail 0 

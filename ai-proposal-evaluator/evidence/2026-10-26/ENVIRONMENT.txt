@@ -1,0 +1,5 @@
+Date: 2026-10-26 (UTC) · Linux x86_64 sandbox · Node v22.23.4 · no dependencies, no network
+Source: OmniSlack/omniecho-core, branch claude/bro-6f3f37, commit 848ae1a6264fb0cb31a99921a7fd569824e956ec (git archive into a scratch directory; the clone itself was not modified)
+Baseline (unmodified copy): node --test -> 255/255; verify/invariant.js 5 -> 37,448 checks, 0 violations; verify/ablation.js -> 31/31; verify/demo.js -> crashed at step 3
+This folder: node --test -> 247/247 (8 scanner tests not carried, see BEFORE_AFTER.md); outputs of the five verify scripts in VERIFY_*.txt
+Not run: verify/all.js and verify/nemoga.js of the original (network probes); nothing else from the original verify/ folder

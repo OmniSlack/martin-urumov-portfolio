@@ -1,0 +1,63 @@
+{
+  "_source": "Balancing Assessment for Legitimate Interest - Publishers, Exponential (Advertising Intelligence). Prepared on the Data Protection Network template. Signed Tim Sleath, Data Protection Officer & VP Product Management, 19th April 2018. Reviewer: Dilip DaSilva, CEO.",
+  "_note": "Encoded from the document's own answers, not from what a passing assessment would look like. Where the document leaves something indeterminate, the fixture leaves it indeterminate too.",
+
+  "purpose": {
+    "description": "Monetisation of publisher websites by means of targeted advertising to their users.",
+    "controllerObjective": "Our organisation depends on targeted advertising; that is our revenue stream.",
+    "thirdPartyObjective": "The objectives are ours and the publishers'.",
+    "recognisedInLaw": "The GDPR includes direct marketing as a legitimate interest; online advertising is not named explicitly."
+  },
+
+  "necessity": {
+    "importantToController": "Online advertising is the purpose of the company, including for EU residents, for over 15 years.",
+    "importantToThirdParties": "Data is not disclosed to other controllers, only to processors acting on our behalf.",
+    "alternativeExists": false,
+    "alternativeNote": "Contextual targeting exists but is stated to be commercially less effective; the company commits to switching if that changes."
+  },
+
+  "balancing": {
+    "expectedByIndividual": true,
+    "addsValueToIndividual": true,
+    "negativeImpact": false,
+    "unwarrantedHarm": false,
+    "prejudiceToControllerIfNotDone": "Financial harm",
+    "prejudiceToThirdPartyIfNotDone": "Financial harm",
+    "inIndividualsInterest": true,
+    "interestsAligned": true,
+    "connectionToIndividual": "No connection save via the service provided to the website the user visits.",
+    "dataNature": "Pseudonymous IP address, cookie id, user agent.",
+    "specialCategory": false,
+    "article9Condition": null,
+    "twoWayRelationship": "In most cases none; most partners have no subscribers or members.",
+    "underminesRights": false,
+    "obtainedDirectly": false,
+    "powerImbalance": false,
+    "couldBeIntrusive": false,
+    "fairProcessingNotice": true,
+    "easyObjection": true,
+    "scopeCanBeReduced": "Stated as not applicable: 'there are no privacy risks or harms'."
+  },
+
+  "safeguards": {
+    "controls": [
+      "Never tailor ads involving individual-specific pricing.",
+      "Never knowingly serve an ad that could be distressing.",
+      "Signatory to the NAI Code of Conduct precluding sensitive categories.",
+      "Data not shared with other controllers; access limited."
+    ],
+    "retention": {
+      "logFiles": "60 days",
+      "profile": "Indefinite while active; 90 days once stale"
+    }
+  },
+
+  "outcome": {
+    "conclusion": "On the basis of the available information, Legitimate Interest seems warranted.",
+    "signedBy": "Tim Sleath",
+    "role": "Data Protection Officer & VP Product Management",
+    "signedDate": "2018-04-19",
+    "reviewDate": "19th April",
+    "reviewer": "Dilip DaSilva, CEO"
+  }
+}

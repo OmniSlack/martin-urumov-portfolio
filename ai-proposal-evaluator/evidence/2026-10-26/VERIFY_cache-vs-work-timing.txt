@@ -1,0 +1,9 @@
+TIMING — can reuse be told from recomputation?
+
+10 samples per series, median taken (not spread: see defect #11).
+
+first ten, warm        reuse     350 ns   recompute   19292 ns   ratio 55.1x
+
+Separated: recomputation costs 55.1x a reuse.
+
+Run with --pause for the eleventh series after a minute.

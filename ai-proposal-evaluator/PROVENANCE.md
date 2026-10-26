@@ -1,0 +1,47 @@
+# Provenance — ai-proposal-evaluator
+
+Rule: originals are never modified. Every file here is a new copy; this table links each new file to the original it was made from.
+
+Original: GitHub repository `OmniSlack/omniecho-core` (private), branch `claude/bro-6f3f37`, commit `848ae1a6264fb0cb31a99921a7fd569824e956ec` (2026-10-13 05:39 UTC), 222 commits. Files taken with `git archive` into a scratch directory; the clone was not modified. The same commit is the HEAD of the git bundle `omniecho-222.bundle` supplied separately.
+
+| Original file | Original SHA-256 | New file (this folder) | New SHA-256 | Change |
+|---|---|---|---|---|
+| core.js | d2f997dabe99fed33067a830573fcc02dfa9ceff3762bc0597a6e830e5bdf2ea | core.js | cc632d3afa616e1bf022f0739138be687f9c6abe26064c1e40eca20762a76067 | comments and strings translated; brand header replaced; identifiers renamed (`chasovnik`→`clock`, `procep_ns`→`reactionGapNs`, `procep_markeri`→`reactionGapMarkers`, marker fields `kakvo`/`na_ns`→`step`/`atNs`, `sborNeumaier`→`neumaierSum`); one comment block quoting two internal documents shortened; logic unchanged |
+| severity.js | d3de503e4d3640b221b4ef8553afae44fdb9a8cadf76d1cec1ff083757f8084e | severity.js | 551ca3d98bc0c9748d1d3315472d309a4dac222436344bc1eb1ab1604f043b2c | translated; type-guard helpers renamed (`otgovoreno`/`chislo`/`tekst`/`nechetimo` → `isAnswered`/`isFiniteNumber`/`isNonEmptyText`/`unreadable`); message text "received … expected …" |
+| observer.js | d1c4b7977ac859a0d30e68aaf1fb582495e205852999271c432d05151a877bd6 | observer.js | b65879a5e40d9df15550d0e6081cccdda2eb4cd3c4d15fbb336449c28873e373 | header block describing a personal conversation removed; remaining Bulgarian labels translated; logic unchanged |
+| balancing.js | 6f8ef5f75bfb54fe4d8b49edaf340d4bd7723543ac6b580b6c006ad70094857f | balancing.js | 69f36420d8619e9296b31f86e2fb748560c00693670e43ff73ae915710d11800 | comments translated; helper names updated |
+| causal.js | 5c88ef57cce24cfd86132790d56134a18d4eb9037e187b271896237b49c395d2 | causal.js | da5e6f78ceb10bfe084c4c88c0a2e0b407868fb6138300d8497fcdb586149ff8 | comments translated; helper names updated |
+| independence.js | 996253c02f7f71fca8104ed2397776213b2e4c8fed4d1505e40729c5fa25b935 | independence.js | dd07504d639df3b55c48642244ea27d984e5c786174ff18aa652537dcef695dc | comments and one message fragment translated; helper names updated |
+| predict.js | 523be2e03cf541d392920e512d8481ad41a3b8060922ffd0f19927578c9c6720 | predict.js | 36f7fcfd38a2ede8f7f929b8c59779f3ff39551f67aaa80505bcdc34576af556 | comments and one message fragment translated; helper names updated |
+| landauer.js | b872e195f92743cfc5be47b4cc4d1fb5b6db1499f74be7af7e712224fe5caf33 | landauer.js | b872e195f92743cfc5be47b4cc4d1fb5b6db1499f74be7af7e712224fe5caf33 | none — byte-identical |
+| mirror.js | cf69d85b5a8154ef3cc7430ae790c7f20c9d9962f1f3c8c40ae378c10489b002 | mirror.js | be9a979cd2d7f74c3927088346dc17be077de404719ec7f160f056066f2415ca | three quoted Bulgarian lines translated |
+| core.test.js | 7d7cf639017cfc56cb72c968c124224034f98e0f24ae40cd56516fd00133e73e | core.test.js | 4c983f669a00a79c10f77a08a779e0906947e935f533bb9275f1dc2628ab87cc | titles, comments, messages translated; asserted reason texts match the translated module; suite title without the project name |
+| ablation.test.js | 213f698590cdf3c97fc51ae5b5a94d598cb30603c023a765f991783efd269c92 | ablation.test.js | 6212f4512614f68208fd05b241096b31f37a7680892740170fdd8bb9780a65fc | translated; requires `verify/gate-ablation.js` |
+| balancing.test.js | 5a403a36c94fbf9b4c241273c82182ea2e74c71a0ac95e3997b931422902f93c | balancing.test.js | 5ea75c40b31d824f4e496e3e0121e889148ef12431d7cfa46a577b037c8d7826 | translated; a variable whose name mixed Latin and Cyrillic letters renamed |
+| causal.test.js | 13940b902c9c4f497f7260f9eede1a98b2ecbb700b8876a47494af3e5c151e12 | causal.test.js | 69ccc3d7906d9bc9ef597050b148575c2fbf6afceb00a714eb111862db071695 | translated |
+| independence.test.js | 9c7bb3dd12c19f46e0ef6ec29be3950d3b14f0424af3e5d1c099ae2fbb9ba0eb | independence.test.js | 2ca3a3ddcf3b37f6e6233b4a07f77e632c8c2e2e69cf61a56ecf58583b461369 | translated |
+| landauer.test.js | e8d78c1f2fa9fae647aa16783171cb970c59b2f7bf4b893b04d2f092f05fe80d | landauer.test.js | e8d78c1f2fa9fae647aa16783171cb970c59b2f7bf4b893b04d2f092f05fe80d | none — byte-identical |
+| observer.test.js | 7e2f1f6bdf5014e144a4bfcdc0f4a724e70aa165292b21221242077d655a7170 | observer.test.js | 4cb513079398803356a27d4e861781374b7772d15213adeeab4fd1aee804e2a3 | test titles and stimulus label translated |
+| predict.test.js | b3b0c7fd3ecd5a15a7e7c7e806c731ced91c31c3c70ba4c564140ba9a9ccdf69 | predict.test.js | 16905ccddbdceaf09defabe4f25a79c62c4c59cf01fdd853983f6ac3ad6b0b03 | translated |
+| probe.test.js | 05dfa9ed97ca8230add2e33924d63c4bb31b2f54537e4d17f046136164443d37 | adversarial-core-boundaries.test.js | 05dfa9ed97ca8230add2e33924d63c4bb31b2f54537e4d17f046136164443d37 | renamed by what it probes; content byte-identical |
+| probe2.test.js | 183cb52d87d475cff0d06331ffbb630898b23d3f2e93d0a7fcec2d8c55e3803b | adversarial-modules.test.js | 183cb52d87d475cff0d06331ffbb630898b23d3f2e93d0a7fcec2d8c55e3803b | renamed by what it probes; content byte-identical |
+| probe3.test.js | bb083d898f73c9b49562d5e34fd44235418d73e0a6e5e03e23f138ba5c6223b4 | adversarial-cumulative-limit.test.js | bb083d898f73c9b49562d5e34fd44235418d73e0a6e5e03e23f138ba5c6223b4 | renamed by what it probes; content byte-identical |
+| probe4.test.js | 42c70acaedbbda2cec216d3c46bbaf6c9d8c1310c81d840ad1934680d3b3842f | adversarial-permit-bounds.test.js | 2eedc7ccff38bfe9398b8f5eef2dd641860a76ad948b2e258461fc3846b22697 | renamed; translated; S1–S5 carried, S6–S7 (text-scanner tests) not carried |
+| probe5.test.js | 34c254f313ad255e0acf51942900e22ce96bd6f6d3b048fba20d6e01ad8e2088 | adversarial-caller-object-freeze.test.js | 5280b07d31098f028850322ebaff10c24173a35cfd57428f80521a186a98d874 | renamed; translated (Bulgarian field names in fixtures → `details`, `recipient`, …) |
+| probe6.test.js | 02c8997ef2d5575b61a5ba4802903720e23f4bf411a6ec7b760f6369c0fc39c8 | — | — | not carried: all six tests exercise the text scanner `verify/text.js`, which is not part of this folder |
+| probe7.test.js | 80ded72398fd996ec34427dd179386f3f4c2a2a6fc04f7207cb2a981f4d33ad5 | adversarial-solution-certificate.test.js | 76017b82e301b9ffcd3a42ce0870ca602d0f09bbed9310ebce93103060f358f2 | renamed; translated; the `verifier` string no longer names a script outside this folder |
+| probe9.test.js | 0a61ea4e34cd174aaf40362a5dc071cf5bbfc3bf4e40ad39902893a8131aad47 | adversarial-cumulative-precision.test.js | 1ce264a61c2d00c5f8d640cea28208b5c8b782fcd83196514314b3692b2bb975 | renamed; translated |
+| fixtures/exponential-2018.json | 804d164f78c0df835acd655dc865aeff601cea78dae5020cfd972cfa479b69e2 | fixtures/exponential-2018.json | 804d164f78c0df835acd655dc865aeff601cea78dae5020cfd972cfa479b69e2 | none |
+| verify/ablation.js | 7907c5a2fc097cf08a2421b92fa4becf5960ea6b12f5e01273e7cb5b382b973d | verify/gate-ablation.js | 5830c2ae96858ac1cafd2070de9c2fd7e8d60e4d9347fbc0e5a2ce9b62b63c1b | renamed; translated; the case clock option renamed with the Core's |
+| verify/invariant.js | 17038908278978413db998fb4ff56a841fd0f33ec7cd65131515b61e08dc7f4f | verify/action-lock-invariant.js | 060986e4028047a103cd0c8b89588fdd40c2a6d22ba89a56a17ee222e32d5a97 | renamed; translated; **fix**: `begin()` now receives the proposal (the lock had been taken 0 times); prints the number of lock acquisitions and fails if it is 0 |
+| verify/procep.js | 62518982cae754524eeab922e072febae21782637e92fb0fc209aa987ef55c34 | verify/reaction-gap-ddm.js | 757bd01fe7c25ffd951289d3391fa07ca0188f17b0ae77cf9174a5bbb2d6eaf1 | renamed; translated; all printed numbers identical |
+| verify/timing.js | 73747a1735f1919c7d7363bba5b8a0b7e91c48776dccca5983f37753e6f992d9 | verify/cache-vs-work-timing.js | 124ba4bddfd5b7d0ab176f59214b0076914cf7247dcaef1c3e185cd221e3a9b0 | renamed; one quoted line translated |
+| verify/demo.js | dcfb419b320599831eebe128b189eec0c31c242e63719858249f25364a39cf6d | verify/demo.js | 7d392036fd7917ff9479cc1e63eaa6cc9e0d0f1017c26437fbf7d746644a5f2f | translated; **fix**: `begin()` receives the proposal (step 3 crashed); step 11 (Keynes simulation, outside this folder) removed |
+| package.json | ca227c97cae7dca5ec19f4b293e0e034d46edbff2475ca759522dc914ef50172 | package.json | 1d66adb3041976e0b365f0855b61010723533efd419436635691016ee8427e6f | new minimal manifest; the original's Bulgarian maintenance scripts not carried |
+| — | — | README.md | 5a52e07248f38797f4621620c11b7052a4aa00881118484855a99e5f4d676cca | new |
+| — | — | BEFORE_AFTER.md | 812370760db1b3e2beb09bba37df1280ea8ce2251eeb26eec8951008d5bc8b01 | new: per-file test counts and verify results, before and after |
+| — | — | evidence/2026-10-26/* | see SHA256SUMS | new: TESTS.txt, VERIFY_*.txt, ENVIRONMENT.txt (hashes in the repository's SHA256SUMS) |
+
+Removed from `observer.js`: a 33-line header recording a personal conversation from 2026-09-18 (a report about the operator's own state and the reply it received). It describes behaviour of a chat assistant, not of this code, and is personal; nothing in the module depended on it.
+
+Removed from `core.js`: references to two internal documents (`09_PUBLIC_STORY_BG.md`, `12_STATUS_OF_ORIGINALITY.md`) and to internal project names; the substance of the note (an analogue, not a lineage; the principle is not original) is kept.

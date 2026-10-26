@@ -1,0 +1,11 @@
+{
+  "name": "ai-proposal-evaluator",
+  "version": "0.14.0",
+  "private": true,
+  "description": "Dependency-free evaluator that decides STOP / HOLD / CLEAR for an AI proposal against an authority-boundary specification.",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": { "node": ">=20" },
+  "license": "MIT"
+}

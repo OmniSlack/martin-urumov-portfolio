@@ -1,0 +1,40 @@
+MINIMAL MODEL TEST — the gates of core.js
+Method: 05_MINIMAL_MODEL_TEST.md, Martin Urumov, 28 July 2026
+
+Corpus: 31 cases, expectations written before the run.
+Budget: equal by construction — every variant sees the same corpus.
+
+Full code: 31/31. The baseline is clean.
+
+gate  drop  changed cases
+────  ────  ────────────────────────────────────────────────────────────
+   3     1   5.3 HOLD→CLEAR
+   4     1   3.3 HOLD→CLEAR
+   8     1   4.2 HOLD→CLEAR
+   9     1   3.4 HOLD→CLEAR
+  11     4   3.1 HOLD→CLEAR, 3.2 HOLD→CLEAR, 4.1 HOLD→CLEAR, 5.1 HOLD→CLEAR
+  12     1   5.2 STOP→CLEAR
+  13     2   8.1 HOLD→CLEAR, 8.2 HOLD→CLEAR
+  14     1   8.4 HOLD→CLEAR
+  15     2   8.5 HOLD→CLEAR, 8.6 HOLD→CLEAR
+  18     2   4.4 HOLD→CLEAR, 4.5 HOLD→CLEAR
+  19     2   6.2 HOLD→CLEAR, 6.3 HOLD→CLEAR
+  20     2   7.1 HOLD→CLEAR, 7.3 HOLD→CLEAR
+  21     1   4.6 HOLD→CLEAR
+  22     1   4.7 HOLD→CLEAR
+
+Every gate in core.js has an independent contribution relative to this corpus.
+No gate can be removed without it being noticed.
+
+⚠️ Scope: only the gates in core.js. Gate 17 (causal.js) and the
+   assessments in balancing.js / independence.js are called FROM here,
+   but live elsewhere and are not disabled by this instrument.
+--selftest:
+ok   S1. disabling gate 08 changes at least one line
+ok   S1b. right before gate 08 there is no updateDecision any more
+ok   S2. the disabled core.js loads
+ok   S3. without gate 08 case 4.2 gives CLEAR instead of HOLD
+ok   S4. a gate that does not exist is not touched
+ok   S5. the corpus requires all three decisions (CLEAR, HOLD, STOP)
+
+all pass.

@@ -1,0 +1,10 @@
+alphabet:                    8 operations
+depth:                       up to 5 steps
+sequences executed:          37,448
+checks:                      37,448
+(= 8+64+...+8^N; a count of moves, not of distinct states)
+lock taken (during replays): 18,398
+violations:                  0
+
+The invariant is preserved by EVERY transition in the exhausted space.
+Boundary: exhaustion up to length 5, not a general proof for every length.
