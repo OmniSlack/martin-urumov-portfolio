@@ -1,10 +1,9 @@
 <#
 run_checks.ps1 - reproduces the five-point test matrix of the evidence retriever
-on the synthetic sample corpus in ./sample, and reports two known defects.
+on the synthetic sample corpus in ./sample, and checks that the v0.1 defect D2 stays fixed.
 
 Usage:  pwsh -NoProfile -File run_checks.ps1
-Exit:   0 when every expected check passes and the known defects are still
-        reproduced; 1 otherwise. Known defects are reported, not hidden.
+Exit:   0 when every check passes; 1 otherwise.
 #>
 Set-StrictMode -Version Latest
 $ErrorActionPreference = 'Stop'
@@ -37,11 +36,13 @@ Check '4 baseline plain search count <= retriever count' ($plain -le ($j | Measu
 $after = Hash $root
 Check '5 source files unchanged after all queries (SHA-256)' ($before -eq $after)
 
-# Known defects (reproduced on PowerShell 7.6, 2026-10-26). A FAIL below would mean the defect is gone.
-$t = (& $script 'xq7zv-nonexistent-token-991' -Root $root -Format Table) -join "`n"
-Check 'D1 (known defect) Table/no match prints no boundary text when stdout is redirected' (-not ($t -match 'absence is not established'))
+# D2 was an open defect in v0.1 (reproduced 2026-10-26); fixed in v0.2. The check fails if it returns.
 $jn = (& $script 'xq7zv-nonexistent-token-991' -Root $root -Format Json) -join ''
-Check 'D2 (known defect) Json/no match prints nothing instead of []' ($jn -eq '')
+Check 'D2 fixed: Json/no match prints []' ($jn.Trim() -eq '[]')
+# Table/no match: the boundary object is emitted; captured through Out-String because a formatter's output
+# is not visible to a non-terminal stdout in some hosts (that was mistaken for a defect on 2026-10-26).
+$t = (& $script 'xq7zv-nonexistent-token-991' -Root $root -Format Table | Out-String)
+Check '6 no match -> Table carries the boundary object' ($t -match 'absence is not established')
 
 "PowerShell $($PSVersionTable.PSVersion) · failures: $fail"
 exit $fail

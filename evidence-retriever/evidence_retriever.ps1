@@ -1,11 +1,12 @@
 <#
-Evidence Retriever Prototype v0.1
+Evidence Retriever Prototype v0.2
 Status: prototype - read-only local search over Markdown files
 Owner: Martin Urumov
 Scope: Markdown files whose name contains CANDIDATE (default filter, see -Root and the -Filter below)
 Boundary: retrieves explicit text and metadata; does not infer truth, confidence, intent, or status.
 Formerly KOMPASS_EVIDENCE_RETRIEVER_PROTOTYPE_v0.1.ps1 (2026-08-03). Renamed by function; header and
 one output title changed; search logic unchanged.
+v0.2 (2026-10-26): Json/no-match output defect fixed (D2 in README.md); search logic unchanged.
 #>
 
 [CmdletBinding()]
@@ -200,7 +201,8 @@ $selected = @(
 
 switch ($Format) {
     'Json' {
-        $selected | ConvertTo-Json -Depth 4
+        # D2 fix: an empty collection piped into ConvertTo-Json emits nothing; pass it as InputObject so "[]" is printed.
+        ConvertTo-Json -InputObject @($selected) -Depth 4
     }
     'Markdown' {
         "# Evidence Retrieval"
