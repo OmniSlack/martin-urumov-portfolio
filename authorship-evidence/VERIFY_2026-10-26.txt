@@ -1,0 +1,29 @@
+Recorded 2026-10-26 by the AI assistant. Commands run on the two upgraded .ots files in this folder.
+
+$ ots info manifest-2026-07-27.ots   (digest and Bitcoin attestations)
+File sha256 hash: 5740a72a4065b94b643e7207b66e941c5b97ee44717b516ca62524f3c717c3e5
+    verify BitcoinBlockHeaderAttestation(959855)
+    # Bitcoin block merkle root 376b377e6295cb52619922c284453c2fafd1502364201ce377fe0ed4cf8edaad
+    verify BitcoinBlockHeaderAttestation(959901)
+    # Bitcoin block merkle root b0b62b0fed9ea8dd1cd844b11540557556a77453939adc5e14d91e45f3365b5d
+    verify BitcoinBlockHeaderAttestation(959857)
+    # Bitcoin block merkle root acd9651eb23e936e272f74a54f4f1f4273ef291edeceeb9c9b99d65ac1d0d885
+    verify BitcoinBlockHeaderAttestation(959856)
+    # Bitcoin block merkle root 725918bf74b406983bcf0322e5d16b3b5470fdf7c55db4a8d8d13f45dadfa941
+
+$ ots info archive-2026-07-27.ots   (digest and Bitcoin attestations)
+File sha256 hash: 411285d9e4c61b5aa136ab9d485164ce6e8b432feab32e33e7c930de41527279
+    verify BitcoinBlockHeaderAttestation(959857)
+    # Bitcoin block merkle root acd9651eb23e936e272f74a54f4f1f4273ef291edeceeb9c9b99d65ac1d0d885
+    verify BitcoinBlockHeaderAttestation(959901)
+    # Bitcoin block merkle root b0b62b0fed9ea8dd1cd844b11540557556a77453939adc5e14d91e45f3365b5d
+    verify BitcoinBlockHeaderAttestation(959855)
+    # Bitcoin block merkle root 376b377e6295cb52619922c284453c2fafd1502364201ce377fe0ed4cf8edaad
+    verify BitcoinBlockHeaderAttestation(959856)
+    # Bitcoin block merkle root 725918bf74b406983bcf0322e5d16b3b5470fdf7c55db4a8d8d13f45dadfa941
+
+Block headers, fetched 2026-10-26 from blockstream.info (merkle root, time) and cross-checked against mempool.space (block hash):
+959855 2026-07-27 16:16:19 UTC 376b377e6295cb52619922c284453c2fafd1502364201ce377fe0ed4cf8edaad hash 00000000000000000001b63c43573a0d95e566cb21cdb7ac4bee55965131e10d mempool.space agrees
+959856 2026-07-27 16:22:11 UTC 725918bf74b406983bcf0322e5d16b3b5470fdf7c55db4a8d8d13f45dadfa941 hash 000000000000000000000b3b0011cff4cb4bfc8a24f7cf7a2f60b0d383d31565 mempool.space agrees
+959857 2026-07-27 16:25:25 UTC acd9651eb23e936e272f74a54f4f1f4273ef291edeceeb9c9b99d65ac1d0d885 hash 000000000000000000018997c07e93b153f4db1a5254fb40411d8f343ca97558 mempool.space agrees
+959901 2026-07-27 23:26:07 UTC b0b62b0fed9ea8dd1cd844b11540557556a77453939adc5e14d91e45f3365b5d hash 000000000000000000010c9275a04dd91f1168b234d38180e0ef6345954add2d mempool.space agrees

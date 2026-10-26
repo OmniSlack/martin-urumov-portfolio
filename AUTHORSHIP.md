@@ -53,9 +53,23 @@ The rules the code in this repository enforces were written down as a working me
 | A silent system can be sound or can have stopped sampling; a "PASS" whose conditions were not reproduced is missing data dressed as data | rule 3 above | worksheet §2, 2026-07-30 |
 | A file cannot contain its own hash | `SHA256SUMS` lists every file except itself | core §8, v2.23, 2026-07-30 |
 
+### Independent proof of existence: Bitcoin timestamp, 2026-07-27
+
+On 2026-07-27 two digests were submitted to four OpenTimestamps calendars. The stamps stayed "pending" until 2026-10-26, when they were completed (`ots upgrade`) on new copies; the received originals (SHA-256 `1e77e41b…0ca3` and `b7d46875…7c2c`) are unchanged. The completed copies are in [`authorship-evidence/`](authorship-evidence/), with the full record in [`VERIFY_2026-10-26.txt`](authorship-evidence/VERIFY_2026-10-26.txt).
+
+| Digest stamped | What it is | Anchored in Bitcoin block | Block time |
+|---|---|---|---|
+| `5740a72a4065b94b643e7207b66e941c5b97ee44717b516ca62524f3c717c3e5` | private manifest: SHA-256 of 141 method and book files, among them method core v2.12 (`586735e32d1f57e1cdfbe1f14179ac7daecf34ce1108b5a859b731a64fce6870`) and a declaration of authorship | 959855 (also 959856, 959857, 959901) | 2026-07-27 16:16:19 UTC |
+| `411285d9e4c61b5aa136ab9d485164ce6e8b432feab32e33e7c930de41527279` | private archive of the same corpus (12 MB) | 959855 (also 959856, 959857, 959901) | 2026-07-27 16:16:19 UTC |
+
+- 🟢 For each of the four blocks, the merkle root the stamp commits to equals the merkle root in the block header (blockstream.info), and the block hash agrees with a second explorer (mempool.space). Anyone can repeat this with `ots verify` and a Bitcoin node, or at opentimestamps.org.
+- 🟢 This proves that the manifest, and therefore every file whose hash it lists, existed no later than 2026-07-27 16:16 UTC. That date no longer rests on what the documents say about themselves.
+- 🟡 It covers the rules that were already in method core v2.12 (by its version history: the rows dated 2026-07-24 to 2026-07-27 above). Checking this against the text needs the v2.12 file itself, which is in the private archive.
+- It does not prove who was first. Many parts have prior art, which the method core itself lists; the claim is the configuration, not the parts.
+
 What this table does and does not show:
 - 🟢 The v2.26 hash above is the same value recorded in the handoff note of 2026-07-31.
-- 🟡 The dates are the dates written inside the documents. A file can carry any date; only the hashes can be checked, and only against the originals.
+- 🟡 The dates in the first table are the dates written inside the documents, and a file can carry any date. The exception is the Bitcoin timestamp above, which fixes 2026-07-27 independently; versions after v2.12 have no independent timestamp.
 - The rules are the owner's. The wording of the documents was produced with AI assistants, in conversation, from the owner's statements; the quoted statements in them are the owner's.
 
 ## Git history
