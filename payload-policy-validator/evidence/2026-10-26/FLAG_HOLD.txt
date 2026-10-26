@@ -1,0 +1,46 @@
+# python3 -m unittest test_flag_hold_validator -v
+test_sustained_jump_cannot_normalise_itself (test_flag_hold_validator.BaselineFrozenWhileFlagged.test_sustained_jump_cannot_normalise_itself) ... ok
+test_counts_against_v3 (test_flag_hold_validator.CodexAblationGrid.test_counts_against_v3) ... ok
+test_every_lock_on_the_grid_is_a_hard_threshold_lock (test_flag_hold_validator.CodexAblationGrid.test_every_lock_on_the_grid_is_a_hard_threshold_lock) ... ok
+test_clean_payload_below_the_baseline_executes (test_flag_hold_validator.Direction.test_clean_payload_below_the_baseline_executes) ... ok
+test_jump_up_below_the_hard_threshold_holds_not_locks (test_flag_hold_validator.Direction.test_jump_up_below_the_hard_threshold_holds_not_locks) ... ok
+test_v3_locks_a_clean_payload_below_the_baseline (test_flag_hold_validator.Direction.test_v3_locks_a_clean_payload_below_the_baseline) ... ok
+test_flag_survives_confirmation_and_locks (test_flag_hold_validator.FlagSurvivesOrVanishes.test_flag_survives_confirmation_and_locks) ... ok
+test_flag_vanishes_after_normal_observations (test_flag_hold_validator.FlagSurvivesOrVanishes.test_flag_vanishes_after_normal_observations) ... ok
+test_hard_threshold_while_open_confirms_the_flag (test_flag_hold_validator.FlagSurvivesOrVanishes.test_hard_threshold_while_open_confirms_the_flag) ... ok
+test_at_or_above_m_lock_always_locks_whatever_the_baseline (test_flag_hold_validator.HardThreshold.test_at_or_above_m_lock_always_locks_whatever_the_baseline) ... ok
+test_confirmed_flag_needs_a_named_reviewer_and_evidence (test_flag_hold_validator.NoClearingUnderPressure.test_confirmed_flag_needs_a_named_reviewer_and_evidence) ... ok
+test_open_flag_cannot_be_cleared_on_request (test_flag_hold_validator.NoClearingUnderPressure.test_open_flag_cannot_be_cleared_on_request) ... ok
+test_repeating_the_same_request_does_not_clear_it_it_confirms_it (test_flag_hold_validator.NoClearingUnderPressure.test_repeating_the_same_request_does_not_clear_it_it_confirms_it) ... ok
+test_v3_file_is_byte_identical_to_the_published_copy (test_flag_hold_validator.V3Untouched.test_v3_file_is_byte_identical_to_the_published_copy) ... /home/claude/martin-urumov-portfolio/payload-policy-validator/test_flag_hold_validator.py:144: ResourceWarning: unclosed file <_io.BufferedReader name='/home/claude/martin-urumov-portfolio/payload-policy-validator/payload_policy_validator.py'>
+  h = hashlib.sha256(open(os.path.join(HERE, "payload_policy_validator.py"), "rb").read())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/claude/martin-urumov-portfolio/payload-policy-validator/test_flag_hold_validator.py:145: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/claude/martin-urumov-portfolio/payload-policy-validator/../SHA256SUMS' mode='r' encoding='utf-8'>
+  published = [l.split()[0] for l in open(os.path.join(HERE, "..", "SHA256SUMS"))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.023s
+
+OK
+
+# python3 -m unittest test_payload_policy_validator  (V3, unchanged)
+Ran 17 tests in 0.011s
+
+OK
+
+# grid of test_08 (m, baseline in 0..1 step 0.02), cells below m_lock=0.35
+cells below m_lock: 918
+V3 (payload_policy_validator.py): 766 locked at once — 91 jumps up, 675 payloads cleaner than the baseline
+flag copy (flag_hold_validator.py): 0 locked, 91 held for confirmation (the jumps up), 827 executed
+
+# reference/test_sidecar_v2_gaps.py as received (against the described V2 logic it embeds)
+Ran 3 tests in 0.016s
+
+FAILED (failures=14)
+
+# the same tests wired to reference/sidecar_validator_v2_alternative.py
+Ran 3 tests in 0.036s
+
+OK (skipped=1)

@@ -37,6 +37,30 @@ No dependencies. No network.
 | Renaming did not change behaviour | 20,000 random inputs, old vs new outputs compared (timestamp excluded) | 0 differences |
 | `calibrate()` refuses n=250 for the 0.99 quantile | `test_refuses_insufficient_n_for_requested_quantile` | raises `ConfigError` |
 
+## Second copy: flag and hold (2026-10-26)
+
+`flag_hold_validator.py` is a new copy next to V3, which stays unchanged. It reuses V3 for the score `m` and the thresholds, and changes only what happens on a relative jump. The rule is Martin Urumov's method: **direction matters, and a flag is data, not a verdict.**
+
+| Situation | V3 (`payload_policy_validator.py`) | Flag copy (`flag_hold_validator.py`) |
+|---|---|---|
+| `m ≥ m_lock` (0.35) | `EXECUTION_LOCK` | `EXECUTION_LOCK` (unchanged) |
+| payload cleaner than the baseline (jump down) | `EXECUTION_LOCK` — a false stop | `AUTO_EXECUTE` (`DOWNWARD_ACCEPTED`) |
+| jump up, below `m_lock` | `EXECUTION_LOCK` at once | `HOLD`: a flag is opened |
+| the flag is confirmed (2 more jumps, or `m_lock` reached) | — | `EXECUTION_LOCK`, and it stays until a named reviewer clears it with written evidence |
+| the next 3 observations are normal | — | flag vanishes, `AUTO_EXECUTE`, reason recorded as "missing context" |
+| the flag is asked to be cleared, or the same request is repeated | — | refused / counted as a confirmation; a flag is not lowered under pressure |
+| baseline while a flag is open | — | frozen, so a sustained jump cannot normalise itself |
+
+Why: an outside review (Codex, `reference/test_sidecar_v2_gaps.py`, test_08) measured on its grid that the relative check caught 2,727 genuine violations, every one of them also caught by the hard threshold alone, and added 1,540 false stops. It proposed dropping ψ as a gate (`reference/sidecar_validator_v2_alternative.py`). Checking the same question on V3 showed where the false stops come from: of 918 grid cells below `m_lock`, V3 locks 766 at once — **675 of them are payloads cleaner than the baseline**, 91 are jumps up. The flag copy locks none of them, holds the 91 jumps up for confirmation, and executes the rest.
+
+```bash
+python3 -m unittest test_flag_hold_validator -v   # 14 tests
+```
+
+Evidence: `evidence/2026-10-26/FLAG_HOLD.txt` (14/14; V3 17/17 unchanged; the grid counts; Codex's tests as received fail 14 checks against the described V2 logic, as designed, and pass 3/3 with one skip when wired to his alternative).
+
+Limits of the flag copy: the confirmation count (2) and the clearing count (3) are chosen, not calibrated; the flag tracks one stream of requests (one baseline), not one per caller; it has not run on real traffic.
+
 ## Limitations
 
 - **Sustained traffic just under the threshold.** At `m = m_lock − ε` forever, the baseline catches up, `r_rel → 0`, the absolute threshold does not fire → permanent `AUTO_EXECUTE`. That is what a threshold means, not a defect: in steady state `m_lock` does 100% of the protection; the relative component catches transitions only.
@@ -51,5 +75,8 @@ Original package `SIDECAR_VALIDATOR_V3__2026-09-16.zip`, SHA-256 `dbc9ede6…bfb
 
 ## Contribution
 
+- Martin Urumov (flag copy): the rule that a downward jump is acceptance, that an upward jump raises a flag which is data and must survive evidence before it stops anything, and that a flag is not lowered under pressure.
+- Codex (outside review, 2026-10): `reference/sidecar_validator_v2_alternative.py` and `reference/test_sidecar_v2_gaps.py`, carried byte-identical.
+
 - Martin Urumov: the questions that led to F1–F4; requirements and acceptance criteria (an adaptive baseline must not be able to hide sustained risk; every threshold must be able to change a decision; a reported "PASS" without a measurable number is a claim, not evidence); review of the findings; the decision to keep the V3 self-defect on record and V2 as a byte-identical reference.
-- AI coding assistants: running V2 and documenting F1–F4 at Martin's prompting, implementation of V3, the test suite, and the renaming/translation in this repository.
+- AI coding assistants: running V2 and documenting F1–F4 at Martin's prompting, implementation of V3, the test suite, and the renaming/translation in this repository; on 2026-10-26 the measurement that 675 of V3's 766 sub-threshold locks on the review grid are clean payloads, and the implementation and tests of the flag copy.
