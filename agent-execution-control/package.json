@@ -1,0 +1,25 @@
+{
+  "name": "agent-execution-control",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test:unit": "node --test test/unit/*.test.ts",
+    "test:postgres": "node --test test/postgres/*.test.ts",
+    "test": "npm run typecheck && npm run test:unit",
+    "test:local": "npm run test && npm run test:postgres"
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "devDependencies": {
+    "@types/node": "^26.2.0",
+    "@types/pg": "^8.21.0",
+    "pg": "^8.23.0",
+    "typescript": "^7.0.2"
+  }
+}

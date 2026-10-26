@@ -1,0 +1,18 @@
+R4 NO-OVERRIDE DUAL-GATE candidate.
+
+Prerequisites: Docker Desktop must be running, container navigator-pg-stage1 must report
+accepting connections, and this directory must already contain the package-lock-matched node_modules.
+
+From PowerShell, inside the extracted package directory, run exactly:
+
+powershell -ExecutionPolicy Bypass -File .\RUN_LOCAL.ps1
+
+The script performs no installation and no network action. It runs tsc and unit tests using the
+already-present dependencies, then runs the prepared PostgreSQL tests against navigator-pg-stage1.
+If dependencies are missing, it stops and does not install them.
+
+The PostgreSQL suite must prove exact Core CLEAR at Permit issue, claim, and dispatch,
+and that Human authority has no HOLD override capability.
+
+Cloud status is recorded in the chat handoff. PostgreSQL PASS must not be claimed
+until this script completes on the authorized local computer.

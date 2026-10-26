@@ -1,0 +1,9 @@
+Date: 2026-10-26 (UTC)
+Host: Linux (Ubuntu 24.04), x86_64, sandbox container
+Node: v22.23.4
+npm: 10.9.9
+TypeScript: 7.0.2
+PostgreSQL: 16.15 (local server on 127.0.0.1:54329, trust auth, test database created by the suite)
+Docker: not available; the PostgreSQL tests call "docker exec/restart <container> ..." and were run through tools/docker-shim-local-postgres.sh, which maps those calls to the local server. Test code unmodified.
+node_modules: the frozen package's own node_modules (package-lock.json identity), not reinstalled.
+Commands: npm run typecheck · node --test test/unit/*.test.ts · PG_TEST_PORT=54329 node --test test/postgres/*.test.ts

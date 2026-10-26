@@ -1,0 +1,14 @@
+{
+  "phase1AuthoritativeSha256": "55ae5fd27b89c9d8d8f407137616a51e877fa771b03eaa07fc44314052124883",
+  "phase1Policy": "frozen-read-only",
+  "phase2Plan": "NAVIGATOR PHASE 2 IMPLEMENTATION PLAN — CANDIDATE v0.2 / REVIEW SURVIVED / HUMAN ACCEPTED",
+  "authorityContract": "NO-OVERRIDE DUAL-GATE / MARTIN YES + EXACT CORE CLEAR",
+  "humanCoreHoldOverride": false,
+  "coreDecisionRequiredAt": ["PERMIT_ISSUE", "ATOMIC_CLAIM", "DISPATCH_RESERVATION"],
+  "postgresTestContainer": "navigator-pg-stage1",
+  "postgresHost": "127.0.0.1",
+  "postgresPort": 54329,
+  "externalExecution": false,
+  "realAdapters": false,
+  "realPermits": false
+}

@@ -1,0 +1,156 @@
+TAP version 13
+# Subtest: migration and schema constraints are installed on genuine PostgreSQL
+ok 1 - migration and schema constraints are installed on genuine PostgreSQL
+  ---
+  duration_ms: 826.852743
+  type: 'test'
+  ...
+# Subtest: TypeScript repository performs authority-bound claim and dispatch against PostgreSQL
+ok 2 - TypeScript repository performs authority-bound claim and dispatch against PostgreSQL
+  ---
+  duration_ms: 307.767709
+  type: 'test'
+  ...
+# Subtest: PostgreSQL Permit issuance requires exact Core CLEAR and Human issue
+ok 3 - PostgreSQL Permit issuance requires exact Core CLEAR and Human issue
+  ---
+  duration_ms: 124.047156
+  type: 'test'
+  ...
+# Subtest: duplicate HOLD ID is rejected and cannot overwrite evidence
+ok 4 - duplicate HOLD ID is rejected and cannot overwrite evidence
+  ---
+  duration_ms: 180.876978
+  type: 'test'
+  ...
+# Subtest: failed or repeated revoke cannot commit false PERMIT_REVOKED evidence
+ok 5 - failed or repeated revoke cannot commit false PERMIT_REVOKED evidence
+  ---
+  duration_ms: 134.041287
+  type: 'test'
+  ...
+# Subtest: database trigger rejects invalid Permit and Attempt transitions
+ok 6 - database trigger rejects invalid Permit and Attempt transitions
+  ---
+  duration_ms: 255.038255
+  type: 'test'
+  ...
+# Subtest: split identity guards allow valid Attempt transitions without reading Permit-only columns
+ok 7 - split identity guards allow valid Attempt transitions without reading Permit-only columns
+  ---
+  duration_ms: 254.380836
+  type: 'test'
+  ...
+# Subtest: two concurrent processes produce exactly one single-use claim
+ok 8 - two concurrent processes produce exactly one single-use claim
+  ---
+  duration_ms: 211.951028
+  type: 'test'
+  ...
+# Subtest: restart preserves claim and replay remains blocked
+ok 9 - restart preserves claim and replay remains blocked
+  ---
+  duration_ms: 1484.22766
+  type: 'test'
+  ...
+# Subtest: reconciler atomically moves abandoned PostgreSQL Attempt and Permit to UNKNOWN
+ok 10 - reconciler atomically moves abandoned PostgreSQL Attempt and Permit to UNKNOWN
+  ---
+  duration_ms: 191.117752
+  type: 'test'
+  ...
+# Subtest: claim persists EXPIRED before TypeScript repository reports rejection
+ok 11 - claim persists EXPIRED before TypeScript repository reports rejection
+  ---
+  duration_ms: 141.29308
+  type: 'test'
+  ...
+# Subtest: dispatch persists Permit EXPIRED and Attempt CANCELLED before reporting rejection
+ok 12 - dispatch persists Permit EXPIRED and Attempt CANCELLED before reporting rejection
+  ---
+  duration_ms: 1379.972366
+  type: 'test'
+  ...
+# Subtest: dispatch rechecks version/dependency drift and UNKNOWN
+    # Subtest: version
+    ok 1 - version
+      ---
+      duration_ms: 148.659494
+      type: 'test'
+      ...
+    # Subtest: dependency
+    ok 2 - dependency
+      ---
+      duration_ms: 148.908519
+      type: 'test'
+      ...
+    # Subtest: unknown
+    ok 3 - unknown
+      ---
+      duration_ms: 162.994935
+      type: 'test'
+      ...
+    1..3
+ok 13 - dispatch rechecks version/dependency drift and UNKNOWN
+  ---
+  duration_ms: 461.693259
+  type: 'test'
+  ...
+# Subtest: PostgresControlRepository blocks Adapter after Core changes exact CLEAR to HOLD
+ok 14 - PostgresControlRepository blocks Adapter after Core changes exact CLEAR to HOLD
+  ---
+  duration_ms: 91.18938
+  type: 'test'
+  ...
+# Subtest: PostgresControlRepository blocks Adapter after committed pre-dispatch revoke
+ok 15 - PostgresControlRepository blocks Adapter after committed pre-dispatch revoke
+  ---
+  duration_ms: 83.368151
+  type: 'test'
+  ...
+# Subtest: actual runtime dispatch barrier serializes later HOLD and revoke behind Adapter start
+    # Subtest: HOLD
+    ok 1 - HOLD
+      ---
+      duration_ms: 132.079611
+      type: 'test'
+      ...
+    # Subtest: REVOKE
+    ok 2 - REVOKE
+      ---
+      duration_ms: 138.84455
+      type: 'test'
+      ...
+    1..2
+ok 16 - actual runtime dispatch barrier serializes later HOLD and revoke behind Adapter start
+  ---
+  duration_ms: 271.504505
+  type: 'test'
+  ...
+# Subtest: HOLD committed before dispatch barrier prevents reservation and mock start evidence
+ok 17 - HOLD committed before dispatch barrier prevents reservation and mock start evidence
+  ---
+  duration_ms: 234.554986
+  type: 'test'
+  ...
+# Subtest: dispatch barrier acquired first orders mock start before later HOLD commit
+ok 18 - dispatch barrier acquired first orders mock start before later HOLD commit
+  ---
+  duration_ms: 929.538725
+  type: 'test'
+  ...
+# Subtest: corrupted persistent rows fail database constraints
+ok 19 - corrupted persistent rows fail database constraints
+  ---
+  duration_ms: 154.104931
+  type: 'test'
+  ...
+1..19
+# tests 24
+# suites 0
+# pass 24
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 7905.901171
