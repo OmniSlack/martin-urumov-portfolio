@@ -1,0 +1,41 @@
+# node --version: v22.23.4
+# original package (unmodified copy): node test.js
+# tests 22
+# pass 22
+# fail 0
+
+# this folder: node test.js
+# tests 26
+# pass 26
+# fail 0
+
+# this folder, verbose:
+✔ identical envelope matches (1.84679ms)
+✔ key order does not change the hash (0.957536ms)
+✔ changed target STOPs (0.945419ms)
+✔ X -> X+Y (added side effect) STOPs (0.36609ms)
+✔ quantity escalation STOPs (0.377679ms)
+✔ permission escalation STOPs (0.20845ms)
+✔ non-material metadata does not STOP (0.236504ms)
+✔ happy path reaches VERIFIED only through COMPLETED (0.350796ms)
+✔ ATTEMPTED cannot jump straight to VERIFIED (1.913591ms)
+✔ a claimed permit never returns to REQUESTED (0.445581ms)
+✔ UNKNOWN is not safe to retry (0.244608ms)
+✔ UNKNOWN is terminal without human authority (0.159701ms)
+✔ RESUME is not RE-EXECUTE on an UNKNOWN attempt (0.255711ms)
+✔ failure before dispatch IS safe to retry (0.276762ms)
+✔ failure after dispatch is NOT safe to retry (0.174455ms)
+✔ in-flight ATTEMPTED is not safe to retry (0.161043ms)
+✔ adapter SUCCESS + independent effect present = VERIFIED (0.315244ms)
+✔ adapter SUCCESS + effect absent = CONTRADICTED and STOP (0.181556ms)
+✔ adapter FAILURE + effect present = CONTRADICTED (it happened anyway) (0.159266ms)
+✔ no independent reading = UNKNOWN and HOLD (0.14924ms)
+✔ a probe that is the adapter is refused (0.176288ms)
+✔ no verdict ever authorizes retry (0.18591ms)
+✔ a field outside MATERIAL_FIELDS passes as MATCH (known gap, by design of the list) (0.293671ms)
+✔ adapter FAILURE + effect absent = VERIFIED, and effect says ABSENT (0.174612ms)
+✔ adapter AMBIGUOUS + effect present = VERIFIED, and effect says PRESENT (0.086583ms)
+✔ every verdict carries the effect it was based on (0.140602ms)
+ℹ tests 26
+ℹ pass 26
+ℹ fail 0

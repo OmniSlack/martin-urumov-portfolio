@@ -19,6 +19,8 @@ Two controllers on the process `dT/dt = −a(T − T_amb) + b·u`, with sensor n
 
 In control-engineering terms: a state observer (Luenberger / Kalman family), residual-based fault detection, an uncertainty-gated measurement update and actuator rate limiting. No new control law is claimed; the point of the file is the comparison, with the cost shown next to the gain.
 
+The same trust weight and shrinking step limit are what [`payload-policy-validator`](../payload-policy-validator/) applies to an agent's action payloads instead of a temperature; this file is the control-engineering origin of that formula.
+
 Fairness is tested, not assumed: both controllers receive the identical sensor-noise sequence (`test_both_controllers_see_the_same_sensor_noise`).
 
 ## How to run

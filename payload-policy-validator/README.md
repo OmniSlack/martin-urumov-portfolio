@@ -16,6 +16,8 @@ A gate that sits beside an AI agent and decides, for one action payload at a tim
 3. `delta_t` — a deliberate delay that grows with surprise, covering the whole declared `[du_min, du_max]` range.
 4. `calibrate(m_values)` returns `m_lock` and `σ` from benign traffic, and **refuses** when there are too few observations for the requested quantile.
 
+The relative check (surprise against `gate·σ` through `ψ = exp(−r²/2(gate·σ)²)`, and a step limit that shrinks with `ψ`) is the same mechanism that [`observer-gated-control-sim`](../observer-gated-control-sim/) applies to a temperature sensor; here it is applied to payload discrepancy.
+
 ## How to run
 
 ```bash
