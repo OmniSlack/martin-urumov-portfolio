@@ -1,0 +1,528 @@
+# AFTER — the English tools in this folder, run 2026-10-26 from the folder root.
+
+$ node source-classification.js
+§4 SOURCE CLASSIFICATION
+
+  SOURCE CONTENT ≠ INSTRUCTION AUTHORITY
+
+  source     : sourced-chatgpt-conversation-this-is-untrusted
+  kind       : MODEL INFERENCE
+  why        : another conversation or a model's output (this[-_ ]is[-_ ]untrusted)
+  instructs  : NO — MODEL INFERENCE is DATA. The content may be written as a command; that does not make it one. §4: SOURCE CONTENT ≠ INSTRUCTION AUTHORITY.
+
+  ⚠️ This input contains imperative sentences written for ANOTHER
+     addressee. They are read as data about what was said, not as
+     instructions to me.
+
+  source     : Copy_of_LOCK_IMPLEMENTATION_REPORT_r3.md
+  kind       : DERIVED
+  why        : passed through a retelling (copy[_ ]of|Copy_of)
+  instructs  : NO — DERIVED is DATA. The content may be written as a command; that does not make it one. §4: SOURCE CONTENT ≠ INSTRUCTION AUTHORITY.
+
+  source     : AUDIT_FINDINGS_2026-09-14_v2-2.md
+  kind       : HISTORICAL PROJECT DATA
+  why        : project data with a date (_v\d+(\.\d+)*\b)
+  instructs  : NO — HISTORICAL PROJECT DATA is DATA. The content may be written as a command; that does not make it one. §4: SOURCE CONTENT ≠ INSTRUCTION AUTHORITY.
+
+  source     : note.txt
+  kind       : UNKNOWN
+  why        : no sign fired — and the absence of signs is not primacy
+  instructs  : NO — UNKNOWN is DATA. The content may be written as a command; that does not make it one. §4: SOURCE CONTENT ≠ INSTRUCTION AUTHORITY.
+
+  One of the six kinds carries authority to instruct. Five do not.
+[exit 0]
+
+$ node source-classification.js --selftest
+  ✓ the folder `this-is-untrusted` → MODEL INFERENCE
+  ✓ and it may NOT instruct
+  ✓ D01: text that SOUNDS like a rule has no authority to instruct
+  ✓ empty → UNKNOWN, not primary
+  ✓ no signs → UNKNOWN (primacy is a claim, not a leftover)
+  ✓ copy → DERIVED
+  ✓ project file with a date → HISTORICAL
+  ✓ the current instruction is declared EXPLICITLY, not recognised from text
+  ✓ text that declares itself an instruction gets NO authority
+  ✓ exactly ONE kind carries authority to instruct
+  ✓ the six kinds of §4, no more, no fewer
+
+11 checks, all passing.
+[exit 0]
+
+$ node observation-status.js
+§5 OBSERVATION — how do I know this
+
+  Different from confidence (how sure am I) and from the origin
+  of the quantity (where the number comes from). A third question.
+
+  🟢 DIRECTLY OBSERVED  214 tests pass and 37 checks are green
+       basis: node verify/all.js, run now
+       True for the case that was run. Scope is a separate question.
+
+  🟡 INFERRED           The open-hand ratio is 0.746
+       basis: through counting the entries in the register, split by the column WHO
+       Falls together with the model it was inferred through. The model is named, otherwise the inference is a claim with better manners.
+
+  ⚪ UNKNOWN            The method works for another person
+       resolved by: one case in which someone else applied the method and got a comparable result, without me in the conversation
+       UNKNOWN ≠ stopping thought. The question is open and it is known what would close it.
+
+  🔴 UNSUPPORTED        These tools are unique
+       A claim with no observation, no named inference and no path to resolution. This is not "not known yet" — it is said on empty.
+
+  🔴 IN THIS REPORT:
+     "These tools are unique": UNSUPPORTED — said without a basis
+
+  The last one is left in on purpose: this is what a claim said
+  on empty looks like when it does not pretend to be an inference.
+[exit 0]
+
+$ node observation-status.js --selftest
+  ✓ the four statuses of §5, no more
+  ✓ observation supplied → DIRECTLY OBSERVED
+  ✓ no observation, a named inference → INFERRED
+  ✓ neither, but a path exists → UNKNOWN
+  ✓ nothing supplied → UNSUPPORTED, not UNKNOWN
+  ✓ "said on empty" and "not known yet" are NOT one state
+  ✓ an empty inference does NOT produce INFERRED — the gap does not slide upward
+  ✓ UNKNOWN with no real path to resolution → flagged (otherwise it is an excuse)
+  ✓ INFERRED with no named model → flagged; the status is not a costume
+  ✓ a real observation raises nothing
+  ✓ the observed carries a note on SCOPE — true for what was run, not in general
+
+11 checks, all passing.
+[exit 0]
+
+$ node builder-vs-hunter.js
+§6 DUAL OBSERVER — the Builder against the Hunter
+
+  claim     : Gate 19 keeps exact accounts of what was spent
+  outcome   : AMBIGUOUS
+              A direct observation AGAINST, but the claim is NOT universal. The counter-example does not refute it — it sets a BOUNDARY. Narrow it to the scope that holds, instead of denying it.
+              A 3 against B 3.
+  authority : NO — §6: agreement between the observers does not create
+              authority over state or action.
+
+  claim     : Gate 19 keeps exact accounts of what was spent
+  outcome   : INSUFFICIENT EVIDENCE
+              Refutation was NOT ATTEMPTED. An empty Observer B is not support — it is an absence of search. The trace of "we did not look" is indistinguishable from "we looked and found nothing", so fail-closed.
+  authority : NO — §6: agreement between the observers does not create
+              authority over state or action.
+
+  ── THE STANDING INPUT: the most load-bearing claim here ──
+
+  claim     : These tools make the project more honest, not only larger
+  outcome   : AMBIGUOUS
+              A direct observation AGAINST, but the claim is NOT universal. The counter-example does not refute it — it sets a BOUNDARY. Narrow it to the scope that holds, instead of denying it.
+              A 8 against B 11.
+  authority : NO — §6: agreement between the observers does not create
+              authority over state or action.
+[exit 0]
+
+$ node builder-vs-hunter.js --selftest
+  ✓ B not attempted → INSUFFICIENT, however much support A has
+  ✓ "attempted" without HOW → INSUFFICIENT — a word is not an act
+  ✓ B attempted, nothing found, support present → SUPPORTED
+  ✓ UNIVERSAL claim + counter-example → CONTRADICTED
+  ✓ three confirmations do not beat one counter-example when the claim is universal
+  ✓ EXISTENTIAL claim + counter-example → boundary, NOT refutation
+  ✓ and the boundary is named, so the claim can be narrowed
+  ✓ counter-example with ZERO support → CONTRADICTED again
+  ✓ both sides have something, nothing direct against → AMBIGUOUS
+  ✓ two empty sides do not add up to a conclusion
+  ✓ only counter-evidence, zero support → CONTRADICTED
+  ✓ NO outcome grants authority — §6: agreement does not create authority
+  ✓ the four outcomes of §6, no more
+  ✓ the load-bearing claim carries REAL counter-evidence, not decoration
+  ✓ the load-bearing claim is NOT SUPPORTED — if it becomes so, the Hunter has stopped hunting
+  ✓ observation 3 + claim 1 = 4 — the kind of evidence carries weight
+
+16 checks, all passing.
+[exit 0]
+
+$ node open-hand-questions.js
+§7 OPEN HAND — the five questions
+
+  The same name also labels a ratio, A/(A+B), in the defect register.
+  Resolved by the owner: the questions are the function, the ratio its measurement.
+
+  model: The defect register keeps the project from repeating forms
+
+  🟢 What supports it?
+     55 entries, 16 families; five forms were caught again by a detector, not by attention.
+  🟢 What would disprove it?
+     A form that comes back DESPITE its entry. There is one: #22 repeated the same day, and the quotation mark broke five times.
+  🟢 What else fits?
+     That the entry does nothing and the fixes come from the self-tests. Not separated: every entry was added TOGETHER with a check, so the two were never measured apart.
+  🟢 What assumption is hidden?
+     That the forms are countable and recurring. 55 entries in 16 families means 3.4 on average — little for a claim of recurrence.
+  🟢 What remains unknown?
+     Whether the register will catch a form it has not seen. By design it cannot: it remembers, it does not think.
+
+  The hand is open: all five were looked at.
+
+  ⚠️ This does not mean the model is right. It means it was not
+     defended before it was looked at.
+[exit 0]
+
+$ node open-hand-questions.js --selftest
+  ✓ the five questions of §7, no more, no fewer
+  ✓ all five answered → the hand is open
+  ✓ nothing answered → not open
+  ✓ empty input → all five not looked at
+  ✓ a missing disproof question is caught
+  ✓ "nothing" is read as NOT LOOKED AT, not as "no rivals"
+  ✓ the fifth cannot be "nothing" — that claims completeness
+  ✓ a real answer to the fifth passes
+  ✓ a dash is not an answer
+  ✓ every question carries WHY — otherwise it is a list filled in mechanically
+  ✓ every question carries the specification's text — to compare against the source
+
+11 checks, all passing.
+[exit 0]
+
+$ node source-conflicts.js
+DISPUTES — two sources, equal standing, different content
+
+  The rule: NEWER ≠ AUTOMATICALLY AUTHORITATIVE
+  (design specification, §23). A dispute is HELD, not resolved.
+
+  DISPUTE-1 · Open Hand   [DECIDED BY THE OWNER]
+     ─ design specification v0.13, §7
+       ACCEPTED: YES · IMPLEMENTED: NO
+       says: FIVE QUESTIONS, asked before defending a current model: What supports it? · What would disprove it? · What else fits? · What assumption is hidden? · What remains unknown?
+     ─ observer architecture v2.26 (the owner's slides, 20 Sep 2026)
+       ACCEPTED, with a kill switch
+       says: A RATIO A/(A+B) — the share of defects caught by the evaluator itself out of all; threshold 0.67, below which the kill switch fires.
+     in the code: The defect register computes A/(A+B) and calls it "open hand"; open-hand-questions.js implements the five questions under the same name.
+     why not decided here: DECIDED. It stood in HOLD because the author had not been asked. He answered on 20 September 2026, verbatim: "it is a FUNCTION". The guess recorded here beforehand — that the second may be the measure of the first — turned out right, but it was NOT the guess that closed the dispute: his word did. A guess, however accurate, is not confirmation (§20).
+
+  DISPUTE-2 · Dual Observer   [HOLD]
+     ─ design specification v0.13, §6
+       ACCEPTED: YES · IMPLEMENTED: NO
+       says: Observer A builds the STRONGEST SUPPORT for the current interpretation; Observer B the strongest COMPETING or refuting one. Outcome: SUPPORTED / CONTRADICTED / AMBIGUOUS / INSUFFICIENT EVIDENCE. Agreement between the two does NOT create authority over state.
+     ─ the owner, verbatim, 20 September 2026
+       a direct instruction
+       says: "This is the dual observer — to remember where you started from. Control preserves. Everything named." That is, A = NOW, B = THE START, and the finding is in the drift between them.
+     in the code: A drift tool in the original project was built to the second meaning and carries the name of the first (sample: samples/source-conflicts/drift-observer-note.md). builder-vs-hunter.js implements the first.
+     why not decided here: The instruction is the owner's and explicit; the specification is the owner's and older. It may be an extension of the term rather than a divergence. But deciding alone which of the two is the "real" meaning of the owner's term would be a promotion without the owner's gate.
+
+  DISPUTE-3 · A held paradox — is it unprecedented   [HOLD]
+     ─ the owner, 20 September 2026
+       the owner's claim about his own method
+       says: "My method does something truly unseen until now — a paradox can be held, not rejected."
+     ─ da Costa 1963 (paraconsistent logics); Belnap 1977 (four-valued: TRUE · FALSE · BOTH · NEITHER)
+       ⚠️ FROM MEMORY, NOT CHECKED AGAINST THE SOURCE
+       says: That from P ∧ ¬P not everything follows, and that BOTH is a HELD paradox in a machine receiving contradictory data — for nearly fifty years. If true, "unseen until now" falls for this half.
+     in the code: The mechanism exists and is measured: 1 STOP against 23 HOLD in the evaluator, AMBIGUOUS with a boundary in builder-vs-hunter.js. Only the SCOPE of the word "unseen" is disputed, not that the thing works.
+     why not decided here: Two reasons, both the assistant's limits, not the owner's. FIRST: the citations above are from memory — there is no checked primary source, and weighing the owner's claim against an unchecked citation is exactly what §19 forbids. SECOND: the distinction offered — that Belnap answers a question of TRUTH and HOLD a question of AUTHORITY, and that §0 separates cognition from action, which four-valued logic does not — is a reading, not a measurement. It may be the right distinction and it may be the convenient one.
+
+3 disputes, 2 in HOLD, all marked in the code.
+
+  ACCEPTED STATUS:  VALID
+  EPISTEMIC:        CHALLENGED
+  PROPOSAL:         REVIEW  →  waits for the owner (§20)
+
+  ⚠️ HOLD is not a problem to wait out. It is a state that must be
+     SEEN until the human says which is which. So it is printed
+     on every run.
+[exit 0]
+
+$ node source-conflicts.js --selftest
+  ✓ a dispute with one source is not a dispute
+  ✓ every source carries a name, a status and what it says
+  ✓ every dispute says WHY it is not decided — otherwise it is laziness with a label
+  ✓ a dispute is either in HOLD or DECIDED BY THE OWNER — never decided by the tool
+  ✓ the decided one carries the WORDS it was decided with — not only a label
+  ✓ the ids are distinct
+  ✓ every dispute points to where the disputed name is used
+  ✓ no disputed name is used unmarked
+  ✓ marker removed → the check fails (otherwise it checks nothing)
+
+9 checks, all passing.
+[exit 0]
+
+$ node claim-mutation.js
+usage:
+  node claim-mutation.js "the older version" "the newer version"
+  node claim-mutation.js --selftest
+
+Compares two versions of one claim on the six axes of §18 and names every
+axis on which the newer one is stronger. Exit 1 if anything was strengthened.
+[exit 2]
+
+$ node claim-mutation.js --selftest
+  ✓ "may" → "probably" → caught on CERTAINTY
+  ✓ "may" → "proven" → caught
+  ✓ M-2: the scope grew from one case to every field
+  ✓ M-3: co-occurrence → cause
+  ✓ a removed condition counts as strengthening
+  ✓ past → future is caught
+  ✓ a flipped negation is caught as FLIPPED, not as strengthening
+  ✓ LOWERING certainty is not an alarm — otherwise the gate punishes honesty
+  ✓ identical text → nothing
+  ✓ different sentences with no ladder words → zero false alarms
+  ✓ three innocent pairs → zero alarms (noise: 0)
+  ✓ the six axes of §18, no more, no fewer
+  ✓ usage text exists (the original crashed with ReferenceError: __doc__)
+
+13 checks, all passing.
+[exit 0]
+
+$ node claim-mutation.js this may hold in some cases this proves it holds in all cases
+§18 CLAIM MUTATION
+
+  was : this may hold in some cases
+  now : this proves it holds in all cases
+
+  🔴 CERTAINTY    1 → 4   UP
+       needs: a new source — certainty does not grow by retelling
+  🔴 SCOPE        1 → 3   UP
+       needs: the cases it was checked on — scope does not grow by itself
+
+  2 strengthening(s) without a new source.
+  §18: "may" → "probably" → "is" must not pass unnoticed
+  as an unchanged claim.
+[exit 1]
+
+$ node overclaim-scanner.js samples/overclaim-sample.md
+SCAN — samples/overclaim-sample.md
+33 lines, 20 substantive, 0 carrying a confidence marker
+
+UNIFORM_CONFIDENCE
+  A long text with no confidence marker anywhere. Uneven truth
+  presented at one volume is the main way a falsehood passes for a fact.
+  REFRAME: mark each claim at its own strength — established,
+           probable, possible, hypothesis, metaphor, unverified.
+
+NUMBER_WITHOUT_SOURCE  line 5
+  The new pipeline is 40% faster than the old one on every ...
+  A figure carrying the authority of measurement, with nothing beside it that produced it.
+  REFRAME: Name what produced it, or drop the precision: "The new pipeline is 40% faster than the old one on every ..." → state the command, the study or the record, or say "roughly" and mean it.
+
+HEDGE_WITHOUT_A_NAME  line 6
+  Studies show that structured review reduces production de...
+  An appeal to authority that names no authority. The form of a citation with none in it.
+  REFRAME: Name one: author, year, and what was actually measured — or say "I think" and own it.
+
+ABSOLUTE  line 7
+  This approach will always catch the regression before it ...
+  An absolute with nothing named that enforces it.
+  REFRAME: State the condition under which it holds: "under X, this held in N of M cases".
+
+NOVELTY_CLAIM  line 8
+  We are the first in the world to combine these two checks...
+  A novelty claim. Pass 6 of the protocol asks whether it was checked; it almost never is.
+  REFRAME: Priority needs a timestamp that is not yours to move. Give the date and where it is recorded, or say "as far as I have found".
+
+SELF_EVIDENCE  line 9
+  Obviously the remaining risk is negligible for a team of ...
+  A word that asks the reader to skip the step where the claim is supported.
+  REFRAME: Delete the word. If the claim stands without it, nothing is lost.
+
+INTROSPECTED_MEASUREMENT  line 10
+  After the session my cortisol was at level three and my d...
+  A named substance given a level, with nothing that measured it. Sensation is data; the substance and the level are an interpretation the sensation does not carry.
+  REFRAME: Arousal is largely undifferentiated — Schachter & Singer 1962 (🟡 as reported in secondary sources; the paper itself was not read) gave one injection and got euphoria or anger depending on who was in the room. Say what was felt, and name a real measure beside it — heart rate, HRV, skin conductance — if a level is wanted.
+
+NUMBER_WITHOUT_SOURCE  line 12
+  The new pipeline is 40% faster than the old one on every ...
+  A figure carrying the authority of measurement, with nothing beside it that produced it.
+  REFRAME: Name what produced it, or drop the precision: "The new pipeline is 40% faster than the old one on every ..." → state the command, the study or the record, or say "roughly" and mean it.
+
+RESTATED  line 12 repeats line 5
+  The new pipeline is 40% faster than the old one on every ...
+  Repetition is not independent corroboration.
+
+9 finding(s).
+
+This finds the SHAPE of overclaiming. It cannot tell you what is true.
+[exit 0]
+
+$ node claims-register.js
+CLAIM REGISTER — what may be published, and on whose word
+
+MEASURED
+  test count                                                           node --test
+                                                                       falls: Run it and get a different number, or a non-zero exit.
+                                                                       note: Re-derive before quoting. '# tests' counts subtests plus suite wrappers.
+  invariant coverage                                                   node verify/invariant.js 5
+                                                                       falls: One violation at depth 5, or a sequence of length 6 that violates what length 5 did not. Depth 5 is a bound on the search, not on the system: it cannot fall by being re-run at the same depth.
+                                                                       note: Quote what the tool prints, as it labels it. Do not convert a count of sequences into a count of states.
+  gate count                                                           grep -rohE 'Gate [0-9]+' --include='*.js' . | sort -u | wc -l
+                                                                       falls: Add or remove a gate and re-run; the number moves. It falls the moment a gate is named in a comment but not enforced in code — the grep counts the name.
+                                                                       note: Count the distinct gates, do not quote the highest number. The two differ because the numbering has gaps.
+  defect count                                                         git grep -ohE '[Dd]efect #[0-9]+' | grep -oE '#[0-9]+' | sort -u
+                                                                       falls: A defect numbered in a document but never closed makes this count an overstatement. It falls on any #N with no test that bites.
+                                                                       note: Two numbers named in the same file are not one claim. 'Found by the machine' and 'closed in total' are different counts and must not be quoted interchangeably.
+  zero runtime dependencies                                            no 'dependencies' key in package.json; every require is ./ or node:
+                                                                       falls: One require of a package name. It does not cover devDependencies, and node: builtins are a dependency on Node itself.
+  no exec, no spawn, no network, no filesystem write in the evaluator  grep for child_process, fetch, http, fs across the evaluator sources
+                                                                       falls: Any of those names appearing in an evaluator source. A grep cannot see an indirect call built at runtime, so it falls to eval or to require of a computed name — neither of which is present, and neither of which this check would catch.
+
+SUPPLIED
+  a test count in a supplied evidence record                           the supplied record; version-specific; not executed here
+
+SUBJECT
+  a person's work history                                              Only the person can confirm it. Confirm with them before publishing any part of it; a file is a source for what was said, not for what is true.
+
+QUARANTINE
+  novelty of the narrow mechanism                                      The owner's originality-status file, 28 July 2026, in his wording: it has not been checked whether this narrow mechanism is new in the scientific or patent literature.
+                                                                       falls: A prior-art search. One paper or patent stating the same narrow mechanism sinks it; a search finding none does not establish it, because absence of a find is not absence of prior art.
+
+RETRACTED
+  139/139 tests passing                                                Superseded by the 161-test suite; correct as of v0.10 only.
+  37,448 as a count of states                                          Published as 'reachable states'. It is the count of operation sequences of length <= 5 over an alphabet of 8: 8+64+512+4096+32768. Distinct states reached is a different and smaller number.
+  19 as a count of gates                                               Published in the CV and a handover document as the number of gates. It is the highest gate NUMBER; gates 02, 05, 06, 07 and 10 did not exist. Counted from the sources: fifteen as of 19 September 2026.
+  16 as a count of defects                                             Published in the CV after the count had already moved past it. Defects were numbered #1 through #17; the closed count was seventeen.
+  17 as a count of defects                                             Correct on 19 September and stale by 20 September. Defects were numbered #1 through #21 with #2 unused, so twenty distinct defects were closed. Counted, not remembered.
+  21 as a count of defects                                             Never published, and recorded so it cannot be. 21 is the highest defect NUMBER, not the count: #2 is unused, so the distinct count is twenty. This is defect #18 in a new costume — the highest number read as the total.
+
+A file is not a source of facts about a person.
+It is only a source for what was said.
+[exit 0]
+
+$ node claims-register.js --check samples/claims-sample.md samples/claims-clean.md
+samples/claims-sample.md:3
+  RETRACTED claim: 37,448 as a count of states
+  Published as 'reachable states'. It is the count of operation sequences of length <= 5 over an alphabet of 8: 8+64+512+4096+32768. Distinct states reached is a different and smaller number.
+  Use instead: invariant coverage — node verify/invariant.js 5
+
+samples/claims-sample.md:4
+  RETRACTED claim: 19 as a count of gates
+  Published in the CV and a handover document as the number of gates. It is the highest gate NUMBER; gates 02, 05, 06, 07 and 10 did not exist. Counted from the sources: fifteen as of 19 September 2026.
+  Use instead: gate count — grep -rohE 'Gate [0-9]+' --include='*.js' . | sort -u | wc -l
+
+2 retracted or quarantined claim(s) still present.
+[exit 1]
+
+$ node action-journal.js
+usage:
+  node action-journal.js open  "why this run exists"
+  node action-journal.js add   "what was done"  [outcome]
+  node action-journal.js seal
+  node action-journal.js check
+  node action-journal.js show
+
+Every action, bookended. A cut record says so; an intact one says only
+that nothing was changed after writing — never that it is true.
+[exit 2]
+
+$ node copy-canary.js
+usage:
+  node copy-canary.js mint <document> <recipient>
+  node copy-canary.js check <file>
+  node copy-canary.js list
+
+Markers show which copy text came from. They do not prove authorship;
+for that you need a timestamp you cannot move — a public commit, a
+server record, a notary.
+[exit 2]
+
+$ python3 -I equivalence-tost.py --selftest
+  ok   equal groups, n=300 → equivalent
+  ok   small sample → equivalence NOT declared
+  ok   and exactly there the naive rule disagrees
+  ok   a difference of 2 units → NOT equivalent
+  ok   Δ=0 refuses
+
+5 pass / 0 fail
+[exit 0]
+
+$ python3 -I equivalence-tost.py samples/tost-sample.csv --margin 5
+TOST · samples/tost-sample.csv
+  treatment minus control · Δ=5.0 · alpha=0.05
+
+dimension                            diff  Cohen d   p_TOST  |d|<Δ  EQUIV
+-------------------------------------------------------------------------
+effort                            -2.8222   -0.268   0.1287    yes     NO
+clarity                           +9.2657   +0.979   0.9932     no     NO
+
+⚠️ 1 dimension(s) where "inside the margin" and "equivalent"
+   do NOT agree. This is exactly what this check exists for.
+[exit 0]
+
+$ python3 -I earliest-mention.py samples/archives "--terms=observer,reaction gap,STOP,HOLD,never-said"
+ARCHIVES (2)
+  conversations.json: 3 dated records
+  mail.mbox: 1 dated messages
+
+4 dated records in total
+
+EARLIEST DATED OCCURRENCE
+
+observer      2026-06-29  server-stamped  mail.mbox
+              notes
+An early mention of the observer, sent by a server.
+reaction gap  2026-07-11  self-reported   conversations.json
+              The reaction gap shows up again here.
+STOP          2026-07-20  self-reported   conversations.json
+              HOLD is not STOP; STOP is terminal.
+HOLD          2026-07-20  self-reported   conversations.json
+              HOLD is not STOP; STOP is terminal.
+never-said    not found in these archives
+
+4 of 5 terms located.
+
+A term not found here was not necessarily absent then. It means it
+is not in the archives you supplied — nothing more. And a
+'server-stamped' date is stronger evidence than a 'self-reported' one,
+because you could not have written it.
+[exit 0]
+
+$ python3 -I overclaim-audit-colab.py samples/overclaim-sample.md
+
+────────────────────────────────────────────────────────────────────────
+SCAN — overclaim-sample.md
+33 lines · 20 substantive · 0 carrying a confidence marker
+
+UNIFORM_CONFIDENCE
+  A long text with no confidence marker anywhere. Uneven truth at one
+  volume is the main way a falsehood passes for a fact.
+  FIX: mark each claim at its own strength — established, probable,
+       possible, hypothesis, metaphor, unverified.
+
+NUMBER_WITHOUT_SOURCE  ×4
+  A figure with the authority of measurement and nothing beside it that produced it.
+    line 5: The new pipeline is 40% faster than the old one on every workloa
+    line 12: The new pipeline is 40% faster than the old one on every workloa
+    line 31: Output: 18.0x → 20.3x
+    line 32: Output: 18.0x → 20.3x
+  FIX: Name the command, the study or the record — or say 'roughly' and mean it.
+
+HEDGE_WITHOUT_A_NAME  ×1
+  An appeal to authority that names no authority — a citation's shape with none inside.
+    line 6: Studies show that structured review reduces production defects c
+  FIX: Name one: author, year, and what was actually measured. Or say 'I think'.
+
+ABSOLUTE  ×1
+  An absolute with nothing named that enforces it.
+    line 7: This approach will always catch the regression before it reaches
+  FIX: State the condition: 'under X, this held in N of M cases'.
+
+NOVELTY_CLAIM  ×1
+  A novelty claim. It is almost never checked.
+    line 8: We are the first in the world to combine these two checks in one
+  FIX: Priority needs a timestamp you cannot move. Give the date and where it is recorded.
+
+SELF_EVIDENCE  ×1
+  A word asking the reader to skip the step where the claim is supported.
+    line 9: Obviously the remaining risk is negligible for a team of this si
+  FIX: Delete the word. If the claim stands without it, nothing was lost.
+
+METAPHOR_AS_FACT  ×1
+  An image presented as a mechanism. The confidence ladder's level 0 raised to its top.
+    line 11: The model is exactly the mechanism by which attention allocates 
+  FIX: Say 'as an image' or give the mechanism. One of the two, not both at once.
+
+RESTATED  line 12 repeats line 5
+    The new pipeline is 40% faster than the old one on every workload we t
+  Repetition is not independent corroboration.
+
+11 finding(s).
+
+════════════════════════════════════════════════════════════════════════
+1 document(s), 11 finding(s) in total.
+
+This finds the SHAPE of overclaiming. It cannot tell you what is true.
+[exit 0]
+

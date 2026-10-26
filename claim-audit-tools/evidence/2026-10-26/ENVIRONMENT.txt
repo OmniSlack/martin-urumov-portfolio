@@ -1,0 +1,6 @@
+Date: 2026-10-26 (UTC) · Linux x86_64 sandbox container
+Node: v22.23.4 · Python: 3.13.17 (standard library only) · no npm packages
+Original: OmniSlack/omniecho-core, branch claude/bro-6f3f37, commit 848ae1a6264fb0cb31a99921a7fd569824e956ec (2026-10-13), cloned read-only; run in a disposable copy, never modified
+Network: none used by any tool. The words "curl" and "http" in overclaim-scanner.js and overclaim-audit-colab.py are text patterns the scanners look for, not calls.
+Files written by tools during the runs: journal and canary files in temporary directories only (JOURNAL_FILE, CANARY_LEDGER)
+Commands: BASELINE.txt (original tools) · AFTER.txt (English tools) · TESTS.txt (node --test; equivalence-check.js against the original copy)

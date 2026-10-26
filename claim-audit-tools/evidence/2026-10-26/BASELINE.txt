@@ -1,0 +1,46 @@
+# BASELINE — the original tools, unmodified: OmniSlack/omniecho-core @ 848ae1a6264fb0cb31a99921a7fd569824e956ec
+# Run 2026-10-26 from the root of a disposable copy of that repository.
+# The original output is in Bulgarian and is not reproduced here (this repository is English-only);
+# each line records the command, its exit code, and what the output established, in English.
+# To see the raw output: clone the repository at that commit and run the same command.
+
+$ node verify/vid.js
+  exit 0 — prints four example classifications; one of six kinds may instruct
+$ node verify/vid.js --selftest
+  exit 0 — 11 checks run, 0 failing; the summary line prints the count 11
+$ node verify/nablyudenie.js
+  exit 0 — prints the four-status example; flags the UNSUPPORTED example
+$ node verify/nablyudenie.js --selftest
+  exit 0 — 11 checks run, 0 failing; the summary line prints the count 11
+$ node verify/falsifikator.js
+  exit 0 — outcomes AMBIGUOUS (refutation attempted), INSUFFICIENT EVIDENCE (not attempted), AMBIGUOUS (the standing load-bearing claim)
+$ node verify/falsifikator.js --selftest
+  exit 0 — 16 checks run, 0 failing; the summary line prints the count 11
+$ node verify/pette.js
+  exit 0 — open hand over one example model: all five answered
+$ node verify/pette.js --selftest
+  exit 0 — 11 checks run, 0 failing; the summary line prints the count 11
+$ node verify/spor.js
+  exit 0 — three disputes listed; ends 'all in HOLD and all marked' although DISPUTE-1 is decided (stale summary line)
+$ node verify/spor.js --selftest
+  exit 0 — 9 checks run, 0 failing; the summary line prints the count 8
+$ node verify/mutaciya.js
+  exit 1 — CRASH: ReferenceError: __doc__ is not defined (verify/mutaciya.js:276)
+$ node verify/mutaciya.js --selftest
+  exit 0 — 12 checks run, 0 failing; the summary line prints the count 12
+$ node verify/text.js README.md
+  exit 0 — scan of the repository README: 2 finding(s) (output in English)
+$ node verify/claims.js
+  exit 0 — prints the claim register (English)
+$ node verify/claims.js --check README.md
+  exit 0 — no retracted or quarantined claims in README.md
+$ node verify/journal.js
+  exit 2 — usage text (English)
+$ node verify/canary.js
+  exit 2 — usage text (English)
+$ python3 verify/tost.py --selftest
+  exit 0 — 5 pass / 0 fail
+$ python3 verify/timeline.py --help
+  exit 0 — '--help' is not a flag: the tool scanned the repository root as its archive folder (6 .json files, 0 dated records)
+$ python3 verify/colab.py --help
+  exit 0 — '--help' is read as a path: no documents found

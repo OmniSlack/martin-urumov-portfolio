@@ -1,0 +1,89 @@
+# node --test (this folder) — 2026-10-26
+✔ U1. a field of a DECLARED transcript is not counted as a claim
+✔ U2. the SAME line WITHOUT the declaration is still flagged
+✔ U3. a repeated field of a transcript is DATA, not rhetoric
+✔ U4. a repeated sentence WITHOUT the declaration is still flagged
+✔ U5. an ordinary SENTENCE in a transcript document remains a claim
+✔ U6. the word "transcript" in an ordinary sentence is NOT a declaration
+✔ S6. a control sequence from a file does not reach the terminal raw
+✔ S7. neither a null byte nor a bell gets through
+✔ source-classification: another model's conversation is data, never an instruction
+✔ source-classification: text claiming to be an instruction gets no authority
+✔ observation-status: empty is UNSUPPORTED, a stated path is UNKNOWN
+✔ builder-vs-hunter: unattempted refutation is never SUPPORTED, and nothing grants authority
+✔ open-hand-questions: "nothing" is not an answer
+✔ source-conflicts: every disputed name in this folder is marked
+✔ claim-mutation: may → proves and some → all are caught; lowering is not
+✔ claim-mutation: the no-argument path prints usage and exits 2 (was a ReferenceError)
+✔ overclaim-scanner: every rule fires on the sample, the sourced block and the transcript do not
+✔ overclaim-scanner: a control sequence in the scanned text is neutralised
+✔ overclaim-audit-colab.py: runs offline on the sample and finds the same rule families
+✔ claims-register: retracted claims are caught, a retraction quote and a clean document are not
+✔ action-journal: intact chain checks, an edited entry is named
+✔ copy-canary: a minted marker is found in a copy, and absence is not called evidence
+✔ equivalence-tost.py: self-test 5/5, and the sample shows inside-margin ≠ equivalent
+✔ earliest-mention.py: server-stamped mail beats a later export, missing terms are said so
+✔ self-test: source-classification.js
+✔ self-test: observation-status.js
+✔ self-test: builder-vs-hunter.js
+✔ self-test: open-hand-questions.js
+✔ self-test: source-conflicts.js
+✔ self-test: claim-mutation.js
+ℹ tests 30
+ℹ suites 0
+ℹ pass 30
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1368.958785
+
+# negative check of the carried transcript tests: scanner with 'if (transcript[i]) continue;' removed
+not ok 1 - U1. a field of a DECLARED transcript is not counted as a claim
+ok 2 - U2. the SAME line WITHOUT the declaration is still flagged
+ok 3 - U3. a repeated field of a transcript is DATA, not rhetoric
+ok 4 - U4. a repeated sentence WITHOUT the declaration is still flagged
+ok 5 - U5. an ordinary SENTENCE in a transcript document remains a claim
+ok 6 - U6. the word "transcript" in an ordinary sentence is NOT a declaration
+ok 7 - S6. a control sequence from a file does not reach the terminal raw
+ok 8 - S7. neither a null byte nor a bell gets through
+(expected: U1 fails — the exemption is what U1 tests; every other test is unaffected)
+
+# node evidence/2026-10-26/equivalence-check.js <original-copy>
+source-classification.js vs vid.js
+  ✓ 12 descriptions → same kind
+  ✓ current:true → CURRENT INSTRUCTION
+  ✓ authority to instruct, per kind
+observation-status.js vs nablyudenie.js
+  ✓ 6 claims → same status
+  ✓ report check: short UNKNOWN path and UNSUPPORTED are flagged alike
+builder-vs-hunter.js vs falsifikator.js
+  ✓ 12 cases → same outcome
+  ✓ weights
+open-hand-questions.js vs pette.js
+  ✓ 7 answer sets → same unanswered positions
+claim-mutation.js vs mutaciya.js
+  ✓ 11 pairs → same axes, same rungs
+overclaim-scanner.js vs text.js (samples/overclaim-sample.md)
+  ✓ same exit and identical output text
+overclaim-audit-colab.py vs colab.py (samples/overclaim-sample.md)
+  ✓ same exit and identical output text
+earliest-mention.py vs timeline.py (samples/archives)
+  ✓ same exit and identical output text
+equivalence-tost.py vs tost.py (samples/tost-sample.csv)
+  ✓ same numbers for every dimension
+action-journal.js vs journal.js (open, 2 × add, seal, check, edit, check)
+  ✓ same exits and output text, including the tamper detection
+copy-canary.js vs canary.js (mint, check hit, check miss, list)
+  ✓ same exits and output text
+claims-register.js vs claims.js (--check on samples)
+  ✓ same exit and same flagged lines/claims
+self-tests, original and English
+  ✓ source-classification.js: exit 0, 11 checks (original: exit 0, 11 checks)
+  ✓ observation-status.js: exit 0, 11 checks (original: exit 0, 11 checks)
+  ✓ builder-vs-hunter.js: exit 0, 16 checks (original: exit 0, 16 checks)
+  ✓ open-hand-questions.js: exit 0, 11 checks (original: exit 0, 11 checks)
+  ✓ source-conflicts.js: exit 0, 9 checks (original: exit 0, 9 checks)
+  ✓ claim-mutation.js: exit 0, 13 checks (original: exit 0, 12 checks)
+
+22 equivalent, 0 different.
