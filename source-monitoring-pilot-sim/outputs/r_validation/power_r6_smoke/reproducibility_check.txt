@@ -1,0 +1,7 @@
+# r6 SMOKE REPRODUCIBILITY (CANDIDATE)
+Unit 30 rerun from clean directory with recorded per-unit RNG stream:
+- unit_030.csv (results): byte-identical = True
+- unit_030_attempts_full.jsonl (lossless diagnostics): byte-identical = True
+- unit_030_attempts.csv: identical modulo elapsed_s timing column = True
+Verifier statuses proven on corrupted copies (integrity_test_results.csv): 10/10
+Atomic completion: data files renamed first, metadata renamed LAST as completion marker.

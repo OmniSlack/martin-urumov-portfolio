@@ -1,0 +1,10 @@
+{
+  "status": "CANDIDATE <c2><b7> SYNTHETIC ONLY",
+  "mode": "demo",
+  "warning": "DEMO-SCALE run (few sims, nAGQ=0, reduced grid) <e2><80><94> pipeline demonstration ONLY; NOT a power result. Final run must use mode=full.",
+  "sesoi_delta_c": 0.2,
+  "alpha_one_sided": 0.05,
+  "power_target": 0.8,
+  "n_simulations": 10,
+  "nAGQ": 0
+}

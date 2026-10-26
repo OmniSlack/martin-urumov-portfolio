@@ -1,0 +1,20 @@
+# Determinism check — 2026-10-26 (UTC), sandbox container
+# Command: python3 tools/determinism_check.py .   (run from the folder root; R + lme4 required)
+
+== r5: Rscript analysis_R/power_full_run_r5.R run <tmp> 4 1 30  (unit 30, 4 sims)
+  fresh run 1 == fresh run 2 (results):        True
+  fresh run == shipped reference (results):    False
+    shipped  sha256 02c2a2249577eba8…  fresh 615f0735124fdb6e…
+    first difference: row 1 column dc_hat: 0.123589042647375 (reference) vs 0.12358836745297 (this run)
+    attempts (modulo elapsed_s): row 1 column max_grad: 0.000802956492407247 (reference) vs 0.000270410964731127 (this run)
+== r6: Rscript analysis_R/power_full_run_r6.R run <tmp> 4 1 30  (unit 30, 4 sims)
+  fresh run 1 == fresh run 2 (results):        True
+  fresh run == shipped reference (results):    False
+    shipped  sha256 02c2a2249577eba8…  fresh 615f0735124fdb6e…
+    first difference: row 1 column dc_hat: 0.123589042647375 (reference) vs 0.12358836745297 (this run)
+    attempts (modulo elapsed_s): row 1 column max_grad: 0.000802956492407247 (reference) vs 0.000270410964731127 (this run)
+  fresh run == shipped reference (JSONL):      False
+== environment fingerprint recorded in the shipped unit_030_meta.json (r6):
+  shipped: R version 4.3.3 (2024-02-29) | platform x86_64-pc-linux-gnu | lme4 1.1.35.1 | Matrix 1.6.5 | jsonlite 1.8.8 | BLAS /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.12.0 | LAPACK /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.12.0 | La 3.12.0
+  this run: R version 4.3.3 (2024-02-29) | x86_64-pc-linux-gnu | lme4 1.1.35.1 | Matrix 1.6.5 | jsonlite 1.8.8 | BLAS /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.12.0 | LAPACK /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.12.0 | La 3.12.0
+  CPU (not part of the fingerprint): Intel(R) Xeon(R) Processor @ 2.80GHz

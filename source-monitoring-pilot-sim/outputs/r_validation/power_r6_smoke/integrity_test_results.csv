@@ -1,0 +1,12 @@
+case,expected,got,pass
+base,COMPLETE,COMPLETE,True
+env,ENVIRONMENT_MISMATCH,ENVIRONMENT_MISMATCH,True
+ck,CHECKSUM_MISMATCH,CHECKSUM_MISMATCH,True
+sch,SCHEMA_MISMATCH,SCHEMA_MISMATCH,True
+idx,SIMULATION_INDEX_MISMATCH,SIMULATION_INDEX_MISMATCH,True
+uid,UNIT_ID_MISMATCH,UNIT_ID_MISMATCH,True
+att,ATTEMPTS_MISSING,ATTEMPTS_MISSING,True
+hsh,HASH_MISMATCH,HASH_MISMATCH,True
+req,REQUEST_MISMATCH,REQUEST_MISMATCH,True
+strict_aggregate_refusal,exit_1,exit_1,True
+_note,"harness flush bug in first pass was in the TEST harness, not the verifier; all statuses proven after fix",,

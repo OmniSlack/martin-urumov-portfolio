@@ -1,0 +1,6 @@
+"unit_id","sim","level","returned","error_preview","opt_code","conv_msgs_preview","max_grad","hess_ok","singular","elapsed_s","n_warnings","warning_preview","accepted","reject_reasons"
+67,1,"full",TRUE,"",0,"",0.000701857061358169,TRUE,FALSE,10.825,0,"",TRUE,""
+67,2,"full",TRUE,"",0,"",0.00192421794054098,TRUE,FALSE,12.1,0,"",TRUE,""
+67,3,"full",TRUE,"",0,"",0.00133575667859986,TRUE,FALSE,11.555,0,"",TRUE,""
+67,4,"full",TRUE,"",0,"boundary (singular) fit: see help('isSingular')",302.953332993638,FALSE,TRUE,7.986,0,"",FALSE,"gradient_above_tolerance;hessian_unacceptable;conv_message_present;singular"
+67,4,"unc",TRUE,"",0,"",0.00195581378648058,TRUE,FALSE,7.572,0,"",TRUE,""

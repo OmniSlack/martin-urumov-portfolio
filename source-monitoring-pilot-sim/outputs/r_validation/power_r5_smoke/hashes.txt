@@ -1,0 +1,2 @@
+dd2ff489cc5f4dd1575773294ad8764c446033932265cb18f53cefd1f6370794  config/power_simulation.json
+283dc760aef335ebdff5270d3c22bce790ef5526897fcbdc11f6f5790dd72430  analysis_R/power_full_run_r5.R

@@ -1,0 +1,14 @@
+========================================================================
+PILOT_A_PYTHON_RECONSTRUCTION_v1 — synthetic pipeline
+CANDIDATE / SYNTHETIC DATA ONLY — descriptive + verdict logic, no GLMM fit
+========================================================================
+Confirmatory model (SPEC, not fitted): response_external ~ condition * source_truth + (1 + source_truth | participant_id) + (1 | item_id)
+By-participant random terms (validated): ['1', 'source_truth']
+------------------------------------------------------------------------
+[             null]  Δc=+0.017  Δd'=+0.053  MC=selective_pass                -> NO_criterion_effect_decentering_induced_kill
+[   small_positive]  Δc=+0.278  Δd'=-0.008  MC=selective_pass                -> SUPPORTS_decentering_specific_criterion_effect
+[   criterion_only]  Δc=+0.440  Δd'=-0.053  MC=selective_pass                -> SUPPORTS_decentering_specific_criterion_effect
+[ sensitivity_only]  Δc=-0.078  Δd'=+0.553  MC=selective_pass                -> SENSITIVITY_effect_hypothesis_unsupported
+[confounded_demand]  Δc=+0.342  Δd'=+0.099  MC=confounded_expectancy         -> CONFOUNDED_criterion_present_mechanism_unsupported
+------------------------------------------------------------------------
+Outputs written under: /home/claude/martin-urumov-portfolio/source-monitoring-pilot-sim/outputs

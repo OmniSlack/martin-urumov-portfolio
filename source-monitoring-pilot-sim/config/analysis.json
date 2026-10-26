@@ -1,0 +1,43 @@
+{
+  "_status": "CANDIDATE per PILOT_A_EXECUTION_LOCK_v0.1 — values must be challenged before preregistration",
+  "primary_endpoint": "criterion_c",
+  "primary_estimand": "delta_c = c_decentering - c_active_control",
+  "directional_prediction": "delta_c > 0",
+  "sesoi_delta_c": 0.20,
+  "sesoi_status": "CANDIDATE — locked for first power analysis; revisit against closest empirical literature before preregistration",
+  "alpha_one_sided": 0.05,
+  "power_target": 0.80,
+  "statistical_environment": {
+    "language": "R",
+    "package": "lme4",
+    "function": "glmer",
+    "family": "binomial",
+    "link": "probit"
+  },
+  "primary_model": "response_external ~ condition * source_truth + (1 + source_truth | participant_id) + (1 | item_id)",
+  "convergence_hierarchy": [
+    "response_external ~ condition * source_truth + (1 + source_truth | participant_id) + (1 | item_id)",
+    "response_external ~ condition * source_truth + (1 + source_truth || participant_id) + (1 | item_id)",
+    "response_external ~ condition * source_truth + (1 | participant_id) + (1 | item_id)"
+  ],
+  "fallback_rule": "any fallback must be reported and interpretation weakened; no post hoc model search",
+  "coefficient_roles": {
+    "condition": "primary criterion-shift estimand component",
+    "condition:source_truth": "sensitivity discriminant control (delta_dprime)",
+    "item_intercept": "controls item heterogeneity after source counterbalancing"
+  },
+  "estimand_mapping": {
+    "delta_c": "-(b_condition + 0.5 * b_condition_x_source_truth)",
+    "delta_dprime": "b_condition_x_source_truth"
+  },
+  "descriptive_sdt_correction": "log-linear (count+0.5)/(n+1) for participant-level descriptives only; NOT used in the trial-level GLMM",
+  "exclusion_rules": {
+    "attention_fidelity_fail": "exclude",
+    "accuracy_not_above_chance": "exclude (binomial test)",
+    "min_valid_trials_per_source_class": 20,
+    "missing_confidence": "keep source-judgment trial",
+    "rt_trim": "below 200 ms or above participant median + 3*MAD, exploratory RT analyses only",
+    "reporting": "all exclusions reported by condition and reason; robustness with and without borderline exclusions",
+    "manipulation_check": "NOT a post-randomization exclusion from primary ITT analysis; determines mechanism interpretability only"
+  }
+}

@@ -1,0 +1,6 @@
+# SHA-256 ARTIFACT HASHES (CANDIDATE)
+3e377e67efe00a31c66fbacf0d04096e76a6356e7c84a75f0db7eb30603929a9  PILOT_A_PYTHON_RECONSTRUCTION_v1_r3.zip (uploaded == locally produced, byte-identical)
+73169036bdcc95a8098fddfe064664c60feb0987cd4c9052a462a0134918f44e  config/power_simulation.json
+3701166f77123b2c407c56ac1501e179a43fbf54c8e038cf801acb628b5522cb  analysis_R/power_simulation.R
+cf212610f464fcd0009d36ad765d634847bac81d3a80ddcf4e38e1e5bac362a9  analysis_R/fit_glmm.R
+0998f3f318dba519a3b08a4727c1bbf3c7766c1352eb3d7d1af5195d07e2a696  PILOT_A_EXECUTION_LOCK_v0.1.md (uploaded control file)

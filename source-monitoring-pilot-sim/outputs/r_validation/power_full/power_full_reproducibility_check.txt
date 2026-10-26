@@ -1,0 +1,6 @@
+# REPRODUCIBILITY CHECK (CANDIDATE)
+Unit selected: 29 (deterministic draw: L'Ecuyer-CMRG, seed 20260720, sample(1:72,1))
+Method: full rerun of unit 29 from a clean output directory using the recorded per-unit RNG stream
+Result: unit_29.csv byte-identical to the original run (SHA-256 prefix 3c9a0ce84baddf8a)
+Row-count validation: 72 units x 25 sims = 1800 sim rows, all present; failed fits retained in denominators
+Logs preserved: run.log + per-unit CSVs + power_full_failures.csv

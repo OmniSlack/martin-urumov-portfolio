@@ -1,0 +1,36 @@
+{
+  "_status": "CANDIDATE per PILOT_A_EXECUTION_LOCK_v0.1 §11",
+  "method": "simulation-based power in the locked R environment (lme4::glmer, probit)",
+  "sesoi_delta_c": 0.20,
+  "sensitivity_only_delta_dprime": 0.50,
+  "alpha_one_sided": 0.05,
+  "power_target": 0.80,
+  "test_trials_per_participant": 100,
+  "source_balance": "50/50",
+  "structure": [
+    "participant random intercept",
+    "participant random slope for source_truth",
+    "item random intercept",
+    "A/B counterbalancing"
+  ],
+  "base_parameters": {
+    "base_dprime": 1.0,
+    "base_c": 0.0,
+    "_note": "base values are synthetic-plausible placeholders; variance ranges below are SENSITIVITY RANGES, not verified empirical estimates (PREREG BLOCKER: ground against literature)"
+  },
+  "variance_grid": {
+    "sd_c_participant": [0.15, 0.25, 0.35],
+    "sd_dprime_participant": [0.25],
+    "sd_item_intercept": [0.10, 0.25]
+  },
+  "n_per_group_grid": [40, 60, 80, 100],
+  "attrition_sensitivity_rates": [0.0, 0.10],
+  "n_simulations_full": 1000,
+  "n_simulations_demo": 10,
+  "fit_mode": {
+    "full": "glmer default Laplace (nAGQ=1)",
+    "demo": "nAGQ=0 fast mode permitted ONLY for pipeline demonstration; final power run MUST use full mode"
+  },
+  "reporting": "power reported across the full grid of plausible variance assumptions, never one optimistic value; GLMM convergence rates reported per cell",
+  "framing_rule": "if required sample is impractical, Pilot A remains feasibility/effect-estimation"
+}

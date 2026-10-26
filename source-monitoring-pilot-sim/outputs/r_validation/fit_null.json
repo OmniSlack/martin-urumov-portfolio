@@ -1,0 +1,23 @@
+{
+  "status": "SYNTHETIC_VALIDATION_ONLY <e2><80><94> not evidence; CANDIDATE",
+  "input_file": "outputs/scenarios/null_trials.csv",
+  "n_participants": 120,
+  "n_items": 100,
+  "n_trials": 12000,
+  "model_level_used": "intercepts",
+  "singular": true,
+  "convergence_notes": ["full: singular=TRUE; boundary (singular) fit: see help('isSingular')", "uncorrelated: singular=TRUE; boundary (singular) fit: see help('isSingular')", "intercepts: singular=TRUE; boundary (singular) fit: see help('isSingular')"],
+  "formula": "response_external ~ condition * source_truth + (1 | participant_id) + (1 | item_id)",
+  "link": "probit",
+  "estimates": {
+    "delta_c_hat": 0.022866,
+    "delta_c_se": 0.042148,
+    "delta_c_z": 0.542514,
+    "delta_c_p_one_sided": 0.293732,
+    "delta_dprime_hat": 0.054694,
+    "delta_dprime_se": 0.047946,
+    "b_condition": -0.050213,
+    "b_interaction": 0.054694,
+    "control_dprime_b_source_truth": 0.884836
+  }
+}

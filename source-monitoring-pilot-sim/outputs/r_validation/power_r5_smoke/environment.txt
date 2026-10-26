@@ -1,0 +1,7 @@
+# r5 SMOKE — ENVIRONMENT (CANDIDATE)
+Date: 2026-07-21 · Linux 6.18.5 x86_64 · 2 CPU cores
+R 4.3.3 · lme4 1.1.35.1 · Matrix 1.6.5 · jsonlite 1.8.8 · Python 3.11.15 (test gate)
+Master seed 20260720 · L'Ecuyer-CMRG per-unit streams (144-unit manifest)
+Estimation: glmer probit, Laplace nAGQ=1, bobyqa maxfun=2e5, calc.derivs=TRUE
+Acceptance rule: optimizer code==0 AND max|grad|<0.002 AND no lme4 converge-failure message AND non-singular;
+final fallback may return with explicit degraded status. Warnings captured, never silently dropped.

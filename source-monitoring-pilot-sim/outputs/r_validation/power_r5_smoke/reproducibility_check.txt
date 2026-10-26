@@ -1,0 +1,6 @@
+# r5 SMOKE REPRODUCIBILITY (CANDIDATE)
+Unit 30 rerun from a clean directory with the recorded per-unit RNG stream:
+- unit_030.csv (statistical results): BYTE-IDENTICAL (sha256 prefix 02c2a2249577eba8)
+- unit_030_attempts.csv: identical modulo the elapsed_s timing column (expected wall-clock variation)
+Verify-mode checks: COMPLETE(0) / REQUEST_MISMATCH(1) / HASH_MISMATCH(1) / INCOMPLETE(1) — all correct.
+Unit completion is NOT inferred from file existence: meta hashes + RNG id + requested count + row count all enforced.

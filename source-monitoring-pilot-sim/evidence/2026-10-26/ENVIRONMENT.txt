@@ -1,0 +1,10 @@
+Date: 2026-10-26 (UTC); the run in ../2026-10-25/ used the same sandbox image one day earlier, before the container was re-provisioned
+Host: Linux (Ubuntu 24.04), x86_64, sandbox container; CPU on 2026-10-26: Intel Xeon @ 2.80GHz (CPU of 2026-10-25 not recorded)
+Python: 3.13.17 (standard library only)
+R: R version 4.3.3 (2024-02-29) · lme4 1.1.35.1 · Matrix 1.6.5 · jsonlite 1.8.8 · BLAS /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.12.0 · LAPACK /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.12.0
+  (identical, item for item, to the environment fingerprint recorded in the shipped smoke units)
+Commands: python3 tests/run_tests.py (TESTS.txt: 43/45 on 2026-10-26, 45/45 on 2026-10-25)
+          python3 run_all.py (RUN_ALL.txt; outputs/ compared byte for byte with the shipped copies before the run: identical)
+          python3 tools/determinism_check.py . (DETERMINISM_CHECK.txt)
+After the test run the two files rewritten by checks 43-44 (outputs/r_validation/power_r6_smoke/run_manifest.json, unit_manifest.csv) were restored to the shipped bytes before the commit.
+Not run: the full 144 x 1000 power run (production_complete=FALSE in the shipped artifacts; see README).

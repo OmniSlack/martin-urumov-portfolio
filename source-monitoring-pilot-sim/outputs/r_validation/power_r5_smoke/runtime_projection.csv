@@ -1,0 +1,5 @@
+cores,est_hours,note
+2,175.7,assumes 100% parallel efficiency
+8,48.8,assumes 90% parallel efficiency
+16,25.8,assumes 85% parallel efficiency
+32,13.7,assumes 80% parallel efficiency

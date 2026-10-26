@@ -1,0 +1,53 @@
+# python3 tests/run_tests.py — 2026-10-25 (UTC), same sandbox image, same R 4.3.3 / lme4 1.1.35.1, before the container was re-provisioned.
+# Kept because checks 35 and 45 (byte-identical rerun against the shipped reference) passed on this date and failed on 2026-10-26; see DETERMINISM_CHECK.txt in evidence/2026-10-26/.
+
+========================================================================
+PILOT_A_PYTHON_RECONSTRUCTION_v1 (revised) — test suite
+========================================================================
+[PASS] 01_between_participant_assignment   (120 participants)
+[PASS] 02_no_within_participant_condition_variation
+[PASS] 03_no_condition_random_slope
+[PASS] 04_balanced_encoding_source   (exact 50/50 per participant)
+[PASS] 05_counterbalance_deterministic_and_inverse
+[PASS] 06_clean_selective_pass   (selective_pass)
+[PASS] 07_failed_no_decentering_effect   (failed_no_decentering_effect)
+[PASS] 08_confounded_demand_failure   (scenario=confounded_expectancy/CONFOUNDED_criterion_present_mechanism_unsupported; crafted=confounded_expectancy)
+[PASS] 09_criterion_only_supports   (Δc=0.44 Δd'=-0.0533)
+[PASS] 10_sensitivity_only_unsupported   (Δc=-0.0784 Δd'=0.5527)
+[PASS] 11_mixed_interpretation   (MIXED_criterion_and_sensitivity_needs_followup)
+[PASS] 12_confidence_rt_exploratory
+[PASS] 13_no_hmeta_or_out_of_scope_impl
+[PASS] 14_synthetic_data_only
+[PASS] 15_extreme_rate_bounds   (r0=0.010 r1=0.990)
+[PASS] 16_dprime_positive_when_hits_gt_fa   (d'=1.642)
+[PASS] 17_criterion_zero_when_symmetric   (c=-0.000e+00)
+[PASS] 18_null_kill_verdict   (Δc=0.0165 Δd'=0.0535)
+[PASS] 19_small_positive_supports   (Δc=0.2778 Δd'=-0.0076)
+[PASS] 20_item_appears_both_source_classes   (0 confounded items)
+[PASS] 21_ab_lists_balanced_within_condition   ({'active_control': {'A': 30, 'B': 30}, 'decentering': {'A': 30, 'B': 30}})
+[PASS] 22_item_frequency_identical_across_conditions
+[PASS] 23_block_specific_seed_provenance   (each block regenerates from the seed stored in its rows)
+[PASS] 24_participant_id_alignment   (response_external ~ condition * source_truth + (1 + source_truth | participant_id) + (1 | item_id))
+[PASS] 25_item_random_effect_locked_with_hierarchy
+[PASS] 26_scenario_generation_reproducible
+[PASS] 27_config_analysis_matches_lock_and_spec
+[PASS] 28_config_task_and_mc_match_lock
+[PASS] 29_r_implementation_and_materials_versioned   (fit_glmm.R + power_simulation.R + 3 materials (110 stimulus slots))
+[PASS] 30_manifest_144_units_config_driven   (144 units, {'A_primary': 48, 'B_null': 48, 'C_sensitivity_only': 48})
+[PASS] 31_config_hash_enforcement   (HASH_MISMATCH)
+[PASS] 32_incomplete_unit_detection   (INCOMPLETE/COMPLETE)
+[PASS] 33_convergence_diagnostics_captured   (30 attempts, 6 rejected with real gradient values)
+[PASS] 34_fallback_reason_captured   (reasons={'nonconverged_and_singular', 'nonconverged'}, chosen={'int', 'unc', 'full'})
+[PASS] 35_deterministic_selected_unit_rerun   (results byte-identical; attempts identical modulo elapsed_s)
+[PASS] 36_r6_manifest_hardened   (144 units, production_complete=False)
+[PASS] 37_strict_acceptance_injection_cases   (9/9 PASS)
+[PASS] 38_environment_mismatch_detected   (ENVIRONMENT_MISMATCH)
+[PASS] 39_checksum_mismatch_detected   (CHECKSUM_MISMATCH)
+[PASS] 40_schema_mismatch_detected   (SCHEMA_MISMATCH)
+[PASS] 41_simulation_index_mismatch_detected   (SIMULATION_INDEX_MISMATCH)
+[PASS] 42_unit_id_mismatch_detected   (UNIT_ID_MISMATCH)
+[PASS] 43_attempts_missing_detected   (ATTEMPTS_MISSING)
+[PASS] 44_strict_refuses_partial_flags   (strict_exit=1, partial_flag=False)
+[PASS] 45_r6_deterministic_rerun   (results + JSONL byte-identical)
+------------------------------------------------------------------------
+45/45 passed

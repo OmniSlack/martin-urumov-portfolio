@@ -1,0 +1,6 @@
+scenario,dprime_control,dprime_decentering,c_control,c_decentering,delta_c,delta_dprime,manipulation_check_verdict,final_interpretation
+null,0.8906,0.9441,-0.0209,-0.0044,0.0165,0.0535,selective_pass,NO_criterion_effect_decentering_induced_kill
+small_positive,0.9525,0.9449,-0.0344,0.2434,0.2778,-0.0076,selective_pass,SUPPORTS_decentering_specific_criterion_effect
+criterion_only,1.0326,0.9793,-0.0065,0.4335,0.44,-0.0533,selective_pass,SUPPORTS_decentering_specific_criterion_effect
+sensitivity_only,0.8969,1.4497,0.0164,-0.062,-0.0784,0.5527,selective_pass,SENSITIVITY_effect_hypothesis_unsupported
+confounded_demand,0.9095,1.0084,-0.037,0.3046,0.3417,0.0988,confounded_expectancy,CONFOUNDED_criterion_present_mechanism_unsupported

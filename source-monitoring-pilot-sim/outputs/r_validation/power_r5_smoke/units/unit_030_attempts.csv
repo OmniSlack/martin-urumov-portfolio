@@ -1,0 +1,5 @@
+"unit_id","sim","level","returned","error_text","opt_code","conv_msgs","max_grad","hess_ok","singular","elapsed_s","n_warnings","warning_text","accepted","fallback_reason"
+30,1,"full",TRUE,"",0,"",0.000802956492407247,TRUE,FALSE,2.913,0,"",TRUE,""
+30,2,"full",TRUE,"",0,"",0.000160143827088177,TRUE,FALSE,2.721,0,"",TRUE,""
+30,3,"full",TRUE,"",0,"",0.000472218744107522,TRUE,FALSE,2.846,0,"",TRUE,""
+30,4,"full",TRUE,"",0,"",0.000192985680769198,TRUE,FALSE,3.29,0,"",TRUE,""

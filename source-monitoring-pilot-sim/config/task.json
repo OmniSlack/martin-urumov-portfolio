@@ -1,0 +1,37 @@
+{
+  "_status": "CANDIDATE per PILOT_A_EXECUTION_LOCK_v0.1",
+  "design": "randomized between-participant, single-blind to directional hypothesis",
+  "allocation": "1:1",
+  "conditions": ["decentering", "active_control"],
+  "practice_trials": 10,
+  "test_trials": 100,
+  "source_balance": {"perceived_external": 50, "imagined_internal": 50},
+  "counterbalancing": {
+    "lists": ["A", "B"],
+    "rule": "List B reverses the source assignment of every test item in List A",
+    "allocation": "A/B equal within both conditions; list and seed recorded per participant"
+  },
+  "encoding": {
+    "perceived_external": "complete word visibly presented",
+    "imagined_internal": "neutral cue shown; participant generates/imagines target word per standardized cue rule; target word not displayed",
+    "note": "final cue architecture and target-generation rule must be pilot-tested for equivalent difficulty (PREREG BLOCKER)"
+  },
+  "stimuli": {
+    "type": "neutral concrete nouns",
+    "valence_manipulation": false,
+    "matching": "word length, frequency, familiarity, imageability (as close as possible)",
+    "list_policy": "one fixed version-controlled stimulus list (materials/stimulus_list_v0.csv)",
+    "status": "placeholder tokens until linguistic validation (PREREG BLOCKER)"
+  },
+  "responses": {
+    "source_judgment": ["Presented / external", "Generated or imagined / internal"],
+    "confidence_scale": {
+      "1": "guessing",
+      "2": "somewhat unsure",
+      "3": "somewhat sure",
+      "4": "very sure"
+    },
+    "order": "sequential: source judgment first, then confidence",
+    "feedback": "practice only"
+  }
+}

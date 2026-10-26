@@ -1,0 +1,13 @@
+# PILOT_A FULL POWER RUN — ENVIRONMENT RECORD (CANDIDATE)
+Date: 2026-07-21
+OS: Linux 6.18.5 x86_64 (Ubuntu 24.04 container)
+CPU cores: 2
+R: 4.3.3 (2024-02-29)
+lme4: 1.1.35.1
+Matrix: 1.6.5
+jsonlite: 1.8.8
+Python (test gate): 3.11.15
+Master seed: 20260720
+RNG: L'Ecuyer-CMRG, one nextRNGStream-derived stream per unit (72 units), recorded in runner
+Estimation: lme4::glmer, binomial(probit), Laplace nAGQ=1, bobyqa maxfun=1e5, calc.derivs=FALSE
+Test-suite gate: 29/29 passed on the extracted uploaded archive BEFORE the run

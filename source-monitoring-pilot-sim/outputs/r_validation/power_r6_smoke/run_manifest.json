@@ -1,0 +1,16 @@
+{
+  "label": "production_manifest",
+  "production_complete": false,
+  "units_complete": 0,
+  "units_required": 144,
+  "simulations_complete": 0,
+  "simulations_required": 144000,
+  "config_hash": "dd2ff489cc5f4dd1575773294ad8764c446033932265cb18f53cefd1f6370794",
+  "runner_hash": "0020c7ffcb433cb1b10d06bdd9f59462ad8d45232a7739536b7fab182e37710d",
+  "expected_environment": "R version 4.3.3 (2024-02-29) | platform x86_64-pc-linux-gnu | lme4 1.1.35.1 | Matrix 1.6.5 | jsonlite 1.8.8 | BLAS /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.12.0 | LAPACK /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.12.0 | La 3.12.0",
+  "status_counts": {
+    "MISSING": 138,
+    "REQUEST_MISMATCH": 6
+  },
+  "note": "CANDIDATE; no n recommendation is issued by this artifact"
+}

@@ -1,0 +1,3 @@
+9c6192ddaad411a36f34bd0ee97d4cd3435eb0d38b1f3f260853a8610e73a68a  README.txt
+0020c7ffcb433cb1b10d06bdd9f59462ad8d45232a7739536b7fab182e37710d  analysis_R/power_full_run_r6.R
+dd2ff489cc5f4dd1575773294ad8764c446033932265cb18f53cefd1f6370794  config/power_simulation.json

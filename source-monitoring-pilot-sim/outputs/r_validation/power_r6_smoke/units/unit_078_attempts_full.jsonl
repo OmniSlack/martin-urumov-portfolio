@@ -1,0 +1,4 @@
+{"unit_id":78,"sim":1,"level":"full","returned":true,"error_full":"","opt_code":0,"conv_msgs_full":[],"warnings_full":[],"max_grad":0.00017892,"hess_ok":true,"singular":false,"accepted":true,"reject_reasons":[]}
+{"unit_id":78,"sim":2,"level":"full","returned":true,"error_full":"","opt_code":0,"conv_msgs_full":[],"warnings_full":[],"max_grad":0.00034071,"hess_ok":true,"singular":false,"accepted":true,"reject_reasons":[]}
+{"unit_id":78,"sim":3,"level":"full","returned":true,"error_full":"","opt_code":0,"conv_msgs_full":[],"warnings_full":[],"max_grad":0.00024975,"hess_ok":true,"singular":false,"accepted":true,"reject_reasons":[]}
+{"unit_id":78,"sim":4,"level":"full","returned":true,"error_full":"","opt_code":0,"conv_msgs_full":[],"warnings_full":[],"max_grad":0.00017082,"hess_ok":true,"singular":false,"accepted":true,"reject_reasons":[]}

@@ -1,0 +1,25 @@
+{
+  "_status": "CANDIDATE per PILOT_A_EXECUTION_LOCK_v0.1",
+  "timing": "immediately after manipulation, before source-monitoring task",
+  "state_decentering": {
+    "instrument": "MPoD-s (Metacognitive Processes of Decentering — State; Hanley et al. 2020)",
+    "item_text_policy": "copyrighted item text is NOT reproduced in project files; authorized administration and scoring access required (PREREG BLOCKER)",
+    "estimand": "prespecified MPoD-s condition contrast (decentering > active_control)"
+  },
+  "distinguishing_battery_vas_0_100": [
+    "relaxation_calm",
+    "distress_negative_affect",
+    "perceived_effort",
+    "credibility_of_exercise",
+    "expectancy_performance_improvement",
+    "task_engagement"
+  ],
+  "selective_success_rule": {
+    "requirement_1": "decentering exceeds active control on the prespecified MPoD-s estimand",
+    "requirement_2": "conditions fall within prespecified equivalence margins on relaxation, distress, effort, credibility/expectancy, engagement",
+    "equivalence_note": "ordinary non-significance is NOT evidence of equivalence"
+  },
+  "equivalence_margin_points": 10,
+  "equivalence_margin_status": "CANDIDATE (±10 on 0–100 VAS) — must be challenged in final review before preregistration",
+  "failure_rule": "an observed criterion shift is not interpretable as decentering-specific if the selective-success rule fails"
+}

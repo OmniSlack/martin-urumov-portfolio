@@ -1,0 +1,15 @@
+{
+  "status": "CANDIDATE <c2><b7> SYNTHETIC ONLY <c2><b7> PARTIAL RUN <e2><80><94> every cell below lock requirement",
+  "master_seed": 20260720,
+  "sims_per_cell_run": 2,
+  "sims_required_by_lock": 1000,
+  "units_run": 4,
+  "units_defined": 72,
+  "cells_never_run": 72,
+  "never_run_detail": "B_null and C_sensonly outside the prespecified 12-cell sub-grid (36 cells each)",
+  "alpha_one_sided": 0.05,
+  "sesoi_delta_c": 0.2,
+  "dd_sensonly": 0.5,
+  "estimation": "lme4::glmer, probit, Laplace nAGQ=1, bobyqa, calc.derivs=FALSE",
+  "rng": "L'Ecuyer-CMRG, one recorded stream per unit, resume-safe per-unit outputs"
+}

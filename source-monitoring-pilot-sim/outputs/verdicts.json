@@ -1,0 +1,265 @@
+[
+  {
+    "scenario": "null",
+    "contrasts": {
+      "dprime_control": 0.8906,
+      "dprime_decentering": 0.9441,
+      "c_control": -0.0209,
+      "c_decentering": -0.0044,
+      "delta_dprime": 0.0535,
+      "delta_c": 0.0165,
+      "n_control": 60,
+      "n_decentering": 60
+    },
+    "manipulation_check_means": {
+      "active_control": {
+        "mpod_s_state_decentering": 4.0372,
+        "relaxation_state": 5.0347,
+        "distress_state": 3.0684,
+        "perceived_effort": 4.9237,
+        "credibility_expectancy": 6.0051,
+        "task_engagement": 5.9401
+      },
+      "decentering": {
+        "mpod_s_state_decentering": 5.4894,
+        "relaxation_state": 5.0333,
+        "distress_state": 2.9639,
+        "perceived_effort": 4.9574,
+        "credibility_expectancy": 5.8585,
+        "task_engagement": 5.9584
+      }
+    },
+    "manipulation_check_verdict": "selective_pass",
+    "manipulation_check_details": {
+      "mpod_s_diff": 1.4522,
+      "matched_diffs": {
+        "relaxation_state": -0.0014,
+        "distress_state": -0.1045,
+        "perceived_effort": 0.0336,
+        "credibility_expectancy": -0.1467,
+        "task_engagement": 0.0184
+      },
+      "margins_used": {
+        "mpod_min_diff": 0.5,
+        "matched_margin": 0.5,
+        "c_decision_margin": 0.1,
+        "d_decision_margin": 0.15
+      },
+      "note": "Margins are PLACEHOLDERS; within-margin is NOT an equivalence claim."
+    },
+    "final_interpretation": "NO_criterion_effect_decentering_induced_kill",
+    "note_on_status": "DESCRIPTIVE synthetic outputs + verdict logic only; NOT an inferential GLMM result.",
+    "data_provenance": "SYNTHETIC"
+  },
+  {
+    "scenario": "small_positive",
+    "contrasts": {
+      "dprime_control": 0.9525,
+      "dprime_decentering": 0.9449,
+      "c_control": -0.0344,
+      "c_decentering": 0.2434,
+      "delta_dprime": -0.0076,
+      "delta_c": 0.2778,
+      "n_control": 60,
+      "n_decentering": 60
+    },
+    "manipulation_check_means": {
+      "active_control": {
+        "mpod_s_state_decentering": 3.9469,
+        "relaxation_state": 4.9338,
+        "distress_state": 3.0819,
+        "perceived_effort": 5.0383,
+        "credibility_expectancy": 5.9658,
+        "task_engagement": 5.9414
+      },
+      "decentering": {
+        "mpod_s_state_decentering": 5.5095,
+        "relaxation_state": 4.9664,
+        "distress_state": 2.9455,
+        "perceived_effort": 4.9176,
+        "credibility_expectancy": 5.9586,
+        "task_engagement": 5.909
+      }
+    },
+    "manipulation_check_verdict": "selective_pass",
+    "manipulation_check_details": {
+      "mpod_s_diff": 1.5626,
+      "matched_diffs": {
+        "relaxation_state": 0.0325,
+        "distress_state": -0.1364,
+        "perceived_effort": -0.1208,
+        "credibility_expectancy": -0.0073,
+        "task_engagement": -0.0324
+      },
+      "margins_used": {
+        "mpod_min_diff": 0.5,
+        "matched_margin": 0.5,
+        "c_decision_margin": 0.1,
+        "d_decision_margin": 0.15
+      },
+      "note": "Margins are PLACEHOLDERS; within-margin is NOT an equivalence claim."
+    },
+    "final_interpretation": "SUPPORTS_decentering_specific_criterion_effect",
+    "note_on_status": "DESCRIPTIVE synthetic outputs + verdict logic only; NOT an inferential GLMM result.",
+    "data_provenance": "SYNTHETIC"
+  },
+  {
+    "scenario": "criterion_only",
+    "contrasts": {
+      "dprime_control": 1.0326,
+      "dprime_decentering": 0.9793,
+      "c_control": -0.0065,
+      "c_decentering": 0.4335,
+      "delta_dprime": -0.0533,
+      "delta_c": 0.44,
+      "n_control": 60,
+      "n_decentering": 60
+    },
+    "manipulation_check_means": {
+      "active_control": {
+        "mpod_s_state_decentering": 3.9947,
+        "relaxation_state": 5.0351,
+        "distress_state": 2.9681,
+        "perceived_effort": 4.944,
+        "credibility_expectancy": 5.9026,
+        "task_engagement": 5.9915
+      },
+      "decentering": {
+        "mpod_s_state_decentering": 5.4763,
+        "relaxation_state": 4.9993,
+        "distress_state": 2.973,
+        "perceived_effort": 5.0257,
+        "credibility_expectancy": 6.0815,
+        "task_engagement": 5.9519
+      }
+    },
+    "manipulation_check_verdict": "selective_pass",
+    "manipulation_check_details": {
+      "mpod_s_diff": 1.4816,
+      "matched_diffs": {
+        "relaxation_state": -0.0357,
+        "distress_state": 0.0049,
+        "perceived_effort": 0.0817,
+        "credibility_expectancy": 0.1789,
+        "task_engagement": -0.0397
+      },
+      "margins_used": {
+        "mpod_min_diff": 0.5,
+        "matched_margin": 0.5,
+        "c_decision_margin": 0.1,
+        "d_decision_margin": 0.15
+      },
+      "note": "Margins are PLACEHOLDERS; within-margin is NOT an equivalence claim."
+    },
+    "final_interpretation": "SUPPORTS_decentering_specific_criterion_effect",
+    "note_on_status": "DESCRIPTIVE synthetic outputs + verdict logic only; NOT an inferential GLMM result.",
+    "data_provenance": "SYNTHETIC"
+  },
+  {
+    "scenario": "sensitivity_only",
+    "contrasts": {
+      "dprime_control": 0.8969,
+      "dprime_decentering": 1.4497,
+      "c_control": 0.0164,
+      "c_decentering": -0.062,
+      "delta_dprime": 0.5527,
+      "delta_c": -0.0784,
+      "n_control": 60,
+      "n_decentering": 60
+    },
+    "manipulation_check_means": {
+      "active_control": {
+        "mpod_s_state_decentering": 4.0263,
+        "relaxation_state": 5.0359,
+        "distress_state": 2.8966,
+        "perceived_effort": 4.9879,
+        "credibility_expectancy": 6.0961,
+        "task_engagement": 5.8933
+      },
+      "decentering": {
+        "mpod_s_state_decentering": 5.4182,
+        "relaxation_state": 5.0,
+        "distress_state": 2.9469,
+        "perceived_effort": 5.0569,
+        "credibility_expectancy": 5.9598,
+        "task_engagement": 5.9876
+      }
+    },
+    "manipulation_check_verdict": "selective_pass",
+    "manipulation_check_details": {
+      "mpod_s_diff": 1.3919,
+      "matched_diffs": {
+        "relaxation_state": -0.0359,
+        "distress_state": 0.0503,
+        "perceived_effort": 0.069,
+        "credibility_expectancy": -0.1364,
+        "task_engagement": 0.0943
+      },
+      "margins_used": {
+        "mpod_min_diff": 0.5,
+        "matched_margin": 0.5,
+        "c_decision_margin": 0.1,
+        "d_decision_margin": 0.15
+      },
+      "note": "Margins are PLACEHOLDERS; within-margin is NOT an equivalence claim."
+    },
+    "final_interpretation": "SENSITIVITY_effect_hypothesis_unsupported",
+    "note_on_status": "DESCRIPTIVE synthetic outputs + verdict logic only; NOT an inferential GLMM result.",
+    "data_provenance": "SYNTHETIC"
+  },
+  {
+    "scenario": "confounded_demand",
+    "contrasts": {
+      "dprime_control": 0.9095,
+      "dprime_decentering": 1.0084,
+      "c_control": -0.037,
+      "c_decentering": 0.3046,
+      "delta_dprime": 0.0988,
+      "delta_c": 0.3417,
+      "n_control": 60,
+      "n_decentering": 60
+    },
+    "manipulation_check_means": {
+      "active_control": {
+        "mpod_s_state_decentering": 4.0823,
+        "relaxation_state": 5.0082,
+        "distress_state": 3.1184,
+        "perceived_effort": 4.962,
+        "credibility_expectancy": 5.9637,
+        "task_engagement": 5.9396
+      },
+      "decentering": {
+        "mpod_s_state_decentering": 5.6002,
+        "relaxation_state": 5.0032,
+        "distress_state": 3.0361,
+        "perceived_effort": 5.0769,
+        "credibility_expectancy": 7.2042,
+        "task_engagement": 6.0185
+      }
+    },
+    "manipulation_check_verdict": "confounded_expectancy",
+    "manipulation_check_details": {
+      "mpod_s_diff": 1.5178,
+      "matched_diffs": {
+        "relaxation_state": -0.005,
+        "distress_state": -0.0822,
+        "perceived_effort": 0.1149,
+        "credibility_expectancy": 1.2405,
+        "task_engagement": 0.0789
+      },
+      "margins_used": {
+        "mpod_min_diff": 0.5,
+        "matched_margin": 0.5,
+        "c_decision_margin": 0.1,
+        "d_decision_margin": 0.15
+      },
+      "note": "Margins are PLACEHOLDERS; within-margin is NOT an equivalence claim.",
+      "confounded_dimensions": [
+        "credibility_expectancy"
+      ]
+    },
+    "final_interpretation": "CONFOUNDED_criterion_present_mechanism_unsupported",
+    "note_on_status": "DESCRIPTIVE synthetic outputs + verdict logic only; NOT an inferential GLMM result.",
+    "data_provenance": "SYNTHETIC"
+  }
+]

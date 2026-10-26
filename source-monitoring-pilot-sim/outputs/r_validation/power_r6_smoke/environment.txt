@@ -1,0 +1,10 @@
+R: R version 4.3.3 (2024-02-29) 
+platform: x86_64-pc-linux-gnu 
+lme4: 1.1.35.1 
+Matrix: 1.6.5 
+jsonlite: 1.8.8 
+BLAS: /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.12.0 
+LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.12.0 
+La_version: 3.12.0 
+cores: 2
+master_seed: 20260720

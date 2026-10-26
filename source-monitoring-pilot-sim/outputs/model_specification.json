@@ -1,0 +1,40 @@
+{
+  "design": "randomized between-participant",
+  "grouping_factor": "participant_id",
+  "confirmatory_formula": "response_external ~ condition * source_truth + (1 + source_truth | participant_id) + (1 | item_id)",
+  "convergence_hierarchy": [
+    "response_external ~ condition * source_truth + (1 + source_truth | participant_id) + (1 | item_id)",
+    "response_external ~ condition * source_truth + (1 + source_truth || participant_id) + (1 | item_id)",
+    "response_external ~ condition * source_truth + (1 | participant_id) + (1 | item_id)"
+  ],
+  "fallback_formula": "response_external ~ condition * source_truth + (1 | participant_id) + (1 | item_id)",
+  "link": "probit",
+  "by_participant_random_terms": [
+    "1",
+    "source_truth"
+  ],
+  "item_random_effect_decision": {
+    "status": "SPECIFIED_BY_EXECUTION_LOCK_v0.1 (lock itself remains CANDIDATE until Martin's explicit approval)",
+    "formula": "response_external ~ condition * source_truth + (1 + source_truth | participant_id) + (1 | item_id)",
+    "rationale": "item source is counterbalanced across participants, so item variability is separable from source_truth; the by-item random intercept controls item heterogeneity.",
+    "validation_note": "synthetic validation: with item variance present the full model converges non-singularly; on generators with zero item variance the item term is singular by construction."
+  },
+  "coefficient_map": {
+    "intercept": "z(FA) for control/internal (baseline criterion component)",
+    "condition": "criterion-related intercept shift for decentering (primary; enters \u0394c)",
+    "source_truth": "control-group sensitivity d'",
+    "condition:source_truth": "\u0394d' (decentering - control): sensitivity discriminant control",
+    "primary_estimand": "\u0394c = -(b_condition + b_condition:source_truth / 2); direction c_dec > c_control"
+  },
+  "convergence_checks": [
+    "singular-fit check on the random-effects covariance",
+    "gradient / Hessian convergence diagnostics from the fitting library",
+    "refit with an alternative optimizer to confirm stability",
+    "if the maximal random structure fails to converge, drop to FALLBACK_FORMULA"
+  ],
+  "primary_endpoint": "criterion c (\u0394c = c_decentering - c_active_control)",
+  "directional_prediction": "c_decentering > c_active_control",
+  "discriminant_control": "condition x source_truth interaction (\u0394d')",
+  "estimation_environment": "R lme4::glmer (probit), implemented in analysis_R/fit_glmm.R \u2014 synthetic validation only; real-data use requires ethics + preregistration + Martin's authorization",
+  "status": "SPECIFICATION per PILOT_A_EXECUTION_LOCK_v0.1 (CANDIDATE); Python layer performs no inferential fitting"
+}
