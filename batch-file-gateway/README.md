@@ -65,5 +65,5 @@ See [`PROVENANCE.md`](PROVENANCE.md). Renamed by function from `file_gateway_aut
 
 ## Contribution
 
-- Martin Urumov: requirements and acceptance criteria (the DLP check must run on the isolated text; one audit line per file, written immediately; no secret may ever appear in a log or report; a run that cannot fail cannot be monitored); review of the results; the decision to retain partial files rather than delete by name.
-- AI coding assistants: implementation, the test suite, the five-defect analysis as documented in the module docstring, the container runner, and the renaming/translation/split in this repository.
+- Martin Urumov: found the five defects listed above through his own review of the previous version; requirements and acceptance criteria (the DLP check must run on the isolated text; one audit line per file, written immediately; no secret may ever appear in a log or report; a run that cannot fail cannot be monitored); review of the results; the decision to retain partial files rather than delete by name.
+- AI coding assistants: implementation of the fixes, the test suite that pins each defect, the container runner, and the renaming/translation/split in this repository.
