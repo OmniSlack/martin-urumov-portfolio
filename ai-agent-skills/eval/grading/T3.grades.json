@@ -1,0 +1,44 @@
+{
+  "A": {
+    "1": {"met": true, "quote": "Rows 2 and 4 are very precise, but only row 2 is an actual measurement."},
+    "2": {"met": true, "quote": "None. Exact by definition of the metre (since 1983)."},
+    "3": {"met": true, "quote": "Hawking radiation has never been observed, so this is a theoretical prediction and not a measurement."},
+    "4": {"met": false, "quote": "This is the measured ring. The dark shadow inside it is inferred from models"},
+    "5": {"met": true, "quote": "None. It is a date, not a measurement."}
+  },
+  "B": {
+    "1": {"met": true, "quote": "DEFINED ... DERIVED ... DERIVED ... NEVER OBSERVED ... Record fact"},
+    "2": {"met": true, "quote": "299 792 458 m/s, error 0 | DEFINED | Fixed by agreement; defines the metre"},
+    "3": {"met": true, "quote": "NEVER OBSERVED"},
+    "4": {"met": true, "quote": "Ring model fitted to sparse interferometric data"},
+    "5": {"met": true, "quote": "2019 (a year carries no error)"}
+  },
+  "C": {
+    "1": {"met": true, "quote": "DEFINED ... DERIVED ... DERIVED ... NEVER OBSERVED ... Record, not a quantity"},
+    "2": {"met": true, "quote": "299 792 458 m/s, error 0 (exact) | DEFINED | Fixes the metre; not measured"},
+    "3": {"met": true, "quote": "NEVER OBSERVED | T = ħc³/(8πGMk_B), theory only"},
+    "4": {"met": true, "quote": "Ring model fitted to sparse interferometer data"},
+    "5": {"met": true, "quote": "2019 (a date; no error applies)"}
+  },
+  "D": {
+    "1": {"met": false, "quote": "none"},
+    "2": {"met": true, "quote": "None (exact; defines the metre in SI)"},
+    "3": {"met": true, "quote": "It is also an unobserved theoretical prediction."},
+    "4": {"met": false, "quote": "EHT 2019 measurement of the emission ring"},
+    "5": {"met": true, "quote": "2019 | None (10 April 2019, EHT papers in ApJ Letters)"}
+  },
+  "E": {
+    "1": {"met": true, "quote": "DEFINED ... DERIVED ... DERIVED ... NEVER OBSERVED ... n/a: a date, not a measurement"},
+    "2": {"met": true, "quote": "299 792 458 m/s, error 0 | DEFINED | fixes the metre"},
+    "3": {"met": true, "quote": "NEVER OBSERVED: Hawking radiation (row 4)"},
+    "4": {"met": true, "quote": "ring model fitted to sparse interferometry"},
+    "5": {"met": true, "quote": "2019 | n/a: a date, not a measurement"}
+  },
+  "F": {
+    "1": {"met": false, "quote": "none"},
+    "2": {"met": true, "quote": "0 (exact by SI definition of the metre)"},
+    "3": {"met": true, "quote": "Theoretical only: never observed."},
+    "4": {"met": false, "quote": "the 42 microarcsecond figure is the measured bright ring"},
+    "5": {"met": true, "quote": "None (historical fact)"}
+  }
+}

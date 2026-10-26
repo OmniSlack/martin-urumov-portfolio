@@ -100,6 +100,21 @@ test("worked example: the defect in the original — a negative value is not gua
   assert.strictEqual(reimplementation(-1, 10), undefined);
 });
 
+test("eval: the plan and materials are unchanged since they were locked before the runs", () => {
+  const lock = fs.readFileSync(path.join(HERE, "eval", "LOCK.txt"), "utf8").trim().split("\n").slice(1);
+  assert.ok(lock.length >= 17);
+  for (const line of lock) {
+    const [h, f] = line.split(/\s+/);
+    assert.strictEqual(sha(path.join(HERE, "eval", f)), h, f);
+  }
+});
+
+test("eval: unblinding the stored grades reproduces RESULTS.txt", () => {
+  const { execFileSync } = require("child_process");
+  const out = execFileSync("python3", [path.join(HERE, "eval", "score.py")], { encoding: "utf8" });
+  assert.strictEqual(out, fs.readFileSync(path.join(HERE, "eval", "RESULTS.txt"), "utf8"));
+});
+
 test("worked example: the English copy computes exactly what the original computes", () => {
   // load the original's two functions without running its random section
   const src = fs.readFileSync(path.join(ORIG, "dvoynik", "izigran-sluchay.js"), "utf8");

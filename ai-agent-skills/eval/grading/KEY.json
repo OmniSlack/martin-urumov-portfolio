@@ -1,0 +1,122 @@
+{
+ "T1-A": {
+  "id": "d2773bee",
+  "cond": "with"
+ },
+ "T1-B": {
+  "id": "220bddeb",
+  "cond": "with"
+ },
+ "T1-C": {
+  "id": "3a456cc0",
+  "cond": "without"
+ },
+ "T1-D": {
+  "id": "1d0cc456",
+  "cond": "without"
+ },
+ "T1-E": {
+  "id": "ccc78639",
+  "cond": "without"
+ },
+ "T1-F": {
+  "id": "ac43abac",
+  "cond": "with"
+ },
+ "T2-A": {
+  "id": "d508421d",
+  "cond": "with"
+ },
+ "T2-B": {
+  "id": "678b09c8",
+  "cond": "without"
+ },
+ "T2-C": {
+  "id": "7c6dca51",
+  "cond": "without"
+ },
+ "T2-D": {
+  "id": "0238c1a9",
+  "cond": "with"
+ },
+ "T2-E": {
+  "id": "8abd75da",
+  "cond": "without"
+ },
+ "T2-F": {
+  "id": "16efdac2",
+  "cond": "with"
+ },
+ "T3-A": {
+  "id": "5acb6473",
+  "cond": "without"
+ },
+ "T3-B": {
+  "id": "5770da53",
+  "cond": "with"
+ },
+ "T3-C": {
+  "id": "3132db5b",
+  "cond": "with"
+ },
+ "T3-D": {
+  "id": "94ad64f5",
+  "cond": "without"
+ },
+ "T3-E": {
+  "id": "548c0b9e",
+  "cond": "with"
+ },
+ "T3-F": {
+  "id": "668a70d1",
+  "cond": "without"
+ },
+ "T4-A": {
+  "id": "ff455a98",
+  "cond": "with"
+ },
+ "T4-B": {
+  "id": "7f84525e",
+  "cond": "with"
+ },
+ "T4-C": {
+  "id": "45634580",
+  "cond": "without"
+ },
+ "T4-D": {
+  "id": "9be5a20a",
+  "cond": "without"
+ },
+ "T4-E": {
+  "id": "fdc65561",
+  "cond": "with"
+ },
+ "T4-F": {
+  "id": "a59dcc67",
+  "cond": "without"
+ },
+ "T5-A": {
+  "id": "5f57fa60",
+  "cond": "with"
+ },
+ "T5-B": {
+  "id": "f3626bab",
+  "cond": "with"
+ },
+ "T5-C": {
+  "id": "ae36be56",
+  "cond": "with"
+ },
+ "T5-D": {
+  "id": "57741c54",
+  "cond": "without"
+ },
+ "T5-E": {
+  "id": "e2a76364",
+  "cond": "without"
+ },
+ "T5-F": {
+  "id": "b110ca4b",
+  "cond": "without"
+ }
+}

@@ -1,0 +1,3 @@
+A teammate ran two commands. First: `grep -rn "computeTotal(" src/` — no output, exit code 1. Second: `curl -s -o /dev/null -w '%{http_code}' https://api.example-internal.test/v2/orders` — printed `404`. They conclude that `computeTotal` is dead code and that the `/v2/orders` endpoint has been removed, so both can be deleted from the client. Do you agree? Answer in under 200 words.
+
+Do not use the Skill tool. When you are done, write your final answer (only the answer, as you would give it to me) to `<RUN_DIR>/ANSWER.md`, and also return it as your final message.

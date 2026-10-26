@@ -1,0 +1,37 @@
+T1 A d2773bee with     4/4
+T1 B 220bddeb with     4/4
+T1 C 3a456cc0 without  4/4
+T1 D 1d0cc456 without  4/4
+T1 E ccc78639 without  4/4
+T1 F ac43abac with     4/4
+T2 A d508421d with     4/4
+T2 B 678b09c8 without  4/4
+T2 C 7c6dca51 without  4/4
+T2 D 0238c1a9 with     4/4
+T2 E 8abd75da without  4/4
+T2 F 16efdac2 with     4/4
+T3 A 5acb6473 without  4/5
+T3 B 5770da53 with     5/5
+T3 C 3132db5b with     5/5
+T3 D 94ad64f5 without  3/5
+T3 E 548c0b9e with     5/5
+T3 F 668a70d1 without  3/5
+T4 A ff455a98 with     5/5
+T4 B 7f84525e with     5/5
+T4 C 45634580 without  5/5
+T4 D 9be5a20a without  5/5
+T4 E fdc65561 with     5/5
+T4 F a59dcc67 without  5/5
+T5 A 5f57fa60 with     5/5
+T5 B f3626bab with     5/5
+T5 C ae36be56 with     5/5
+T5 D 57741c54 without  5/5
+T5 E e2a76364 without  5/5
+T5 F b110ca4b without  5/5
+
+task  without   with   difference  effect shown (>= 3)?
+T1    12/12   12/12   +0          no
+T2    12/12   12/12   +0          no
+T3    10/15   15/15   +5          yes
+T4    15/15   15/15   +0          no
+T5    15/15   15/15   +0          no

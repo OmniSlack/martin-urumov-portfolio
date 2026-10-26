@@ -18,10 +18,10 @@ Source: `OmniSlack/omniecho-core`, branch `claude/bro-6f3f37`, commit `848ae1a62
 | .claude/skills/izmerimo/SKILL.md | 7547911e5c6e4da9368979b48c60b80691cec170c2841390b6801477b9500f69 | skills/measured-values-report/SKILL.md | b5247fa2abf1851bc7164e8389e0530d25a13389afac9840d7fe49d74100b321 | renamed; translated; 'and antigravity' removed from the test description; the two original-only checkers marked as not carried; B-10 linked to defect-register |
 | .claude/skills/dvoynik/SKILL.md | 000a4a568414cfb4ee502de5fa903f481f3625fa5223edad6273d4f70325d1eb | skills/reimplementation-check/SKILL.md | 6fd9f6b79a83178dad097c8d2ce42a7c50de2ac59ecbf511918015a21bdb598d | renamed; translated; function names in English; project name of the example code removed; the open case's file name removed (file not in either repository) |
 | .claude/skills/dvoynik/izigran-sluchay.js | 21529d80750d781681f209c26e626dc9d67284b5de56b2054d84c7bf8301dcf6 | skills/reimplementation-check/worked-example.js | 9faf5d7cd674227c1f5ad1cec6990d5fef91ba48f6546b56301cda6261d299e1 | renamed; translated; Math.random() replaced by a seeded generator (mulberry32, seed 20260921); functions exported for tests; equivalence to the original on 10 inputs is a test |
-| — | — | README.md | fbafd176c10a5b75b3eb9bd8403e0a1363aeea8783b84df8b68e5e7fc60b536b | new |
-| — | — | skills.test.js | 6f8e96ec7fd7afae16b10f68f73a1b0bc11277b3b0f38abf9ddbbdb2c3196132 | new |
+| — | — | README.md | 7a6536ed22d0e752fbbac2f974e234a8490d0c205c3b9a62834555666abadb3f | new |
+| — | — | skills.test.js | d699eed051e4cd40a66e1308e61593d7f36221e3c37093e71aa9764fe114e885 | new |
 | — | — | evidence/2026-10-26/WORKED_EXAMPLE.txt | 55b420f5bbde4c46d9077087e188513d5ab01c8d66f8c570c34d3367194dce6f | new |
 
 Not carried: `.claude/skills/nablyudatel/SKILL.md` (`49200023e1d14e38fa74402d5cb499d85a28d594dccc4e29053d2b2d4f216057`) — the owner's self-observation method from his book, outside this repository's scope.
 
-`evidence/2026-10-26/TESTS.txt` is produced after this table and is listed in the root `SHA256SUMS`.
+Everything under `eval/` is new (the probe: plan, materials, prompts, answers, grading packets, grades, key, scorer, results); `eval/LOCK.txt` holds the pre-run hashes of the plan and materials. `evidence/2026-10-26/TESTS.txt` and `eval/` are produced after this table and is listed in the root `SHA256SUMS`.

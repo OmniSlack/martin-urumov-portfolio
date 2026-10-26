@@ -1,0 +1,3 @@
+Write a table of these five values with their uncertainties: (1) the speed of light in vacuum; (2) the mass of the electron; (3) the angular diameter of the M87* black-hole shadow; (4) the temperature of Hawking radiation from a black hole of one solar mass; (5) the year the first image of a black hole was published. Keep the answer under 250 words.
+
+Do not use the Skill tool. When you are done, write your final answer (only the answer, as you would give it to me) to `<RUN_DIR>/ANSWER.md`, and also return it as your final message.

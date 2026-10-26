@@ -2,165 +2,177 @@ TAP version 13
 # Subtest: exactly the five chosen skills are present, each from one original
 ok 1 - exactly the five chosen skills are present, each from one original
   ---
-  duration_ms: 1.960059
+  duration_ms: 2.195244
   type: 'test'
   ...
 # Subtest: the excluded skill is not carried, in any form
 ok 2 - the excluded skill is not carried, in any form
   ---
-  duration_ms: 1.273267
+  duration_ms: 2.478262
   type: 'test'
   ...
 # Subtest: claim-discipline: frontmatter name matches the folder, description present and under 1024 characters
 ok 3 - claim-discipline: frontmatter name matches the folder, description present and under 1024 characters
   ---
-  duration_ms: 0.59243
+  duration_ms: 0.499985
   type: 'test'
   ...
 # Subtest: claim-discipline: the English copy contains no Cyrillic
 ok 4 - claim-discipline: the English copy contains no Cyrillic
   ---
-  duration_ms: 0.302123
+  duration_ms: 0.224977
   type: 'test'
   ...
 # Subtest: claim-discipline: every relative link resolves to a file in this repository
 ok 5 - claim-discipline: every relative link resolves to a file in this repository
   ---
-  duration_ms: 0.767845
+  duration_ms: 0.674323
   type: 'test'
   ...
 # Subtest: claim-discipline: names the authorship split
 ok 6 - claim-discipline: names the authorship split
   ---
-  duration_ms: 0.336335
+  duration_ms: 0.418991
   type: 'test'
   ...
 # Subtest: report-scope: frontmatter name matches the folder, description present and under 1024 characters
 ok 7 - report-scope: frontmatter name matches the folder, description present and under 1024 characters
   ---
-  duration_ms: 0.16487
+  duration_ms: 0.448539
   type: 'test'
   ...
 # Subtest: report-scope: the English copy contains no Cyrillic
 ok 8 - report-scope: the English copy contains no Cyrillic
   ---
-  duration_ms: 2.18909
+  duration_ms: 0.207167
   type: 'test'
   ...
 # Subtest: report-scope: every relative link resolves to a file in this repository
 ok 9 - report-scope: every relative link resolves to a file in this repository
   ---
-  duration_ms: 0.481913
+  duration_ms: 0.527164
   type: 'test'
   ...
 # Subtest: report-scope: names the authorship split
 ok 10 - report-scope: names the authorship split
   ---
-  duration_ms: 0.417339
+  duration_ms: 0.611626
   type: 'test'
   ...
 # Subtest: distinguishing-observation: frontmatter name matches the folder, description present and under 1024 characters
 ok 11 - distinguishing-observation: frontmatter name matches the folder, description present and under 1024 characters
   ---
-  duration_ms: 0.200329
+  duration_ms: 0.307414
   type: 'test'
   ...
 # Subtest: distinguishing-observation: the English copy contains no Cyrillic
 ok 12 - distinguishing-observation: the English copy contains no Cyrillic
   ---
-  duration_ms: 0.173549
+  duration_ms: 0.228806
   type: 'test'
   ...
 # Subtest: distinguishing-observation: every relative link resolves to a file in this repository
 ok 13 - distinguishing-observation: every relative link resolves to a file in this repository
   ---
-  duration_ms: 0.126051
+  duration_ms: 0.259281
   type: 'test'
   ...
 # Subtest: distinguishing-observation: names the authorship split
 ok 14 - distinguishing-observation: names the authorship split
   ---
-  duration_ms: 0.083922
+  duration_ms: 0.15758
   type: 'test'
   ...
 # Subtest: measured-values-report: frontmatter name matches the folder, description present and under 1024 characters
 ok 15 - measured-values-report: frontmatter name matches the folder, description present and under 1024 characters
   ---
-  duration_ms: 0.091795
+  duration_ms: 0.15145
   type: 'test'
   ...
 # Subtest: measured-values-report: the English copy contains no Cyrillic
 ok 16 - measured-values-report: the English copy contains no Cyrillic
   ---
-  duration_ms: 0.085103
+  duration_ms: 0.133077
   type: 'test'
   ...
 # Subtest: measured-values-report: every relative link resolves to a file in this repository
 ok 17 - measured-values-report: every relative link resolves to a file in this repository
   ---
-  duration_ms: 0.136193
+  duration_ms: 0.240137
   type: 'test'
   ...
 # Subtest: measured-values-report: names the authorship split
 ok 18 - measured-values-report: names the authorship split
   ---
-  duration_ms: 0.080101
+  duration_ms: 0.127535
   type: 'test'
   ...
 # Subtest: reimplementation-check: frontmatter name matches the folder, description present and under 1024 characters
 ok 19 - reimplementation-check: frontmatter name matches the folder, description present and under 1024 characters
   ---
-  duration_ms: 0.094209
+  duration_ms: 0.145449
   type: 'test'
   ...
 # Subtest: reimplementation-check: the English copy contains no Cyrillic
 ok 20 - reimplementation-check: the English copy contains no Cyrillic
   ---
-  duration_ms: 0.139783
+  duration_ms: 0.133484
   type: 'test'
   ...
 # Subtest: reimplementation-check: every relative link resolves to a file in this repository
 ok 21 - reimplementation-check: every relative link resolves to a file in this repository
   ---
-  duration_ms: 0.223851
+  duration_ms: 0.289426
   type: 'test'
   ...
 # Subtest: reimplementation-check: names the authorship split
 ok 22 - reimplementation-check: names the authorship split
   ---
-  duration_ms: 0.087064
+  duration_ms: 0.191254
   type: 'test'
   ...
 # Subtest: originals are byte-identical to the source commit (hashes from PROVENANCE.md)
 ok 23 - originals are byte-identical to the source commit (hashes from PROVENANCE.md)
   ---
-  duration_ms: 1.149075
+  duration_ms: 3.145269
   type: 'test'
   ...
 # Subtest: worked example: random inputs find nothing, one searched edge breaks the copy
 ok 24 - worked example: random inputs find nothing, one searched edge breaks the copy
   ---
-  duration_ms: 4.375617
+  duration_ms: 5.468456
   type: 'test'
   ...
 # Subtest: worked example: the defect in the original — a negative value is not guarded
 ok 25 - worked example: the defect in the original — a negative value is not guarded
   ---
-  duration_ms: 0.124265
+  duration_ms: 0.161003
+  type: 'test'
+  ...
+# Subtest: eval: the plan and materials are unchanged since they were locked before the runs
+ok 26 - eval: the plan and materials are unchanged since they were locked before the runs
+  ---
+  duration_ms: 1.968753
+  type: 'test'
+  ...
+# Subtest: eval: unblinding the stored grades reproduces RESULTS.txt
+ok 27 - eval: unblinding the stored grades reproduces RESULTS.txt
+  ---
+  duration_ms: 31.499844
   type: 'test'
   ...
 # Subtest: worked example: the English copy computes exactly what the original computes
-ok 26 - worked example: the English copy computes exactly what the original computes
+ok 28 - worked example: the English copy computes exactly what the original computes
   ---
-  duration_ms: 0.310332
+  duration_ms: 0.503697
   type: 'test'
   ...
-1..26
-# tests 26
+1..28
+# tests 28
 # suites 0
-# pass 26
+# pass 28
 # fail 0
 # cancelled 0
 # skipped 0
 # todo 0
-# duration_ms 117.877498
+# duration_ms 177.631438

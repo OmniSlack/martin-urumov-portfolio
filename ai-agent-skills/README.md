@@ -33,7 +33,8 @@ Four tools of the source repository are named in the originals and **not** carri
 ## How to run
 
 ```bash
-node --test                                              # 26 tests
+node --test                                              # 28 tests
+python3 eval/score.py                                    # the skill effect probe, unblinded
 node skills/reimplementation-check/worked-example.js     # the measured case in that skill
 ```
 
@@ -48,10 +49,11 @@ To use the skills with Claude Code, copy a folder from `skills/` into a project'
 | `reimplementation-check`: 10,000 random inputs find 0 mismatches; 7 searched edges find 1 (`v=10, max=10`: original `f`, copy `undefined`); the original itself returns `undefined` for `v=-1` | `node skills/reimplementation-check/worked-example.js` | as stated ([`WORKED_EXAMPLE.txt`](evidence/2026-10-26/WORKED_EXAMPLE.txt)); the original's unseeded run gives the same, checked once on 2026-10-26 |
 | The English worked example computes the same as the original on 10 inputs | `node --test` | pass |
 | The excluded skill is not carried | `node --test` | pass |
+| **Skill effect probe:** 5 tasks × with/without × 3 runs, blind-graded against a rubric locked before the runs. An effect (≥ 3 items, fixed in advance) was shown on 1 task of 5: `measured-values-report` 15/15 with, 10/15 without. On the other 4 the model without the skill already met every item (ceiling), so the probe cannot tell | `python3 eval/score.py`; details in [`eval/README.md`](eval/README.md) | as stated ([`RESULTS.txt`](eval/RESULTS.txt)); the plan and materials still match their pre-run hashes (`node --test`) |
 
 ## Limitations
 
-- **There is no evidence here that a skill changes a model's behaviour.** The tests check the files, not the model. The only measured result is the worked example, which tests the rule's content (random testing misses an edge), not whether an agent applies it. The way to measure it — the same tasks with and without a skill, answers compared by a fixed rubric — is not done.
+- **The evidence that a skill changes a model's behaviour is narrow.** One skill of five showed an effect on its task (`measured-values-report`), with 3 runs per condition, one model, and no control prompt of equal length. For the other four, the tasks were too easy: the model met the whole rubric without the skill. Differences seen after unblinding are listed in `eval/README.md` but are not part of the result. See that file's Limitations.
 - The examples inside the skills (a 404 from GitHub, `example.com → 403`, three runs of `git push`, the review that skipped files) are reported as they were recorded in the source repository on 2026-09-20. They are not reproduced here.
 - The skills are translations. The Bulgarian originals in `original-bg/` are the versions that were used. A translation can change emphasis; the quoted requirements are marked as translated.
 - A sixth skill of the source repository (`nablyudatel`) is not carried: it describes a self-observation method from the owner's book, which is outside the scope of this repository.
@@ -64,4 +66,4 @@ See [`PROVENANCE.md`](PROVENANCE.md). Source: `OmniSlack/omniecho-core`, `.claud
 ## Contribution
 
 - Martin Urumov: the theory, the rules, and the quoted requirements — including the trigger for `report-scope` ("what I can't do, and you must"), the defect register as the reference everything is compared with, the confidence scale, and "an address cannot be imitated". He found defect B-13, from which `report-scope` was made.
-- AI assistants: the wording of the five skills (2026-09-20/21), the worked example, and in 2026-10-26 the English copies, the mapping to this repository's tools, the seeded random generator in the example, and the 26 tests.
+- AI assistants: the wording of the five skills (2026-09-20/21), the worked example, and in 2026-10-26 the English copies, the mapping to this repository's tools, the seeded random generator in the example, the 28 tests, and the skill effect probe in `eval/` (plan, 30 runs, blind grading).

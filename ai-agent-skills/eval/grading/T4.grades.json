@@ -1,0 +1,44 @@
+{
+  "A": {
+    "1": {"met": true, "quote": "Values: 0, 1, 2, 3, 5, 9.999999, 10, 10.0001, 11, 20, -1, -0.0001, -10, -100, 0.5, 1e-9, 1e308, ±Infinity, NaN"},
+    "2": {"met": true, "quote": "Non-numeric inputs: strings, booleans, null, undefined, and so on."},
+    "3": {"met": true, "quote": "`v == max` (the clamp case). `max <= 0`. Negative `v`."},
+    "4": {"met": true, "quote": "JS `SEQ[-1]` is `undefined`. Python `SEQ[-1]` wraps around to `\"f\"`."},
+    "5": {"met": true, "quote": "That is \"matched on what I tried\", not a proof, and the NOT COVERED list is where it could still differ."}
+  },
+  "B": {
+    "1": {"met": true, "quote": "10,000 pseudo-random pairs, with `max` in 0 to 100 and `v` in -10 to 110."},
+    "2": {"met": true, "quote": "Non-numeric inputs: strings, `null`, `undefined`, booleans, BigInt."},
+    "3": {"met": true, "quote": "`v == max`, `v < 0`, `max <= 0`, NaN, ±Infinity, float extremes and exact bucket boundaries. All of them matched."},
+    "4": {"met": true, "quote": "JS `SEQ[-1]` is `undefined`, but Python `SEQ[-1]` is `\"f\"` (it wraps around)."},
+    "5": {"met": true, "quote": "the port matches the original on everything I tried, but I have not proven it identical."}
+  },
+  "C": {
+    "1": {"met": true, "quote": "They included negatives, zero, `-0`, NaN, ±Infinity, ±1e308, a subnormal, and exact bucket boundaries."},
+    "2": {"met": true, "quote": "Limit: this is a test over sampled inputs, not a proof."},
+    "3": {"met": true, "quote": "They included negatives, zero, `-0` ... crossed with each other\" / \"`max <= 0` returns `\"a\"` in both."},
+    "4": {"met": true, "quote": "`seqStep(-1, 10)` is `undefined` in JS, and a literal port would return `\"f\"`."},
+    "5": {"met": true, "quote": "I expect them to agree, but I have not tested every input."}
+  },
+  "D": {
+    "1": {"met": true, "quote": "26 hand-picked cases: boundaries, negatives, zero or negative `max`, NaN, ±Infinity"},
+    "2": {"met": true, "quote": "I only tested numeric inputs."},
+    "3": {"met": true, "quote": "boundaries, negatives, zero or negative `max`"},
+    "4": {"met": true, "quote": "JS gives `undefined` for `SEQ[-1]`, but Python would silently return `\"f\"` (the last element)."},
+    "5": {"met": true, "quote": "Limits of the check: ... I only tested numeric inputs."}
+  },
+  "E": {
+    "1": {"met": true, "quote": "10,000 random pairs, with v in 0..100 and max in 0.001..100 (seed 1)."},
+    "2": {"met": true, "quote": "Non-numeric inputs: strings, `null`, `undefined`, booleans, arrays."},
+    "3": {"met": true, "quote": "`v == max`, v = 0, and `max <= 0` (0 and a negative). Negative v, including `-1e-12`."},
+    "4": {"met": true, "quote": "Python's `SEQ[-1]` silently wraps to `\"f\"`"},
+    "5": {"met": true, "quote": "It matched the original on every input I tried, but that is not proof it matches on all inputs."}
+  },
+  "F": {
+    "1": {"met": true, "quote": "a grid of edge values (0, -0, negatives, tiny and huge numbers, ±Infinity, NaN) crossed with each other, plus 3,000 random values"},
+    "2": {"met": true, "quote": "I only tested numeric inputs."},
+    "3": {"met": true, "quote": "a grid of edge values (0, -0, negatives, ...) crossed with each other\" / \"`max <= 0` returns `\"a\"`, same as JS."},
+    "4": {"met": true, "quote": "`seqStep(-1, 10)` is `undefined` in JS and `\"f\"` in the naive port."},
+    "5": {"met": true, "quote": "Yes, on everything I tested, but only because I added special handling."}
+  }
+}
