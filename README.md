@@ -8,6 +8,8 @@ Supporting materials for my CV. Each folder is one project. Every folder's READM
 
 ## Projects
 
+How the pieces fit together, with diagrams: [`ARCHITECTURE.md`](ARCHITECTURE.md).
+
 | Folder | Kind | What it is | Proof |
 |---|---|---|---|
 | [`ai-proposal-evaluator/`](ai-proposal-evaluator/) | tool, Node.js | Evaluates an AI proposal against 16 refusal checks and returns STOP > HOLD > CLEAR; refuses on missing information, not only on evident error; one action at a time, append-only journal, cumulative limits, evidence independence, confidence needs evidence | 247 tests; gate ablation 31/31; action-lock invariant 37,448 sequences / 0 violations (the original check was vacuous — fixed and recorded); 222-commit history |
