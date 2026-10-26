@@ -1,0 +1,76 @@
+# node keynes_beauty_contest.js — this folder, 2026-10-26
+# vs BASELINE: all 109 numeric tokens identical; one sentence changed (line 'equilibrium misses by ...', corrected claim)
+KEYNES — eleven levels, and which one wins
+
+The ladder:
+  level  0   names   50.000
+  level  1   names   33.333
+  level  2   names   22.222
+  level  3   names   14.815
+  level  4   names    9.877
+  level  5   names    6.584
+  level  6   names    4.390
+  level  7   names    2.926
+  level  8   names    1.951
+  level  9   names    1.301
+  level 10   names    0.867
+  level 11   names    0.578
+  level  ∞   names    0.000    (Nash equilibrium)
+
+Against real people:
+  target 17.593
+  level  0 misses by  32.407
+  level  3 misses by   2.778  <- wins
+  level 11 misses by  17.015
+  equilibrium misses by 17.593 — closer than level 0, more than six times further than the winner.
+
+The same game, different crowds:
+  novices, never played     target  28.15   level 1 wins
+  real people (Nagel 1995)  target  17.59   level 3 wins
+  players who have played   target   8.78   level 4 wins
+  theorists only            target   0.78   level 10 wins
+  half naive, half deep     target  16.86   level 3 wins
+
+The winning level is not a property of the game. It is a property
+of who is across from you — so the answer is not a number:
+
+    measure where they are, and stand one level above that
+
+Every level above that is correct reasoning on a false premise.
+Eleven valid steps from a wrong start land further away than none.
+
+The repeated game — 8 rounds, everyone climbs 1 level per round:
+  round  1   target  17.593
+  round  2   target  11.729
+  round  3   target   7.819
+  round  4   target   5.213
+  round  5   target   3.475
+  round  6   target   2.317
+  round  7   target   1.546
+  round  8   target   1.036
+
+  level    mean error    worst error
+      3        9.168         13.779
+   3.25        8.097         12.351
+    3.5        7.130         11.061
+   3.75        6.455          9.895
+      4        5.928          8.841
+   4.25        5.452          8.669  <- best worst
+    4.5        5.022          9.529
+   4.75        4.766         10.306
+      5        4.590         11.009
+   5.25        4.432         11.643
+    5.5        4.288         12.217
+   5.75        4.248         12.735  <- best mean
+      6        4.248         13.203
+
+  best mean  : level 5.75  (mean 4.248, worst 12.735)
+  best worst : level 4.25  (mean 5.452, worst 8.669)
+
+  The comment above this code claimed level 3.5 on both counts.
+  It was never computed. It does not survive being computed.
+  The DISTINCTION it was making does survive: mean and worst are
+  different questions with different answers.
+
+  Model, not measurement: change the rounds or the climb rate and
+  the answer moves. That is the report's own thesis applied to itself.

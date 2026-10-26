@@ -1,0 +1,11 @@
+# node --version: v22.23.4
+# node --test-reporter=spec
+✔ the ladder: level k names 50·(2/3)^k (0.976759ms)
+✔ against the assumed "real people" crowd: target 17.593, level 3 wins (0.378036ms)
+✔ the winning level depends on the crowd (0.290515ms)
+✔ repeated game (8 rounds, climb 1): best mean 5.75, best worst 4.25 — 3.5 is neither (1.645958ms)
+✔ finding: with Nagel's reported first-period mean (36.73) level 2 wins, not 3 (0.265185ms)
+✔ importing the module prints nothing (0.124871ms)
+ℹ tests 6
+ℹ pass 6
+ℹ fail 0
