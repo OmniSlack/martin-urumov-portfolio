@@ -1,0 +1,21 @@
+# python3 -m unittest test_document_claim_checker -v
+test_1_digest_pairs_with_the_right_file_on_a_two_name_line (test_document_claim_checker.FixesInTheHandoff.test_1_digest_pairs_with_the_right_file_on_a_two_name_line) ... ok
+test_2_does_not_read_outside_root (test_document_claim_checker.FixesInTheHandoff.test_2_does_not_read_outside_root) ... ok
+test_3_an_existing_line_is_not_verified_content (test_document_claim_checker.FixesInTheHandoff.test_3_an_existing_line_is_not_verified_content) ... ok
+test_4_missing_and_ambiguous_have_different_messages (test_document_claim_checker.FixesInTheHandoff.test_4_missing_and_ambiguous_have_different_messages) ... ok
+test_5_index_is_built_once_per_root (test_document_claim_checker.FixesInTheHandoff.test_5_index_is_built_once_per_root) ... ok
+test_6_extensionless_names_are_seen (test_document_claim_checker.FixesInTheHandoff.test_6_extensionless_names_are_seen) ... ok
+test_a_bare_name_is_still_found_anywhere_under_root (test_document_claim_checker.PathsAreStatementsAboutLocation.test_a_bare_name_is_still_found_anywhere_under_root) ... ok
+test_missing_path_with_a_directory_is_not_verified_by_another_file (test_document_claim_checker.PathsAreStatementsAboutLocation.test_missing_path_with_a_directory_is_not_verified_by_another_file) ... ok
+test_no_failed_when_another_name_on_the_line_is_missing (test_document_claim_checker.PathsAreStatementsAboutLocation.test_no_failed_when_another_name_on_the_line_is_missing) ... ok
+test_path_outside_root_is_not_failed_against_a_namesake_inside (test_document_claim_checker.PathsAreStatementsAboutLocation.test_path_outside_root_is_not_failed_against_a_namesake_inside) ... ok
+test_the_named_path_itself_still_verifies_and_fails (test_document_claim_checker.PathsAreStatementsAboutLocation.test_the_named_path_itself_still_verifies_and_fails) ... ok
+test_does_not_modify_the_document_or_the_files (test_document_claim_checker.Readonly.test_does_not_modify_the_document_or_the_files) ... ok
+test_exit_codes (test_document_claim_checker.TestCountsAndExitCodes.test_exit_codes) ... ok
+test_json_report (test_document_claim_checker.TestCountsAndExitCodes.test_json_report) ... ok
+test_test_count_is_uncheckable (test_document_claim_checker.TestCountsAndExitCodes.test_test_count_is_uncheckable) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 0.029s
+
+OK

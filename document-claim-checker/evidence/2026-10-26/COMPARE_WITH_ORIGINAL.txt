@@ -1,0 +1,8 @@
+# python3 tools/compare_with_original.py <claim_check_fixed.py from omniecho_handoff_2026-09-16.zip>
+Part 1: 400 lines, 397 claims; exit 1 vs 1; statuses identical: True
+  original: {'VERIFIED': 227, 'UNCHECKABLE': 39, 'FAILED': 112, 'REF_IN_RANGE': 19}
+  copy:     {'VERIFIED': 227, 'UNCHECKABLE': 39, 'FAILED': 112, 'REF_IN_RANGE': 19}
+Part 2: the cases the fix is about
+  path that does not exist, namesake elsewhere   original: VERIFIED  copy: MALFORMED
+  path outside root, namesake inside             original: FAILED    copy: MALFORMED
+  second name on the line is missing             original: FAILED    copy: MALFORMED
