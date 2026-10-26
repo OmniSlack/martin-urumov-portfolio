@@ -1,0 +1,24 @@
+All findings (reading > limit), files 1-5:
+
+unit-log-1.txt:13 (flow 138.9 > 138.1)
+unit-log-1.txt:185 (pressure 52.8 > 51.4)
+unit-log-1.txt:222 (vibration 6.9 > 6.8)
+unit-log-1.txt:369 (pressure 51.8 > 51.3)
+unit-log-2.txt:32 (current 38.0 > 36.6)
+unit-log-2.txt:199 (current 33.1 > 33.0)
+unit-log-2.txt:225 (pressure 51.1 > 50.8)
+unit-log-2.txt:372 (vibration 8.8 > 8.0)
+unit-log-3.txt:40 (current 34.1 > 34.0)
+unit-log-3.txt:175 (current 35.3 > 35.0)
+unit-log-3.txt:178 (temperature 118.5 > 117.7)
+unit-log-3.txt:365 (current 36.5 > 35.1)
+unit-log-4.txt:17 (current 13.3 > 12.8)
+unit-log-4.txt:226 (pressure 34.5 > 34.2)
+unit-log-4.txt:230 (current 37.0 > 35.6)
+unit-log-4.txt:384 (temperature 87.5 > 87.3)
+unit-log-5.txt:28 (temperature 86.8 > 86.3)
+unit-log-5.txt:195 (current 18.8 > 18.7)
+unit-log-5.txt:223 (current 16.0 > 15.8)
+unit-log-5.txt:379 (flow 52.1 > 51.8)
+
+Equal reading/limit (not exceeding): 1:210, 1:301, 2:230, 3:208, 3:302, 3:320, 5:372

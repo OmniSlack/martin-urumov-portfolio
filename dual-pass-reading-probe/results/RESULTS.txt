@@ -1,0 +1,29 @@
+pass   hits/20  false+
+F1       20       0
+F2       20       0
+F3       20       0
+F4       20       0
+F5       20       0
+R1       20       0
+R2       20       0
+R3       20       0
+R4       20       0
+R5       20       0
+FC1      20       0
+FC2      20       0
+FC3      20       0
+FC4      20       0
+FC5      20       0
+RC1      20       0
+RC2      20       0
+RC3      20       0
+RC4      20       0
+RC5      20       0
+
+A one forward pass          100/100
+B two passes, same order    100/100
+C forward + reverse         100/100
+D both with checkpoints     100/100
+
+C - B = +0 (>= 5 fixed in advance)   D - C = +0 (>= 5)
+A >= 95: the material was too easy; no difference can be shown.

@@ -1,0 +1,122 @@
+[
+ {
+  "file": "unit-log-1.txt",
+  "line": 13,
+  "value": 138.9,
+  "limit": 138.1
+ },
+ {
+  "file": "unit-log-1.txt",
+  "line": 185,
+  "value": 52.8,
+  "limit": 51.4
+ },
+ {
+  "file": "unit-log-1.txt",
+  "line": 222,
+  "value": 6.9,
+  "limit": 6.8
+ },
+ {
+  "file": "unit-log-1.txt",
+  "line": 369,
+  "value": 51.8,
+  "limit": 51.3
+ },
+ {
+  "file": "unit-log-2.txt",
+  "line": 32,
+  "value": 38.0,
+  "limit": 36.6
+ },
+ {
+  "file": "unit-log-2.txt",
+  "line": 199,
+  "value": 33.1,
+  "limit": 33.0
+ },
+ {
+  "file": "unit-log-2.txt",
+  "line": 225,
+  "value": 51.1,
+  "limit": 50.8
+ },
+ {
+  "file": "unit-log-2.txt",
+  "line": 372,
+  "value": 8.8,
+  "limit": 8.0
+ },
+ {
+  "file": "unit-log-3.txt",
+  "line": 40,
+  "value": 34.1,
+  "limit": 34.0
+ },
+ {
+  "file": "unit-log-3.txt",
+  "line": 175,
+  "value": 35.3,
+  "limit": 35.0
+ },
+ {
+  "file": "unit-log-3.txt",
+  "line": 178,
+  "value": 118.5,
+  "limit": 117.7
+ },
+ {
+  "file": "unit-log-3.txt",
+  "line": 365,
+  "value": 36.5,
+  "limit": 35.1
+ },
+ {
+  "file": "unit-log-4.txt",
+  "line": 17,
+  "value": 13.3,
+  "limit": 12.8
+ },
+ {
+  "file": "unit-log-4.txt",
+  "line": 226,
+  "value": 34.5,
+  "limit": 34.2
+ },
+ {
+  "file": "unit-log-4.txt",
+  "line": 230,
+  "value": 37.0,
+  "limit": 35.6
+ },
+ {
+  "file": "unit-log-4.txt",
+  "line": 384,
+  "value": 87.5,
+  "limit": 87.3
+ },
+ {
+  "file": "unit-log-5.txt",
+  "line": 28,
+  "value": 86.8,
+  "limit": 86.3
+ },
+ {
+  "file": "unit-log-5.txt",
+  "line": 195,
+  "value": 18.8,
+  "limit": 18.7
+ },
+ {
+  "file": "unit-log-5.txt",
+  "line": 223,
+  "value": 16.0,
+  "limit": 15.8
+ },
+ {
+  "file": "unit-log-5.txt",
+  "line": 379,
+  "value": 52.1,
+  "limit": 51.8
+ }
+]
