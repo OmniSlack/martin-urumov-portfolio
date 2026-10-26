@@ -1,0 +1,26 @@
+A 410ae99c control  1/5
+B cd4b4eb6 control  2/5
+C 2cdec235 with     5/5
+D 7a094873 with     5/5
+E aa812f64 control  2/5
+F 98a59d68 control  1/5
+G f681e9fd without  2/5
+H 071b624b control  2/5
+I 60655e9c without  4/5
+J 2d76993c with     5/5
+K d99754d4 without  3/5
+L b8a919c7 without  3/5
+M bdc84a1d without  3/5
+N 2399c59b with     5/5
+O 880f131c with     5/5
+
+item         without   control      with
+1                0/5       0/5       5/5
+2                5/5       5/5       5/5
+3                5/5       3/5       5/5
+4                1/5       0/5       5/5
+5                4/5       0/5       5/5
+total          15/25      8/25     25/25
+
+with - control    = +17   skill content shows an effect (>= 4, fixed in advance)? yes
+control - without = -7   length alone shows an effect (>= 4, fixed in advance)? no

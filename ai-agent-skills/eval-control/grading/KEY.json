@@ -1,0 +1,62 @@
+{
+ "A": {
+  "id": "410ae99c",
+  "cond": "control"
+ },
+ "B": {
+  "id": "cd4b4eb6",
+  "cond": "control"
+ },
+ "C": {
+  "id": "2cdec235",
+  "cond": "with"
+ },
+ "D": {
+  "id": "7a094873",
+  "cond": "with"
+ },
+ "E": {
+  "id": "aa812f64",
+  "cond": "control"
+ },
+ "F": {
+  "id": "98a59d68",
+  "cond": "control"
+ },
+ "G": {
+  "id": "f681e9fd",
+  "cond": "without"
+ },
+ "H": {
+  "id": "071b624b",
+  "cond": "control"
+ },
+ "I": {
+  "id": "60655e9c",
+  "cond": "without"
+ },
+ "J": {
+  "id": "2d76993c",
+  "cond": "with"
+ },
+ "K": {
+  "id": "d99754d4",
+  "cond": "without"
+ },
+ "L": {
+  "id": "b8a919c7",
+  "cond": "without"
+ },
+ "M": {
+  "id": "bdc84a1d",
+  "cond": "without"
+ },
+ "N": {
+  "id": "2399c59b",
+  "cond": "with"
+ },
+ "O": {
+  "id": "880f131c",
+  "cond": "with"
+ }
+}

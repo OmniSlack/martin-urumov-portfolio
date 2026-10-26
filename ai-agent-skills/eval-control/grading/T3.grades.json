@@ -1,0 +1,332 @@
+{
+ "A": {
+  "1": {
+   "met": false,
+   "quote": "2. CODATA 2022; relative uncertainty 3.1 × 10⁻¹⁰."
+  },
+  "2": {
+   "met": true,
+   "quote": "Exact by definition of the metre."
+  },
+  "3": {
+   "met": false,
+   "quote": ""
+  },
+  "4": {
+   "met": false,
+   "quote": "3. EHT 2019 result, 42 ± 3 µas."
+  },
+  "5": {
+   "met": false,
+   "quote": "| 2019 | 0 | 5 |"
+  }
+ },
+ "B": {
+  "1": {
+   "met": false,
+   "quote": "2. CODATA 2022; relative uncertainty 3.1 × 10⁻¹⁰."
+  },
+  "2": {
+   "met": true,
+   "quote": "0 (exact)"
+  },
+  "3": {
+   "met": true,
+   "quote": "This is a theoretical value, never measured"
+  },
+  "4": {
+   "met": false,
+   "quote": "3. EHT 2019 result, 42 ± 3 µas."
+  },
+  "5": {
+   "met": false,
+   "quote": "| 2019 | 0 (exact) | 5 |"
+  }
+ },
+ "C": {
+  "1": {
+   "met": true,
+   "quote": "DEFINED ... DERIVED ... NEVER OBSERVED ... n/a | Publication record"
+  },
+  "2": {
+   "met": true,
+   "quote": "± 0 (zero by construction) | DEFINED"
+  },
+  "3": {
+   "met": true,
+   "quote": "NEVER OBSERVED"
+  },
+  "4": {
+   "met": true,
+   "quote": "Ring model fitted to sparse interferometric data"
+  },
+  "5": {
+   "met": true,
+   "quote": "2019 (a date, no error)"
+  }
+ },
+ "D": {
+  "1": {
+   "met": true,
+   "quote": "DEFINED ... DERIVED ... NEVER OBSERVED ... Record"
+  },
+  "2": {
+   "met": true,
+   "quote": "error exactly 0 | DEFINED"
+  },
+  "3": {
+   "met": true,
+   "quote": "Hawking radiation has never been observed."
+  },
+  "4": {
+   "met": true,
+   "quote": "The M87* diameter is often cited as measured but is model-derived."
+  },
+  "5": {
+   "met": true,
+   "quote": "2019 (10 April); a date, no error"
+  }
+ },
+ "E": {
+  "1": {
+   "met": false,
+   "quote": "2. CODATA 2022; standard uncertainty."
+  },
+  "2": {
+   "met": true,
+   "quote": "Exact by definition of the metre."
+  },
+  "3": {
+   "met": true,
+   "quote": "the radiation has never been observed"
+  },
+  "4": {
+   "met": false,
+   "quote": "3. EHT 2019 result, about 7 % relative."
+  },
+  "5": {
+   "met": false,
+   "quote": "| 2019 | 0 yr | 5 |"
+  }
+ },
+ "F": {
+  "1": {
+   "met": false,
+   "quote": "2. CODATA 2022."
+  },
+  "2": {
+   "met": true,
+   "quote": "Exact by definition of the metre (SI)."
+  },
+  "3": {
+   "met": false,
+   "quote": ""
+  },
+  "4": {
+   "met": false,
+   "quote": "3. Event Horizon Telescope, 2019 (42 ± 3 µas)."
+  },
+  "5": {
+   "met": false,
+   "quote": "| 2019 | 0 | 5 |"
+  }
+ },
+ "G": {
+  "1": {
+   "met": false,
+   "quote": "| CODATA 2022 |"
+  },
+  "2": {
+   "met": true,
+   "quote": "0 (exact) | Fixed by the SI definition of the metre since 1983"
+  },
+  "3": {
+   "met": true,
+   "quote": "Calculated, never observed."
+  },
+  "4": {
+   "met": false,
+   "quote": "The measured ring is a proxy for the shadow"
+  },
+  "5": {
+   "met": false,
+   "quote": "| 2019 | 0 (exact) |"
+  }
+ },
+ "H": {
+  "1": {
+   "met": false,
+   "quote": "2. CODATA 2022, standard uncertainty."
+  },
+  "2": {
+   "met": true,
+   "quote": "Exact by definition of the metre"
+  },
+  "3": {
+   "met": true,
+   "quote": "The effect is theoretical and has never been measured."
+  },
+  "4": {
+   "met": false,
+   "quote": "3. Event Horizon Telescope, 2019 result"
+  },
+  "5": {
+   "met": false,
+   "quote": "| 2019 | 0 | 5 |"
+  }
+ },
+ "I": {
+  "1": {
+   "met": false,
+   "quote": "9.1093837139 × 10⁻³¹ kg (CODATA 2022)"
+  },
+  "2": {
+   "met": true,
+   "quote": "0 (exact; defines the metre)"
+  },
+  "3": {
+   "met": true,
+   "quote": "the effect itself has never been observed, so this is a theoretical value"
+  },
+  "4": {
+   "met": true,
+   "quote": "the quoted value depends on the EHT's modelling"
+  },
+  "5": {
+   "met": true,
+   "quote": "None (historical fact)"
+  }
+ },
+ "J": {
+  "1": {
+   "met": true,
+   "quote": "DEFINED ... MEASURED (CODATA adjustment) ... DERIVED ... NEVER OBSERVED ... n/a, not a measured quantity"
+  },
+  "2": {
+   "met": true,
+   "quote": "Fixes the metre by agreement; zero error by construction"
+  },
+  "3": {
+   "met": true,
+   "quote": "NEVER OBSERVED"
+  },
+  "4": {
+   "met": true,
+   "quote": "the diameter is derived, not directly measured"
+  },
+  "5": {
+   "met": true,
+   "quote": "2019 (10 April); a date, no error"
+  }
+ },
+ "K": {
+  "1": {
+   "met": false,
+   "quote": "9.1093837139 × 10⁻³¹ kg (CODATA 2022)"
+  },
+  "2": {
+   "met": true,
+   "quote": "None (exact by SI definition of the metre)"
+  },
+  "3": {
+   "met": true,
+   "quote": "this is a theoretical value, since no Hawking radiation from a real black hole has been observed"
+  },
+  "4": {
+   "met": false,
+   "quote": "The 42 ± 3 μas is the measured emission-ring diameter."
+  },
+  "5": {
+   "met": true,
+   "quote": "None (historical fact)"
+  }
+ },
+ "L": {
+  "1": {
+   "met": false,
+   "quote": "9.109 383 7139 × 10⁻³¹ kg (CODATA 2022)"
+  },
+  "2": {
+   "met": true,
+   "quote": "None: exact by SI definition of the metre"
+  },
+  "3": {
+   "met": true,
+   "quote": "Calculated, never measured."
+  },
+  "4": {
+   "met": false,
+   "quote": "Item 3 is the measured ring diameter."
+  },
+  "5": {
+   "met": true,
+   "quote": "None: a historical date"
+  }
+ },
+ "M": {
+  "1": {
+   "met": false,
+   "quote": "9.1093837139 x 10^-31 kg (CODATA 2022)"
+  },
+  "2": {
+   "met": true,
+   "quote": "0 (exact; defines the metre in the SI)"
+  },
+  "3": {
+   "met": true,
+   "quote": "theoretical, never measured"
+  },
+  "4": {
+   "met": false,
+   "quote": "Item 3 is the measured bright-ring diameter."
+  },
+  "5": {
+   "met": true,
+   "quote": "None (historical fact)"
+  }
+ },
+ "N": {
+  "1": {
+   "met": true,
+   "quote": "DEFINED ... DERIVED ... NEVER OBSERVED ... n/a | publication date"
+  },
+  "2": {
+   "met": true,
+   "quote": "± 0 (zero by construction) | DEFINED"
+  },
+  "3": {
+   "met": true,
+   "quote": "NEVER OBSERVED"
+  },
+  "4": {
+   "met": true,
+   "quote": "ring fitted to sparse interferometric visibilities"
+  },
+  "5": {
+   "met": true,
+   "quote": "2019 (no error: a calendar fact, not a measurement)"
+  }
+ },
+ "O": {
+  "1": {
+   "met": true,
+   "quote": "DEFINED ... DERIVED ... NEVER OBSERVED ... MEASURED (publication record)"
+  },
+  "2": {
+   "met": true,
+   "quote": "± 0 (zero by construction) | DEFINED"
+  },
+  "3": {
+   "met": true,
+   "quote": "NEVER OBSERVED"
+  },
+  "4": {
+   "met": true,
+   "quote": "ring fitted by a geometric model to sparse visibility data"
+  },
+  "5": {
+   "met": true,
+   "quote": "2019 (a calendar year; no error applies)"
+  }
+ }
+}
