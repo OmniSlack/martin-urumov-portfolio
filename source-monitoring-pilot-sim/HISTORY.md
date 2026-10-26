@@ -1,15 +1,15 @@
 # Revision history — source-monitoring-pilot-sim
 
-English consolidation of the five revision reports shipped with the package (r2, r3, r3 power run, r5, r6; 2026-07-20/21). The reports themselves are not carried (see `PROVENANCE.md` for their hashes); every number below is taken from them or re-verified in this folder as marked. Reports attributed defects to "independent code verification", "independent methodological review" and task briefs; those reviews were performed by AI assistants under Martin Urumov's direction, and the fixes were implemented by AI assistants.
+English consolidation of the five revision reports shipped with the package (r2, r3, r3 power run, r5, r6; 2026-07-20/21). The reports themselves are not carried (see `PROVENANCE.md` for their hashes); every number below is taken from them or re-verified in this folder as marked. The reports attribute the defects to "independent code verification", "independent methodological review" and task briefs. The review documents were written by AI assistants under Martin Urumov's direction, and the fixes were implemented by AI assistants; who first found each defect is recorded per row in the **Found by** column, on Martin Urumov's statement of 2026-10-26.
 
 ## r1 → r2 (2026-07-20) — independent code verification
 
-| # | Finding | Fix | Check |
-|---|---|---|---|
-| 1 | **Item confounded with source**: every item always had the same source class, so an item effect was indistinguishable from a source effect (100/100 items confounded) | Two inverse item lists (A/B) assigned equally within both conditions; every participant keeps a 50/50 source split; every item appears under both source classes across participants | tests 20–22, 05 |
-| 2 | Grouping factor named `participant` in some places and `participant_id` in others | `participant_id` everywhere (model spec, JSON, docs, R script, tests) | test 24 |
-| 3 | Practice and test blocks recorded the base seed, not the seed that generated them | Block-specific seed on every row; test regenerates each block from its stored seed and compares the item→source mapping | test 23 |
-| 4 | No item-level random effect in the model | `(1 | item_id)` added to the specification as an explicit **open** decision (identifiability to be checked) | test 25 |
+| # | Finding | Fix | Check | Found by |
+|---|---|---|---|---|
+| 1 | **Item confounded with source**: every item always had the same source class, so an item effect was indistinguishable from a source effect (100/100 items confounded) | Two inverse item lists (A/B) assigned equally within both conditions; every participant keeps a 50/50 source split; every item appears under both source classes across participants | tests 20–22, 05 | Martin Urumov |
+| 2 | Grouping factor named `participant` in some places and `participant_id` in others | `participant_id` everywhere (model spec, JSON, docs, R script, tests) | test 24 | Martin Urumov |
+| 3 | Practice and test blocks recorded the base seed, not the seed that generated them | Block-specific seed on every row; test regenerates each block from its stored seed and compares the item→source mapping | test 23 | Martin Urumov |
+| 4 | No item-level random effect in the model | `(1 \| item_id)` added to the specification as an explicit **open** decision (identifiability to be checked) | test 25 | Martin Urumov |
 
 Tests 19 → 26. Scenario verdicts unchanged (counterbalancing changes the design, not the response model).
 
@@ -31,22 +31,22 @@ Deviations disclosed in the report: 25 instead of 1000 simulations; controls on 
 
 ## r4 → r5 (2026-07-21) — two defects in the power runner
 
-| Defect (from the review) | What was wrong | Fix in `power_full_run_r5.R` | Check |
-|---|---|---|---|
-| **"duplication"** | The runner carried its own copy of the grid and of a scientific constant (Δd′ = 0.50 for the sensitivity-only condition) instead of reading `config/power_simulation.json`; production definition had a 12-cell shortcut | Config is read and validated fail-fast (key presence, ranges, `sims_full ≥ 1000`, model structure); Δd′ moved into the config; manifest lists all 144 units | test 30 |
-| **"0 non-converged"** | With `calc.derivs=FALSE` the gradient was never inspected, so "object returned" was counted as "converged": 0/1800 non-converged in the r3 run | `calc.derivs=TRUE`; a level is accepted only if optimizer code = 0, max\|gradient\| < 0.002, no lme4 convergence message, non-singular; warnings captured and written, never suppressed; final fallback may return with an explicit `degraded_*` status | tests 33–34 |
+| Defect (from the review) | What was wrong | Fix in `power_full_run_r5.R` | Check | Found by |
+|---|---|---|---|---|
+| **"duplication"** | The runner carried its own copy of the grid and of a scientific constant (Δd′ = 0.50 for the sensitivity-only condition) instead of reading `config/power_simulation.json`; production definition had a 12-cell shortcut | Config is read and validated fail-fast (key presence, ranges, `sims_full ≥ 1000`, model structure); Δd′ moved into the config; manifest lists all 144 units | test 30 | Martin Urumov |
+| **"0 non-converged"** | With `calc.derivs=FALSE` the gradient was never inspected, so "object returned" was counted as "converged": 0/1800 non-converged in the r3 run | `calc.derivs=TRUE`; a level is accepted only if optimizer code = 0, max\|gradient\| < 0.002, no lme4 convergence message, non-singular; warnings captured and written, never suppressed; final fallback may return with an explicit `degraded_*` status | tests 33–34 | Martin Urumov noticed, watching the run, that these fits finished in a fraction of a second (he recalls ~0.02 s each) and asked why; the assistant then established that convergence was not being checked |
 
 Proof that the second fix bites: in the 24-simulation smoke run the new rule **rejected 6 of 30 attempts** that r4 would have counted as clean, with gradients up to **302.95** against the 0.002 tolerance (verified here from `power_r5_smoke/attempt_diagnostics.csv`). Also added: attempt-level diagnostics (one row per level tried per simulation), per-unit metadata (config hash, runner hash, RNG stream, environment, requested/completed counts), resume that skips a unit only on full match, and a `verify` mode with statuses COMPLETE / MISSING / HASH_MISMATCH / RNG_MISMATCH / REQUEST_MISMATCH / INCOMPLETE / META_UNREADABLE. Runtime projection from the instrumented smoke: ≈ 351 CPU-hours for 144 × 1000 (≈ 26 h on 16 cores) — the r3 estimate of 134 h had been computed without derivatives. Tests 29 → 35.
 
 ## r5 → r6 (2026-07-21) — hardening, five defects
 
-| Defect | What was wrong | Fix in `power_full_run_r6.R` | Check |
-|---|---|---|---|
-| A — acceptance rule | `is.na(gr) \|\|` let a missing gradient pass | `is.finite(max_grad) && max_grad < 0.002`; missing / non-finite / above-tolerance each get their own status; the rule is a pure function proven on 9 injected cases | test 37 |
-| B — Hessian and messages | `hess_ok` was recorded but not part of acceptance; messages matched by substring | Hessian positive-definiteness is part of acceptance; the message allow-list is explicitly empty (any non-empty convergence message rejects); full texts kept lossless in JSONL | test 37 |
-| C — environment identity | Units from different environments could be mixed | Fingerprint (R, platform, lme4, Matrix, jsonlite, BLAS, LAPACK, La_version) in every unit's metadata; mismatch → `ENVIRONMENT_MISMATCH` | test 38 |
-| D — completeness | A half-written unit could look complete | Schema check of result and attempts files, unique 1:N simulation IDs, SHA-256 of result/attempts/JSONL compared with metadata; **atomic completion** — data renamed first, metadata renamed last as the completion marker | tests 39–43 |
-| E — aggregation | A partial aggregate could be read as a result | `aggregate` (strict) refuses with exit 1 below 144 units × 1000 sims; `aggregate_partial` writes `production_complete=FALSE` and the no-recommendation note | test 44 |
+| Defect | What was wrong | Fix in `power_full_run_r6.R` | Check | Found by |
+|---|---|---|---|---|
+| A — acceptance rule | `is.na(gr) \|\|` let a missing gradient pass | `is.finite(max_grad) && max_grad < 0.002`; missing / non-finite / above-tolerance each get their own status; the rule is a pure function proven on 9 injected cases | test 37 | Martin Urumov |
+| B — Hessian and messages | `hess_ok` was recorded but not part of acceptance; messages matched by substring | Hessian positive-definiteness is part of acceptance; the message allow-list is explicitly empty (any non-empty convergence message rejects); full texts kept lossless in JSONL | test 37 | Martin Urumov |
+| C — environment identity | Units from different environments could be mixed | Fingerprint (R, platform, lme4, Matrix, jsonlite, BLAS, LAPACK, La_version) in every unit's metadata; mismatch → `ENVIRONMENT_MISMATCH` | test 38 | Martin Urumov |
+| D — completeness | A half-written unit could look complete | Schema check of result and attempts files, unique 1:N simulation IDs, SHA-256 of result/attempts/JSONL compared with metadata; **atomic completion** — data renamed first, metadata renamed last as the completion marker | tests 39–43 | AI assistant (review) |
+| E — aggregation | A partial aggregate could be read as a result | `aggregate` (strict) refuses with exit 1 below 144 units × 1000 sims; `aggregate_partial` writes `production_complete=FALSE` and the no-recommendation note | test 44 | Martin Urumov |
 
 Corruption battery 10/10 (`integrity_test_results.csv`): baseline COMPLETE, eight mismatch statuses, strict-refusal exit 1 — each proven on a deliberately damaged copy. Transparency note in the report: on the first pass three cases returned CHECKSUM_MISMATCH instead of the more specific status; the bug was in the test harness (buffer not flushed before hashing), not in the verifier; fixed and recorded in the CSV. Tests 35 → 45.
 

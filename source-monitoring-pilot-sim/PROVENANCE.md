@@ -17,8 +17,8 @@ Originals:
 | PILOT_A_r3__FULL_POWER_REPORT_v1.md | 53a9559f60995d8fb407be1b53bdd7ac6dfafefc0dd2d81f9f3b58adf4de32b3 | — | — | not carried: signed mixed-language revision report; content consolidated in HISTORY.md |
 | POWER_RUNNER_FIX_REPORT_r5.md | d20fd755423b1512b81d45ccc09b4393e537a10dae4a44c70d443b8560b95a9b | — | — | not carried: signed mixed-language revision report; content consolidated in HISTORY.md |
 | POWER_RUNNER_HARDENING_REPORT_r6.md | 6ed16932be07ff0b466ee734b4a355e88b5edd1079782bc3de314bd9d1e58952 | — | — | not carried: signed mixed-language revision report; content consolidated in HISTORY.md |
-| — | — | README.md | 2389b873ed4ca413ed480658bdd7642012d62a53c3758c56f3bce709abe44372 | this folder's README, written 2026-10-26 |
-| — | — | HISTORY.md | 182c6eebd4fcf66ea5bee7df32b3afd31355b3b8fdd26a19ac78de8e63fb5c9d | English consolidation of the five reports and the 2026-10-25/26 reproduction |
+| — | — | README.md | 7bbdd922df7920293601647f2cbec0a3c3a2a4842922edd6ee513bda42f718ab | this folder's README, written 2026-10-26 |
+| — | — | HISTORY.md | e219c1debb655c9d948512aac020f19e6c5e6ce82b38aa14856e9719f8988c74 | English consolidation of the five reports and the 2026-10-25/26 reproduction |
 | — | — | tools/determinism_check.py | 15c15824728dec52024354f31f5ddde01c290a00cf18aefe0db654e2cc8e5224 | new: reruns unit 30 twice and compares with the shipped reference |
 | — | — | evidence/2026-10-25/TESTS.txt | 5d8d9857d8a94f21547bffd9709aba0366f6bf4640224a68bf6d931cbc2d2176 | new: test-suite output of 2026-10-25 (45/45) |
 | — | — | evidence/2026-10-26/TESTS.txt | c500258b097e61532b503ece8ae0c9a9797516e24f2650078f0263bdfbfff753 | new: test-suite output of 2026-10-26 (43/45) |
