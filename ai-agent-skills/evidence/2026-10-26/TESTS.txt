@@ -1,0 +1,166 @@
+TAP version 13
+# Subtest: exactly the five chosen skills are present, each from one original
+ok 1 - exactly the five chosen skills are present, each from one original
+  ---
+  duration_ms: 1.960059
+  type: 'test'
+  ...
+# Subtest: the excluded skill is not carried, in any form
+ok 2 - the excluded skill is not carried, in any form
+  ---
+  duration_ms: 1.273267
+  type: 'test'
+  ...
+# Subtest: claim-discipline: frontmatter name matches the folder, description present and under 1024 characters
+ok 3 - claim-discipline: frontmatter name matches the folder, description present and under 1024 characters
+  ---
+  duration_ms: 0.59243
+  type: 'test'
+  ...
+# Subtest: claim-discipline: the English copy contains no Cyrillic
+ok 4 - claim-discipline: the English copy contains no Cyrillic
+  ---
+  duration_ms: 0.302123
+  type: 'test'
+  ...
+# Subtest: claim-discipline: every relative link resolves to a file in this repository
+ok 5 - claim-discipline: every relative link resolves to a file in this repository
+  ---
+  duration_ms: 0.767845
+  type: 'test'
+  ...
+# Subtest: claim-discipline: names the authorship split
+ok 6 - claim-discipline: names the authorship split
+  ---
+  duration_ms: 0.336335
+  type: 'test'
+  ...
+# Subtest: report-scope: frontmatter name matches the folder, description present and under 1024 characters
+ok 7 - report-scope: frontmatter name matches the folder, description present and under 1024 characters
+  ---
+  duration_ms: 0.16487
+  type: 'test'
+  ...
+# Subtest: report-scope: the English copy contains no Cyrillic
+ok 8 - report-scope: the English copy contains no Cyrillic
+  ---
+  duration_ms: 2.18909
+  type: 'test'
+  ...
+# Subtest: report-scope: every relative link resolves to a file in this repository
+ok 9 - report-scope: every relative link resolves to a file in this repository
+  ---
+  duration_ms: 0.481913
+  type: 'test'
+  ...
+# Subtest: report-scope: names the authorship split
+ok 10 - report-scope: names the authorship split
+  ---
+  duration_ms: 0.417339
+  type: 'test'
+  ...
+# Subtest: distinguishing-observation: frontmatter name matches the folder, description present and under 1024 characters
+ok 11 - distinguishing-observation: frontmatter name matches the folder, description present and under 1024 characters
+  ---
+  duration_ms: 0.200329
+  type: 'test'
+  ...
+# Subtest: distinguishing-observation: the English copy contains no Cyrillic
+ok 12 - distinguishing-observation: the English copy contains no Cyrillic
+  ---
+  duration_ms: 0.173549
+  type: 'test'
+  ...
+# Subtest: distinguishing-observation: every relative link resolves to a file in this repository
+ok 13 - distinguishing-observation: every relative link resolves to a file in this repository
+  ---
+  duration_ms: 0.126051
+  type: 'test'
+  ...
+# Subtest: distinguishing-observation: names the authorship split
+ok 14 - distinguishing-observation: names the authorship split
+  ---
+  duration_ms: 0.083922
+  type: 'test'
+  ...
+# Subtest: measured-values-report: frontmatter name matches the folder, description present and under 1024 characters
+ok 15 - measured-values-report: frontmatter name matches the folder, description present and under 1024 characters
+  ---
+  duration_ms: 0.091795
+  type: 'test'
+  ...
+# Subtest: measured-values-report: the English copy contains no Cyrillic
+ok 16 - measured-values-report: the English copy contains no Cyrillic
+  ---
+  duration_ms: 0.085103
+  type: 'test'
+  ...
+# Subtest: measured-values-report: every relative link resolves to a file in this repository
+ok 17 - measured-values-report: every relative link resolves to a file in this repository
+  ---
+  duration_ms: 0.136193
+  type: 'test'
+  ...
+# Subtest: measured-values-report: names the authorship split
+ok 18 - measured-values-report: names the authorship split
+  ---
+  duration_ms: 0.080101
+  type: 'test'
+  ...
+# Subtest: reimplementation-check: frontmatter name matches the folder, description present and under 1024 characters
+ok 19 - reimplementation-check: frontmatter name matches the folder, description present and under 1024 characters
+  ---
+  duration_ms: 0.094209
+  type: 'test'
+  ...
+# Subtest: reimplementation-check: the English copy contains no Cyrillic
+ok 20 - reimplementation-check: the English copy contains no Cyrillic
+  ---
+  duration_ms: 0.139783
+  type: 'test'
+  ...
+# Subtest: reimplementation-check: every relative link resolves to a file in this repository
+ok 21 - reimplementation-check: every relative link resolves to a file in this repository
+  ---
+  duration_ms: 0.223851
+  type: 'test'
+  ...
+# Subtest: reimplementation-check: names the authorship split
+ok 22 - reimplementation-check: names the authorship split
+  ---
+  duration_ms: 0.087064
+  type: 'test'
+  ...
+# Subtest: originals are byte-identical to the source commit (hashes from PROVENANCE.md)
+ok 23 - originals are byte-identical to the source commit (hashes from PROVENANCE.md)
+  ---
+  duration_ms: 1.149075
+  type: 'test'
+  ...
+# Subtest: worked example: random inputs find nothing, one searched edge breaks the copy
+ok 24 - worked example: random inputs find nothing, one searched edge breaks the copy
+  ---
+  duration_ms: 4.375617
+  type: 'test'
+  ...
+# Subtest: worked example: the defect in the original — a negative value is not guarded
+ok 25 - worked example: the defect in the original — a negative value is not guarded
+  ---
+  duration_ms: 0.124265
+  type: 'test'
+  ...
+# Subtest: worked example: the English copy computes exactly what the original computes
+ok 26 - worked example: the English copy computes exactly what the original computes
+  ---
+  duration_ms: 0.310332
+  type: 'test'
+  ...
+1..26
+# tests 26
+# suites 0
+# pass 26
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 117.877498

@@ -1,0 +1,138 @@
+---
+name: reimplementation-check
+description: Reproducing the EFFECT of someone else's code or object — and the line beyond which imitation is not understanding. Load at every "make it do the same", "rewrite it", "reconstruct what this does", when inspecting a binary artifact, model or weights, and BEFORE any claim that an implementation matches the original. Gives the three different tasks hidden under one word, the mandatory covered-input-space section, and the four places where imitation breaks silently.
+---
+
+# Reimplementation check
+
+Rules and quoted requirements: Martin Urumov. Wording of this skill: AI assistant.
+The original is in `../../original-bg/dvoynik/SKILL.md` (Bulgarian name: "the double").
+
+The name is a warning. **A reimplementation is not the same thing.**
+
+---
+
+## The rule
+
+> **Same output ≠ same meaning.**
+
+You can reproduce behaviour perfectly and know nothing of its purpose. That is not a degree of success — these are **two different things**, and merging them is the form this skill exists against.
+
+---
+
+## Three tasks under one word
+
+Before starting: **which of the three is it?** They are not solved the same way and do not give the same result.
+
+### 1 · Source code that can be read
+
+Read → extract the decision rules → write an **independent** implementation → run both on the same inputs → compare.
+
+**Gives:** behaviour AND mechanism.
+**Does not give:** nothing is missing. This is the only complete case.
+
+⚠️ "Independent" means written from the DESCRIPTION, not copied. A copy cannot diverge, so it checks nothing — a test that cannot fail.
+
+### 2 · An object that can be RUN
+
+Feed inputs, record outputs, map which input moves which output.
+
+**Gives:** behaviour on what was tried.
+**Does not give:** the mechanism. And nothing about what was not tried.
+
+### 3 · An object that can only be INSPECTED
+
+Reconstruct the computation from the structure — format, sizes, kind of numbers.
+
+**Gives:** the same numbers at the output.
+**Does not give:** what they mean.
+
+---
+
+## The worked case · 21 September 2026
+
+The owner's code from another project — choosing a shade by value:
+
+```js
+function seqStep(v, max) {
+  if (max <= 0) return SEQ[0];
+  return SEQ[Math.min(SEQ.length - 1, Math.floor((v / max) * SEQ.length))];
+}
+```
+
+A reimplementation written from the description *"takes the shade by what fraction of the largest it is"* — without seeing the clamp:
+
+```js
+function reimplementation(v, max) {
+  if (max <= 0) return SEQ[0];
+  return SEQ[Math.floor((v / max) * SEQ.length)];
+}
+```
+
+**Measured** (`node worked-example.js`, output in `../../evidence/2026-10-26/WORKED_EXAMPLE.txt`):
+
+```
+RANDOM INPUTS     10 000 samples  ·  0 mismatches
+EDGES, searched    7 samples      ·  1 mismatch
+
+  v=10  max=10   original = f      reimplementation = undefined
+```
+
+Ten thousand random samples said "matches". **One deliberately searched edge broke it** — exactly at `v === max`, where the division gives 1.0 and the index runs past the array.
+
+> **Random testing does not measure the edges. It measures the middle.**
+
+⚠️ And a second result, free: at `v = -1` **both** return `undefined`. That is not a mismatch — it is a defect IN THE ORIGINAL, found because a reimplementation was written. A negative value is not guarded.
+
+**Reimplementation finds defects in the original. That is its second job, and it is almost never expected.**
+
+---
+
+## Four places where it breaks silently
+
+| | what happens | how it is caught |
+|---|---|---|
+| **hidden state** | same input, different output the second time | run TWICE in a row with the same input |
+| **side effects** | the original writes to disk, calls the network, reads the clock — the copy does not | compare what it TOUCHED, not only what it returned |
+| **rare branches** | the path never triggered is the one that matters | count the branches; say how many were exercised |
+| **numeric drift** | agreement to the sixth digit reported as agreement | compare exactly, or name the tolerance explicitly |
+
+---
+
+## The mandatory section
+
+No reimplementation report is complete without it. Copying is the easy half; this is the half that gets skipped.
+
+```
+COVERED INPUT SPACE
+   which inputs were given, how many, where they came from
+
+NOT COVERED
+   which inputs were NOT given — by name, not "the rest"
+
+KNOWN MISMATCHES
+   where the two differ, and at exactly which input
+
+EDGES SEARCHED ON PURPOSE
+   zero here means only the middle was tried
+```
+
+**Without this section the report reads "matches", while the truth is "matched on what occurred to me to try".** This is the register family `a tool covering part of the cases`.
+
+---
+
+## Prohibitions
+
+**No match is claimed without a found mismatch or without the explicit sentence that edges were not searched.** A reimplementation that matches everything tried is not proven — it is **untested at the edge**.
+
+**No claim is made to understand what the original does** when only case 2 or 3 is available. The behaviour is measured; the purpose is not.
+
+**An object that was only inspected is not run.** Inspecting and executing are two decisions, and the second is asked separately.
+
+---
+
+## The open case in the source repository
+
+The source repository describes a case 3 in its purest form: `512 × 415 float32` weights; the output is 415 numbers. A reimplementation could be written and would give exactly the same 415 numbers — and it would still not be known what it classifies, because the file with the class names is not there.
+
+⚪ **That reimplementation was not written.** The artifact is not in the source repository either — only its description. A case named, not played. It is not carried here.
