@@ -21,7 +21,7 @@ Exit codes: `0` all passed · `1` something was blocked · `2` something errored
 ## How to run
 
 ```bash
-python3 -m pytest -q            # 15 tests
+python3 -m pytest -q            # 18 tests
 python3 batch_file_gateway.py --input ./input_files --output ./processed_files
 ```
 
@@ -36,6 +36,7 @@ The CLI needs `main_library_index.MainLibraryCoordinator` (not included here) or
 | Concurrent writers: exactly one wins, the other is an `ERROR`, file content intact | `test_concurrent_writers_preserve_winner` | `["ERROR", "PASSED"]`, `FileExistsError` |
 | No secret reaches audit log, summary, stderr or captured logs in any failure path | the six `*_not_logged` / `*_is_audited*` tests | `SECRET not in …` holds in every path |
 | Audit-sink failure stops the batch | `test_audit_failure_stops_batch` | second file never written |
+| Two gaps found by an outside review are closed, and only them | `evidence/2026-10-27/GAPS.txt` | **2026-10-27:** 18/18. The same 18 tests against the code before the fix: 16 pass, **2 fail** — a symbolic link was exported (`PASSED`), and a valid file containing U+FFFD reported 1 replaced byte. The third gap (two writers both `PASSED`) did not exist in this version: 0 of 60 rounds |
 | Renaming did not change behaviour | 300 random batches, old vs new audit records compared (timestamp and paths excluded) | 0 differences |
 
 The original pack also recorded a container run: 21 tests in Docker, Python 3.12, read-only mount, no network, exit 0, plus a report runner verified on passing / failing / no-tests fixtures (exit 0 / 1 / 5). That record is kept byte-identical in [`VERIFICATION_2026-09-13.md`](VERIFICATION_2026-09-13.md). **Reported**, not reproduced here: the `ci/` runner and its `ci/reports/` evidence files were not part of the material received for this repository, so the links inside that file do not resolve.
@@ -49,6 +50,18 @@ Each is named in the module docstring and pinned by a test:
 3. The audit manifest was written once at the end of the batch — a crash on file 400 of 500 left no trail.
 4. Output files could be overwritten by a concurrent writer.
 5. The run always exited 0 — a run that cannot fail cannot be monitored.
+
+## Defects found 2026-10-26/27 by an outside AI review
+
+Another Claude session reviewed the **2026-09-12** version of this gateway (`file_gateway_automator.py`, SHA-256 `e7cccb36…`) and found three gaps, each with a test. Run here against this **2026-09-13** version before any change:
+
+| Gap | 2026-09-12 | This version, before | After |
+|---|---|---|---|
+| Two writers to one output name both report `PASSED`; one silently replaced the other | 111 of 400 rounds (28 %), as reported by the reviewer | **not present** — exclusive creation (`open("x")`), 0 of 60 rounds | 0 of 60 |
+| A symbolic link in `input_dir` is followed and its target exported | present | **present** — `PASSED`, content exported | `ERROR`, nothing written, link not in the batch |
+| A valid UTF-8 file containing U+FFFD reports a replaced byte | present | **present** — `decoding_replacements: 1` | `0`; genuinely invalid bytes still counted |
+
+The reviewer also recorded two mistakes of its own: a first test that failed for the wrong reason (tied to the internals of the broken version) and a first fix that reused one temporary file name across threads. Its fix for the race (temporary file + `os.link`) was not needed here.
 
 ## Limitations
 
@@ -66,4 +79,4 @@ See [`PROVENANCE.md`](PROVENANCE.md). Renamed by function from `file_gateway_aut
 ## Contribution
 
 - Martin Urumov: found the five defects listed above through his own review of the previous version; requirements and acceptance criteria (the DLP check must run on the isolated text; one audit line per file, written immediately; no secret may ever appear in a log or report; a run that cannot fail cannot be monitored); review of the results; the decision to retain partial files rather than delete by name.
-- AI coding assistants: implementation of the fixes, the test suite that pins each defect, the container runner, and the renaming/translation/split in this repository.
+- AI coding assistants: the three gaps of 2026-10-26 and their tests (an outside Claude session reviewing the 2026-09-12 version); carrying the tests to this version and the two fixes (this repository's assistant, 2026-10-27); implementation of the fixes, the test suite that pins each defect, the container runner, and the renaming/translation/split in this repository.

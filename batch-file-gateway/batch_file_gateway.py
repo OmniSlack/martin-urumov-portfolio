@@ -23,6 +23,11 @@ FIXED IN THIS VERSION (each was a real defect, not a style change):
      ERROR, not a silent replacement.
   5. The run always exited 0. Now: 0 clean, 1 something was blocked,
      2 something errored — a run that cannot fail cannot be monitored.
+
+FIXED 2026-10-27 (found by an outside AI review of the 2026-09-12 version,
+confirmed on this version by test before the fix):
+  6. A symbolic link in input_dir was followed and its target exported.
+  7. A valid file containing U+FFFD was reported as having a replaced byte.
 """
 
 from __future__ import annotations
@@ -86,11 +91,25 @@ class BatchFileGateway:
         stage = "read"
         output_created = False
         try:
+            # The gateway controls what crosses the boundary. is_file() follows
+            # symbolic links, so a link in input_dir could export a file from
+            # anywhere. Refused here as well as in process_batch(), so a direct
+            # call cannot bypass it. (2026-10-27; found by an outside AI review.)
+            if path.is_symlink():
+                raise PermissionError("input is a symbolic link; the gateway does not follow links")
             raw = path.read_bytes()
-            content = raw.decode("utf-8", errors="replace")
+            # Count only bytes that were REPLACED. A valid UTF-8 file may contain
+            # U+FFFD as an ordinary character (bytes EF BF BD); counting it raised
+            # a false "damaged file" signal. (2026-10-27; outside AI review.)
+            try:
+                content = raw.decode("utf-8")
+                replacements = 0
+            except UnicodeDecodeError:
+                content = raw.decode("utf-8", errors="replace")
+                replacements = content.count("\ufffd") - raw.count(b"\xef\xbf\xbd")
             record.update(
                 sha256=hashlib.sha256(raw).hexdigest(),
-                decoding_replacements=content.count("\ufffd"),
+                decoding_replacements=replacements,
                 bytes_processed=len(raw),
             )
 
@@ -135,7 +154,8 @@ class BatchFileGateway:
     # ---------- batch ----------
 
     def process_batch(self) -> dict[str, Any]:
-        files = sorted(p for p in self.input_dir.iterdir() if p.is_file())
+        files = sorted(p for p in self.input_dir.iterdir()
+                       if p.is_file() and not p.is_symlink())
         results = [self.process_single_file(p) for p in files]
 
         counts = {"PASSED": 0, "BLOCKED": 0, "ERROR": 0}
