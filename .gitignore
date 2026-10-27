@@ -4,3 +4,5 @@ node_modules/
 .DS_Store
 Thumbs.db
 *.log
+# Test material: these logs are inputs to ai-agent-skills/eval, not run output.
+!ai-agent-skills/eval/materials/**/*.log

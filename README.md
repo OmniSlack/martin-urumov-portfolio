@@ -1,5 +1,7 @@
 # Martin Urumov — Portfolio
 
+[![checks](https://github.com/OmniSlack/martin-urumov-portfolio/actions/workflows/checks.yml/badge.svg)](https://github.com/OmniSlack/martin-urumov-portfolio/actions/workflows/checks.yml)
+
 AI behaviour evaluation · agent workflow controls · software rule checks
 
 Varna, Bulgaria · remote / on-site / international
@@ -35,6 +37,12 @@ More folders are added one at a time, each with its own evidence.
 ## How to read the numbers
 
 Every count in this repository (tests, defects, cases) comes with the command that produces it and the output observed when it was last run. Run the command rather than trusting the text. A number without a command is a claim, not evidence.
+
+The badge above is GitHub running those commands on every push: file integrity, the Node.js and Python test suites, the PowerShell checks, and the TypeScript typecheck and unit tests. Two things it does not run: the PostgreSQL suite of `agent-execution-control/` (needs a database) and `source-monitoring-pilot-sim/` (needs R and takes long); their last runs are recorded in their folders. The same checks on your own machine:
+
+```bash
+bash .github/run-checks.sh
+```
 
 ## Authorship
 

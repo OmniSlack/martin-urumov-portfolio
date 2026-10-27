@@ -1,0 +1,12 @@
+== build 1187 · branch release/2.4 · 2026-10-20 14:02 UTC ==
+$ npm ci                      ok (41 s)
+$ npm test
+  tests 48 · pass 46 · fail 2
+  FAIL test_timeout_retry     expected 3 retries, got 2
+  FAIL test_unicode_path      ENOENT: 'données/rapport.csv'
+$ npm run coverage
+  statements 71.3 % · branches 58.9 %
+$ node bench/latency.js --n 50
+  p50 84 ms · p95 212 ms · p99 640 ms   (n=50, one machine, warm cache)
+== note from developer ==
+  "Looks solid, should be production ready after the two flaky tests."

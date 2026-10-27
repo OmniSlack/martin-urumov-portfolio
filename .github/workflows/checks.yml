@@ -1,0 +1,32 @@
+name: checks
+
+# Runs on every push and pull request, and by hand from the Actions tab.
+# What runs and what does not is listed in .github/run-checks.sh.
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        group: [integrity, node, python, pwsh, execution-control]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Python packages
+        if: matrix.group == 'python'
+        run: python3 -m pip install --quiet pytest numpy
+      - name: Run ${{ matrix.group }}
+        run: bash .github/run-checks.sh ${{ matrix.group }}
