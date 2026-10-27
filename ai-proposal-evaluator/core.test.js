@@ -536,3 +536,109 @@ test("proposed ≠ executed — completing twice is refused", () => {
 test("proposed ≠ executed — complete() with no action in flight returns null", () => {
   assert.strictEqual(new Core().complete("any"), null);
 });
+
+// ── THE THREE LAYERS · carried from omniecho-core f36373e (2026-10-26) ──────
+//
+// Source of the rules: the owner's own Python code of 2026-09-15/16
+// (`execution_ticket`, `kompas_core`, `sidecar_validator_v3`). Measured on
+// the previous core.js, before the change:
+//   1 · the same verdict, second begin()            → ACCEPTED
+//   2 · protected action with no permit             → CLEAR, zero reasons
+//   3 · "verified" with no verifier, or by the Core → accepted
+const clean = { source: "TEST", provenance: "OK" };
+const ctx = { counterModelTested: true };
+
+// Layer 1 — a verdict is a single-use ticket
+test("ticket · one verdict is spent ONCE", () => {
+  const c = new Core();
+  const v = c.evaluate(clean, ctx);
+  const k1 = c.begin(v, clean);
+  assert.ok(k1, "first begin() passes");
+  c.complete(k1);
+  c.release(k1);
+  assert.strictEqual(c.begin(v, clean), null, "the same verdict a second time is refused");
+});
+
+test("ticket · spending does not depend on finishing", () => {
+  const c = new Core();
+  const v = c.evaluate(clean, ctx);
+  c.begin(v, clean);
+  c.release(c.actionInFlight && c.actionInFlight.key);
+  assert.strictEqual(c.begin(v, clean), null, "an abandoned ticket is spent too");
+});
+
+test("ticket · a new verdict for the same proposal still passes", () => {
+  const c = new Core();
+  const v1 = c.evaluate(clean, ctx);
+  const k1 = c.begin(v1, clean);
+  c.complete(k1); c.release(k1);
+  const v2 = c.evaluate(clean, ctx);
+  assert.ok(c.begin(v2, clean), "a second VERDICT gives a second ticket — not a ban on work");
+});
+
+// Layer 2 — a protected action needs both
+const prot = { ...clean, action: "demote-canon", target: "CANON", scope: "project" };
+
+test("both required · protected action with no permit does NOT pass", () => {
+  const c = new Core({ protectedActions: ["demote-canon"] });
+  const r = c.evaluate(prot, ctx);
+  assert.strictEqual(r.decision, "HOLD", "a clean verdict alone does not release a protected action");
+  assert.ok(r.reasons.some((s) => /there is no permit/.test(s)), JSON.stringify(r.reasons));
+});
+
+test("both required · a permit for something ELSE does not work", () => {
+  const c = new Core({ protectedActions: ["demote-canon"] });
+  const permit = { target: "OTHER", action: "demote-canon", scope: "project", grantedBy: "Martin" };
+  const r = c.evaluate(prot, { ...ctx, actionPermit: permit });
+  assert.strictEqual(r.decision, "HOLD");
+  assert.ok(r.reasons.some((s) => /does not match/.test(s)), JSON.stringify(r.reasons));
+});
+
+test("both required · exact permit + clean verdict passes", () => {
+  const c = new Core({ protectedActions: ["demote-canon"] });
+  const permit = { target: "CANON", action: "demote-canon", scope: "project", grantedBy: "Martin" };
+  const r = c.evaluate(prot, { ...ctx, actionPermit: permit });
+  assert.strictEqual(r.decision, "CLEAR", JSON.stringify(r.reasons));
+});
+
+test("both required · an unprotected action needs no permit", () => {
+  const c = new Core({ protectedActions: ["demote-canon"] });
+  const r = c.evaluate({ ...clean, action: "read" }, ctx);
+  assert.strictEqual(r.decision, "CLEAR", JSON.stringify(r.reasons));
+});
+
+test("both required · a genuine permit cannot rescue a bad verdict", () => {
+  const c = new Core({ protectedActions: ["demote-canon"] });
+  const permit = { target: "CANON", action: "demote-canon", scope: "project", grantedBy: "Martin" };
+  const r = c.evaluate(
+    { source: "UNKNOWN", provenance: null, action: "demote-canon", target: "CANON", scope: "project" },
+    { ...ctx, actionPermit: permit });
+  assert.strictEqual(r.decision, "HOLD", "the permit does not rescue an unclean verdict");
+});
+
+// Layer 3 — "verified" needs someone else
+test("independent · VERIFIED with no named verifier is refused", () => {
+  const c = new Core();
+  const k = c.begin(c.evaluate(clean, ctx), clean);
+  assert.strictEqual(c.complete(k, "VERIFIED"), null);
+});
+
+test("independent · the verifier cannot be the Core itself", () => {
+  const c = new Core();
+  const k = c.begin(c.evaluate(clean, ctx), clean);
+  assert.strictEqual(c.complete(k, "VERIFIED", { verifiedBy: "CORE" }), null);
+});
+
+test("independent · a named outside verifier closes and is recorded", () => {
+  const c = new Core();
+  const k = c.begin(c.evaluate(clean, ctx), clean);
+  const d = c.complete(k, "VERIFIED", { verifiedBy: "Martin" });
+  assert.ok(d);
+  assert.strictEqual(d.verifiedBy, "Martin", "the name is RECORDED, not only accepted");
+});
+
+test("independent · a plain completion is unchanged", () => {
+  const c = new Core();
+  const k = c.begin(c.evaluate(clean, ctx), clean);
+  assert.ok(c.complete(k, "written"), "a completion with no verification claim needs no one");
+});

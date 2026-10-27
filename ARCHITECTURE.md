@@ -113,7 +113,7 @@ The proposal envelope names the action, object, target, scope, quantity, permiss
 
 | Part | Status | Folder |
 |---|---|---|
-| Evaluator | implemented, 247 tests | `ai-proposal-evaluator/` |
+| Evaluator | implemented, 259 tests | `ai-proposal-evaluator/` |
 | Planner | **design only** | — |
 | Proposal envelope check | implemented, in-process | `agent-action-verifier/` |
 | Permit, claim, dispatch barrier, gate states, reconciler | implemented, PostgreSQL-enforced | `agent-execution-control/` |

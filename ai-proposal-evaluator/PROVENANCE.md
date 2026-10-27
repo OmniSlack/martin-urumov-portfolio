@@ -45,3 +45,13 @@ Original: GitHub repository `OmniSlack/omniecho-core` (private), branch `claude/
 Removed from `observer.js`: a 33-line header recording a personal conversation from 2026-09-18 (a report about the operator's own state and the reply it received). It describes behaviour of a chat assistant, not of this code, and is personal; nothing in the module depended on it.
 
 Removed from `core.js`: references to two internal documents (`09_PUBLIC_STORY_BG.md`, `12_STATUS_OF_ORIGINALITY.md`) and to internal project names; the substance of the note (an analogue, not a lineage; the principle is not original) is kept.
+
+## Update 2026-10-27 — the three layers
+
+Source: same repository, commit `f36373e5d97f46c2ab11f6b86fa9e8c27ae40394` (2026-10-26 23:58 UTC), read from the git bundle `omniecho-230.bundle`; the bundle clone was not modified. Only the changes that commit made to `core.js` and `core.test.js` were carried, translated and renamed the same way as above (`zashtiteni`→`protectedActions`, `iztracheni`→`spent`, `razreshenie`→`actionPermit`, `dadeno_ot`→`grantedBy`, `belezi.proveril`→`notes.verifiedBy`, outcome `PROVERENO`→`VERIFIED`, self names `YADRO/CORE/SELF/AZ`→`CORE/SELF`). Commit `d2a2e85`, between `848ae1a` and `f36373e`, was not carried.
+
+| Original file at f36373e | Original SHA-256 | New file (this folder) | New SHA-256 | Change |
+|---|---|---|---|---|
+| core.js | 8fbc7d0425a768503e04ad87a2ececafb9c6c9b05b582aa295950890309491d9 | core.js | be96dff61c7b4990ddac8af663b07c66510c101a2c4b698ff5e7dc41f09f9398 | the three layers' code and comments, translated; logic as in the original |
+| core.test.js | ed82da916099bc4a1cb3f4f62da77d3092e070714d4fb6edb7c6dcc6dcb601d9 | core.test.js | d6658849427c6d9902c0230c84fd5e715d190cce179031874df89a9ba6c7bf17 | the 12 tests of the three layers, translated; appended |
+| — | — | evidence/2026-10-27/THREE_LAYERS.txt | see SHA256SUMS | new: test run here and the new tests against the previous core.js |

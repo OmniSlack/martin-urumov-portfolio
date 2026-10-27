@@ -70,8 +70,16 @@ class Core {
    * `clock` returns nanoseconds (BigInt). Default: `process.hrtime.bigint`,
    * monotonic and independent of the wall clock.
    */
-  constructor({ clock = () => process.hrtime.bigint() } = {}) {
+  constructor({ clock = () => process.hrtime.bigint(), protectedActions = [] } = {}) {
     this.clock = clock;
+
+    // Layer 2 — which actions are protected. The list belongs to the CORE and
+    // is given at construction; the proposal is not asked whether it needs a
+    // permit. A proposal can misdescribe itself; a constructor argument cannot.
+    if (!Array.isArray(protectedActions)) {
+      throw new TypeError("protectedActions must be a list of action names");
+    }
+    this.protectedActions = new Set(protectedActions);
     this.status = "CANDIDATE";
     this.actionBoundary = "CLOSED";
 
@@ -118,6 +126,11 @@ class Core {
     // collected with the verdicts themselves. It is per-instance on purpose —
     // one Core's CLEAR is not another Core's permission.
     this.issued = new WeakSet();
+
+    // Layer 1 — spent verdicts. Separate from `issued`: `issued` says WHOSE the
+    // verdict is, this says WHETHER it has already been used. Two different
+    // facts, two different sets, so they cannot merge under one name.
+    this.spent = new WeakSet();
 
     // What each verdict was FOR, so it cannot be spent on something else.
     //
@@ -173,6 +186,25 @@ class Core {
     if (!assessment || assessment.decision !== "CLEAR") return null;
     // Said by this Core, not merely said. See `issued` in the constructor.
     if (!this.issued.has(assessment)) return null;
+
+    // Layer 1 — a verdict is a single-use ticket (2026-10-26).
+    //
+    // Carried from the owner's own code: `execution_ticket` (2026-09-15),
+    // "a single-use ticket for exactly one action", consumed on use.
+    //
+    // Measured before the fix: the same verdict, passed to begin() a second
+    // time after complete() and release(), was ACCEPTED. One permission did
+    // the work of two actions. The fingerprint stopped a verdict being moved
+    // to a DIFFERENT proposal (defect #13); nothing stopped it being spent
+    // twice on the SAME one.
+    //
+    // Spent when taken, not when finished: a ticket taken and released
+    // without complete() is spent too, or "I did not finish" becomes a way
+    // to take it again.
+    //
+    // What this does not do: it does not prevent asking for a NEW verdict on
+    // the same proposal. The ticket is single-use, not the work.
+    if (this.spent.has(assessment)) return null;
     // And said about THIS proposal, unchanged since. A permission belongs to
     // what it permitted; if that has moved, the permission has not moved with
     // it and must be re-obtained.
@@ -209,6 +241,8 @@ class Core {
       // leaves begin() exactly as it entered.
       proposal: this.deepFreeze(this.copy(proposal)),
     };
+    // Spent HERE — when taken, not when finished.
+    this.spent.add(assessment);
     return this.actionInFlight.key;
   }
 
@@ -220,10 +254,35 @@ class Core {
    * executed, which is the distinction the rule asks for and could not be made
    * before: the two paths produced identical state.
    */
-  complete(key, outcome = null) {
+  complete(key, outcome = null, notes = {}) {
     if (this.actionInFlight === null) return null;
     if (key !== this.actionInFlight.key) return null;
     if (this.actionInFlight.executed !== null) return null; // once, not twice
+
+    // Layer 3 — "verified" needs someone other than the Core (2026-10-26).
+    //
+    // Carried from the owner's own code: `kompas_core` (2026-09-15),
+    // "CLOSURE_VERIFIED requires verified_by (independent verifier)" and
+    // "Mitigation != Closure".
+    //
+    // "I did it" and "it was checked" are not the same claim. The first is
+    // made by whoever acted; the second needs someone else. Merged, the
+    // second layer disappears and only self-report is left.
+    //
+    // Applies only to a claim of verification. A plain completion needs no
+    // one, or the rule becomes a tax on all work and gets bypassed.
+    //
+    // What this does not do: it does not check that the verifier really
+    // verified, or exists. It checks that one is NAMED and is not the Core
+    // itself. Less than independence; much more than nothing.
+    const claimsVerification = typeof outcome === "string" && /VERIFIED/i.test(outcome);
+    if (claimsVerification) {
+      const v = notes && notes.verifiedBy;
+      if (typeof v !== "string" || !v.trim()) return null;
+      if (/^(CORE|SELF)$/i.test(v.trim())) return null;
+      this.actionInFlight.verifiedBy = v.trim();
+    }
+
     this.actionInFlight.executed = new Date().toISOString();
     this.actionInFlight.outcome = outcome;
     return this.deepFreeze({ ...this.actionInFlight });
@@ -353,6 +412,49 @@ class Core {
       } else if (!context.permitSignature || context.permitSignature !== proposal.targetSignature) {
         updateDecision("HOLD");
         reasons.push("Gate 11 Block: Permit signature/scope mismatch.");
+      }
+    }
+
+    // Layer 2 — a protected action needs BOTH a clean verdict and a matching
+    // permit (2026-10-26).
+    //
+    // Carried from the owner's own code: `sidecar_validator_v3` (2026-09-15),
+    // where execution is allowed only on VALIDATION_PASS AND an exact,
+    // unexpired human permit ("BOTH REQUIRED").
+    //
+    // Why this is not Gate 11 again: Gate 11 asks the PROPOSAL whether it needs
+    // a permit (`requiresTransition`). Measured on 2026-10-26: a proposal that
+    // lowers a canonical record to raw and does not declare it passes CLEAR
+    // with zero reasons. Here the list belongs to the Core. The refusal is
+    // named by what it does, not given Gate 11's number: two different checks
+    // do not share one number.
+    //
+    // What this does not do: it does not check that the permit is genuine.
+    // It checks that it is NAMED and matches exactly. Signatures and expiry
+    // are a later step; this layer has no clock for the permit.
+    marker("checking whether the action is protected");
+    const action = proposal.action;
+    if (action && this.protectedActions.has(action)) {
+      const p = context.actionPermit;
+      if (!p || typeof p !== "object") {
+        updateDecision("HOLD");
+        reasons.push(
+          `Protected action: "${action}" is on the protected list and there is no permit. ` +
+            `A clean verdict alone does not release it; both are required.`
+        );
+      } else {
+        const mismatch = ["target", "action", "scope"]
+          .filter((k) => p[k] !== proposal[k])
+          .map((k) => `${k}: "${p[k]}" vs "${proposal[k]}"`);
+        if (!p.grantedBy) {
+          updateDecision("HOLD");
+          reasons.push("Protected action: a permit with no named grantor is not a permit.");
+        } else if (mismatch.length) {
+          updateDecision("HOLD");
+          reasons.push(`Protected action: the permit does not match — ${mismatch.join("; ")}.`);
+        } else {
+          provenance.actionPermit = { grantedBy: p.grantedBy, for: action };
+        }
       }
     }
 

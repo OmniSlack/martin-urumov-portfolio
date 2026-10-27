@@ -1,0 +1,16 @@
+node v22.23.4 · 2026-10-27T01:37:57Z
+== node --test (this folder)
+# tests 259
+# pass 259
+# fail 0
+== core.test.js on the PREVIOUS core.js (git HEAD e066b32), new tests included
+not ok 29 - ticket · one verdict is spent ONCE
+not ok 30 - ticket · spending does not depend on finishing
+not ok 32 - both required · protected action with no permit does NOT pass
+not ok 33 - both required · a permit for something ELSE does not work
+not ok 37 - independent · VERIFIED with no named verifier is refused
+not ok 38 - independent · the verifier cannot be the Core itself
+not ok 39 - independent · a named outside verifier closes and is recorded
+# tests 68
+# pass 61
+# fail 7
