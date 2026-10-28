@@ -37,13 +37,13 @@ Format: blameless — what happened, why, what changed. Counts first.
 
 | What | Count |
 |---|---|
-| Entries in the public `register.json` that carried quotations and details from the owner's book manuscript | 2 (B-74, B-75) |
+| Entries in `register.json` (now public) that carried quotations and details from the owner's book manuscript | 2 (B-74, B-75) |
 | Entries that only mention that the manuscript exists | 1 (M-7, kept) |
-| Days the text was public | 2 (2026-10-26 → 2026-10-28) |
+| Time the text was public | under one day — the repository was still private on 2026-10-27 at 23:40 (owner's screenshot) and public on 2026-10-28; the exact moment it was made public is not known. From 2026-10-26 until then the text was in this repository while it was still private |
 | Found by | a second AI session working only in the private source repository, cross-checking this portfolio; brought to this session by the owner |
 | Change to any code, test or count after the fix | 0 (21/21 tests, statistics byte-identical — tried on a copy first) |
 
-**What happened.** On 2026-10-26 the register was carried from the private source repository into this public one and translated "in full". Two entries described checks the AI had made on the owner's book manuscript, and in full meant with the manuscript's file name, its size, names from its sources and sentences from its text. The owner's rule is that his book is read always, but not mixed into technical or portfolio material.
+**What happened.** On 2026-10-26 the register was carried from the private source repository into this one (private then, made public later) and translated "in full". Two entries described checks the AI had made on the owner's book manuscript, and in full meant with the manuscript's file name, its size, names from its sources and sentences from its text. The owner's rule is that his book is read always, but not mixed into technical or portfolio material.
 
 **Why.**
 - The AI had **access** to the book in the private workshop — correctly. Nothing checked whether that access included the right to **publish** what it saw there.
