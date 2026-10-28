@@ -121,4 +121,4 @@ The proposal envelope names the action, object, target, scope, quantity, permiss
 | Adapter | **not implemented**; no real external action has been run | — |
 | The two implemented halves wired together | **not done** | — |
 
-Small gates in front of individual actions: `payload-policy-validator/` (is this payload safe to run), `batch-file-gateway/` (isolate, scan, write once), `status-flow-validator/` (did the request walk its status chain in order).
+Small gates in front of individual actions: `payload-policy-validator/` (is this payload safe to run), `batch-file-gateway/` (isolate, scan, write once), `status-flow-validator/` (did the request walk its status chain in order), `validation-vs-authority/` (a passed check is not a permission; single-use ticket; conflicting digests stay in conflict).

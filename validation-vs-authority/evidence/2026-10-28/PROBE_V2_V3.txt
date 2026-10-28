@@ -1,0 +1,16 @@
+Command: PYTHONPATH=reference python3 -B probe_v2_defects.py
+Run: 2026-10-28T00:50:16Z
+====================================================================================================
+DEFECT                                     v2: v2 BEHAVIOUR                 v3: v3 BEHAVIOUR
+====================================================================================================
+Decision.allowed exists (authority leak)   v2: True                         v3: False
+verdict on clean input                     v2: AUTO_EXECUTE                 v3: VALIDATION_PASS
+enabled=False, m=99                        v2: AUTO_EXECUTE                 v3: VALIDATION_HOLD
+m = NaN                                    v2: AUTO_EXECUTE                 v3: EXECUTION_LOCK
+authorized="false" (truthy string)         v2: AUTO_EXECUTE                 v3: EXECUTION_LOCK
+required_fields with payload=None          v2: AUTO_EXECUTE                 v3: EXECUTION_LOCK
+payload "dropdown menu"                    v2: EXECUTION_LOCK               v3: VALIDATION_PASS
+payload "d e l e t e"                      v2: AUTO_EXECUTE                 v3: EXECUTION_LOCK
+hard_threshold=NaN at construction         v2: accepted                     v3: refused
+clean math, no permit at all               v2: AUTO_EXECUTE                 v3: EXECUTION_LOCK
+====================================================================================================

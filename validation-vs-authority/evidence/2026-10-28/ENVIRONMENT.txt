@@ -1,0 +1,4 @@
+python: Python 3.13.17
+platform: Linux-6.18.44-fc-v180-x86_64-with-glibc2.39
+dependencies: none (standard library only)
+network: none used

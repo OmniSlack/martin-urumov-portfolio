@@ -63,6 +63,8 @@ Limits of the flag copy: the confirmation count (2) and the clearing count (3) a
 
 ## Limitations
 
+- **This V3 can still say `AUTO_EXECUTE`.** It fixes the scoring maths of its V2; it does not separate a passed check from a permission. A different V3 of 2026-09-15, built on a different V2, does: [`validation-vs-authority/`](../validation-vs-authority/).
+
 - **Sustained traffic just under the threshold.** At `m = m_lock − ε` forever, the baseline catches up, `r_rel → 0`, the absolute threshold does not fire → permanent `AUTO_EXECUTE`. That is what a threshold means, not a defect: in steady state `m_lock` does 100% of the protection; the relative component catches transitions only.
 - **`M_DENOM = 4.0` is an arbitrary constant.** It replaces a schema-dependent arbitrary value with a schema-independent one. Progress on comparability, **not calibration**.
 - **The weights 1.0 / 0.5 / 1.5 are inherited from V2, unmeasured.**

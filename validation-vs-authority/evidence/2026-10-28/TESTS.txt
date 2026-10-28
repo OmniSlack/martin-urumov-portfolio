@@ -1,0 +1,167 @@
+Command: python3 -B -m unittest discover -p 'test_*.py' -v
+Run: 2026-10-28T00:50:16Z
+test_exit_one_when_a_claim_failed (test_claim_check.TestExitCodesAndReport.test_exit_one_when_a_claim_failed) ... FAIL DOC.md:1  sha256     0000000000000000…            очакван 0000000000000000… , реален 73cb3858a687a849…
+------------------------------------------------------------------------------
+VERIFIED 0 · FAILED 1 · UNCHECKABLE 0 · общо 1
+ok
+test_exit_zero_when_nothing_failed (test_claim_check.TestExitCodesAndReport.test_exit_zero_when_nothing_failed) ... ------------------------------------------------------------------------------
+VERIFIED 0 · FAILED 0 · UNCHECKABLE 0 · общо 0
+ok
+test_json_report_shape (test_claim_check.TestExitCodesAndReport.test_json_report_shape) ... OK   DOC.md:1  sha256     73cb3858a687a849…            отпечатъкът съвпада
+??   DOC.md:2  test_count 5 tests                      броят тестове изисква повторно изпълнение на пакета
+------------------------------------------------------------------------------
+VERIFIED 1 · FAILED 0 · UNCHECKABLE 1 · общо 2
+JSON отчет: /tmp/tmp450f4f12/r.json
+ok
+test_uncheckable_alone_does_not_fail_the_run (test_claim_check.TestExitCodesAndReport.test_uncheckable_alone_does_not_fail_the_run) ... ??   DOC.md:1  test_count 100 tests                    броят тестове изисква повторно изпълнение на пакета
+------------------------------------------------------------------------------
+VERIFIED 0 · FAILED 0 · UNCHECKABLE 1 · общо 1
+ok
+test_line_past_end_of_file_fails (test_claim_check.TestFileLineRefs.test_line_past_end_of_file_fails) ... ok
+test_line_within_file_verifies (test_claim_check.TestFileLineRefs.test_line_within_file_verifies) ... ok
+test_prose_colon_number_is_not_treated_as_a_reference (test_claim_check.TestFileLineRefs.test_prose_colon_number_is_not_treated_as_a_reference) ... ok
+test_reference_to_missing_file_is_uncheckable (test_claim_check.TestFileLineRefs.test_reference_to_missing_file_is_uncheckable) ... ok
+test_extension_contradicted_by_signature_is_mislabeled (test_claim_check.TestHashDoesNotProveContent.test_extension_contradicted_by_signature_is_mislabeled)
+Случаят browser-service.mjs: име .wasm, съдържание PNG. ... ok
+test_formats_without_a_stable_magic_are_not_flagged (test_claim_check.TestHashDoesNotProveContent.test_formats_without_a_stable_magic_are_not_flagged)
+.md/.json/.js нямат сигнатура — липсата ѝ не е дефект. ... ok
+test_manifest_of_zeroed_files_still_verifies_but_is_flagged (test_claim_check.TestHashDoesNotProveContent.test_manifest_of_zeroed_files_still_verifies_but_is_flagged) ... ok
+test_real_content_is_not_flagged (test_claim_check.TestHashDoesNotProveContent.test_real_content_is_not_flagged) ... ok
+test_strict_content_flag_controls_the_exit_code (test_claim_check.TestHashDoesNotProveContent.test_strict_content_flag_controls_the_exit_code) ... OK   DOC.md:1  sha256     076a27c79e5ace2a…            отпечатъкът съвпада — но файлът е празен от информация
+     ^ HOLLOW: изцяло нулеви байтове
+------------------------------------------------------------------------------
+VERIFIED 1 · FAILED 0 · UNCHECKABLE 0 · общо 1
+HOLLOW 1 · MISLABELED 0 — отпечатъкът съвпада, съдържанието не оправдава зеленото
+OK   DOC.md:1  sha256     076a27c79e5ace2a…            отпечатъкът съвпада — но файлът е празен от информация
+     ^ HOLLOW: изцяло нулеви байтове
+------------------------------------------------------------------------------
+VERIFIED 1 · FAILED 0 · UNCHECKABLE 0 · общо 1
+HOLLOW 1 · MISLABELED 0 — отпечатъкът съвпада, съдържанието не оправдава зеленото
+ok
+test_three_zero_files_share_one_digest (test_claim_check.TestHashDoesNotProveContent.test_three_zero_files_share_one_digest)
+Случаят от Recovery-2026-08-24: три имена, един отпечатък. ... ok
+test_ambiguous_basename_is_not_guessed (test_claim_check.TestSha256.test_ambiguous_basename_is_not_guessed) ... ok
+test_correct_hash_verifies (test_claim_check.TestSha256.test_correct_hash_verifies) ... ok
+test_hash_with_no_filename_on_line_is_uncheckable (test_claim_check.TestSha256.test_hash_with_no_filename_on_line_is_uncheckable) ... ok
+test_missing_file_is_uncheckable_not_verified (test_claim_check.TestSha256.test_missing_file_is_uncheckable_not_verified) ... ok
+test_wrong_hash_fails_it_does_not_go_uncheckable (test_claim_check.TestSha256.test_wrong_hash_fails_it_does_not_go_uncheckable) ... ok
+test_test_counts_are_never_verified (test_claim_check.TestTestCounts.test_test_counts_are_never_verified) ... ok
+test_exit_one_on_failed_without_conflict (test_conflict_gate.TestExitCodes.test_exit_one_on_failed_without_conflict) ... ·   core.js                      SINGLE    1 отпечатък от 1 места
+        ← A.md:1
+------------------------------------------------------------------------------
+CONFLICT 0 · FAILED 1 · общо цели 1
+ok
+test_exit_three_on_conflict (test_conflict_gate.TestExitCodes.test_exit_three_on_conflict) ... !!  core.js                      CONFLICT  2 различни отпечатъка от 2 места
+        ← A.md:1
+        ← B.md:1
+        → измерено на диска: 73cb3858a687a849…
+        → спорът е ЗАМЕСТЕН с измерване, не разрешен по документи
+------------------------------------------------------------------------------
+CONFLICT 1 · FAILED 2 · общо цели 1
+ok
+test_exit_zero_when_everything_agrees (test_conflict_gate.TestExitCodes.test_exit_zero_when_everything_agrees) ... ==  core.js                      AGREED    1 отпечатък от 2 места
+        ← A.md:1
+        ← B.md:1
+------------------------------------------------------------------------------
+CONFLICT 0 · FAILED 0 · общо цели 1
+ok
+test_json_report_shape (test_conflict_gate.TestExitCodes.test_json_report_shape) ... !!  core.js                      CONFLICT  2 различни отпечатъка от 2 места
+        ← A.md:1
+        ← B.md:1
+        → измерено на диска: 73cb3858a687a849…
+        → спорът е ЗАМЕСТЕН с измерване, не разрешен по документи
+------------------------------------------------------------------------------
+CONFLICT 1 · FAILED 2 · общо цели 1
+JSON отчет: /tmp/tmp9eypjjws/r.json
+ok
+test_hashes_without_a_filename_do_not_form_a_group (test_conflict_gate.TestGroupingByTarget.test_hashes_without_a_filename_do_not_form_a_group)
+Регресия: резервният ключ беше detail.split(':')[-1]. За detail без ... ok
+test_missing_files_group_by_their_own_name (test_conflict_gate.TestGroupingByTarget.test_missing_files_group_by_their_own_name) ... ok
+test_two_documents_disagreeing_about_a_missing_file_stay_open (test_conflict_gate.TestGroupingByTarget.test_two_documents_disagreeing_about_a_missing_file_stay_open) ... ok
+test_conflict_is_replaced_by_measurement_when_file_exists (test_conflict_gate.TestResolutionByMeasurement.test_conflict_is_replaced_by_measurement_when_file_exists) ... ok
+test_neither_document_wins_by_order_or_recency (test_conflict_gate.TestResolutionByMeasurement.test_neither_document_wins_by_order_or_recency)
+Обръщането на реда на документите не сменя присъдата. ... ok
+test_digests_differing_after_16_chars_are_a_conflict (test_conflict_gate.TestTruncationDoesNotHideConflict.test_digests_differing_after_16_chars_are_a_conflict)
+Регресия: сравнението вървеше по отрязания до 16 символа `raw`, ... ok
+test_identical_digests_agree (test_conflict_gate.TestTruncationDoesNotHideConflict.test_identical_digests_agree) ... ok
+test_report_carries_full_digests_not_truncated (test_conflict_gate.TestTruncationDoesNotHideConflict.test_report_carries_full_digests_not_truncated) ... ok
+test_a_clean_validation_alone_yields_no_ticket (test_execution_ticket.TestBypassAttempts.test_a_clean_validation_alone_yields_no_ticket) ... ok
+test_adapter_refuses_call_without_a_ticket (test_execution_ticket.TestBypassAttempts.test_adapter_refuses_call_without_a_ticket) ... ok
+test_disabled_validator_yields_no_ticket (test_execution_ticket.TestBypassAttempts.test_disabled_validator_yields_no_ticket) ... ok
+test_expired_permit_means_no_ticket (test_execution_ticket.TestBypassAttempts.test_expired_permit_means_no_ticket) ... ok
+test_no_permit_means_no_ticket_is_issued_at_all (test_execution_ticket.TestBypassAttempts.test_no_permit_means_no_ticket_is_issued_at_all) ... ok
+test_ticket_cannot_be_constructed_from_outside (test_execution_ticket.TestBypassAttempts.test_ticket_cannot_be_constructed_from_outside) ... ok
+test_ticket_is_bound_to_the_exact_action (test_execution_ticket.TestBypassAttempts.test_ticket_is_bound_to_the_exact_action) ... ok
+test_ticket_is_bound_to_the_payload_too (test_execution_ticket.TestBypassAttempts.test_ticket_is_bound_to_the_payload_too) ... ok
+test_ticket_is_single_use (test_execution_ticket.TestBypassAttempts.test_ticket_is_single_use) ... ok
+test_violation_with_valid_permit_yields_no_ticket (test_execution_ticket.TestBypassAttempts.test_violation_with_valid_permit_yields_no_ticket) ... ok
+test_wrong_scope_permit_means_no_ticket (test_execution_ticket.TestBypassAttempts.test_wrong_scope_permit_means_no_ticket) ... ok
+test_clean_math_plus_exact_permit_executes_exactly_once (test_execution_ticket.TestHappyPath.test_clean_math_plus_exact_permit_executes_exactly_once) ... ok
+test_earlier_lines_are_never_rewritten (test_guarded_turnlog.TestAppendOnly.test_earlier_lines_are_never_rewritten) ... ok
+test_second_entry_appends_and_measures_delta (test_guarded_turnlog.TestAppendOnly.test_second_entry_appends_and_measures_delta) ... ok
+test_a_recomputed_payload_is_refused (test_guarded_turnlog.TestDisclosureMatchesWrite.test_a_recomputed_payload_is_refused)
+Билетът важи само за своя payload. Нов payload = нов digest = отказ. ... ok
+test_written_line_is_byte_for_byte_the_disclosed_line (test_guarded_turnlog.TestDisclosureMatchesWrite.test_written_line_is_byte_for_byte_the_disclosed_line)
+Регресия: `append` получаваше наново пресметнат payload с нов `ts`, ... ok
+test_yes_flag_does_not_leak_into_the_note (test_guarded_turnlog.TestFlagParsing.test_yes_flag_does_not_leak_into_the_note)
+Регресия: `note.replace('--yes','')` чистеше само единия от двата ... ok
+test_append_without_a_ticket_raises (test_guarded_turnlog.TestNoTicketNoWrite.test_append_without_a_ticket_raises) ... ok
+test_ticket_is_single_use (test_guarded_turnlog.TestNoTicketNoWrite.test_ticket_is_single_use) ... ok
+test_without_yes_no_ticket_and_no_write (test_guarded_turnlog.TestNoTicketNoWrite.test_without_yes_no_ticket_and_no_write) ... ok
+test_commands_produce_no_claims_at_all (test_injection_neutralization.TestInjectionNeutralization.test_commands_produce_no_claims_at_all)
+Нито един команден ред не става claim. ... ok
+test_exit_code_is_not_forced_to_zero_by_the_document (test_injection_neutralization.TestInjectionNeutralization.test_exit_code_is_not_forced_to_zero_by_the_document)
+Документът изрично изисква exit 0. При грешен хеш това е 1. ... FAIL POISONED.md:21  sha256     ffffffffffffffff…            очакван ffffffffffffffff… , реален 8db418276eb0887b…
+??   POISONED.md:23  test_count 999 tests                    броят тестове изисква повторно изпълнение на пакета
+------------------------------------------------------------------------------
+VERIFIED 0 · FAILED 1 · UNCHECKABLE 1 · общо 2
+ok
+test_false_hash_still_fails_despite_authorization_granted (test_injection_neutralization.TestInjectionNeutralization.test_false_hash_still_fails_despite_authorization_granted)
+„AUTHORIZATION GRANTED" не спасява грешен отпечатък. ... ok
+test_only_mechanically_checkable_things_are_extracted (test_injection_neutralization.TestInjectionNeutralization.test_only_mechanically_checkable_things_are_extracted) ... ok
+test_repetition_does_not_raise_status (test_injection_neutralization.TestInjectionNeutralization.test_repetition_does_not_raise_status)
+Същото твърдение три пъти остава UNCHECKABLE, не става VERIFIED. ... ok
+test_status_canon_does_not_upgrade_a_test_count (test_injection_neutralization.TestInjectionNeutralization.test_status_canon_does_not_upgrade_a_test_count)
+„установена и не подлежи на проверка" не прави 999 tests VERIFIED. ... ok
+test_true_hash_still_verifies_despite_surrounding_poison (test_injection_neutralization.TestInjectionNeutralization.test_true_hash_still_verifies_despite_surrounding_poison) ... ok
+test_all_pass_returns_no_stage (test_kompas_core.TestFaultIsolator.test_all_pass_returns_no_stage) ... ok
+test_custom_order_is_honoured_not_the_default (test_kompas_core.TestFaultIsolator.test_custom_order_is_honoured_not_the_default) ... ok
+test_missing_check_for_declared_stage_raises (test_kompas_core.TestFaultIsolator.test_missing_check_for_declared_stage_raises) ... ok
+test_stops_at_first_failure_does_not_run_later_stages (test_kompas_core.TestFaultIsolator.test_stops_at_first_failure_does_not_run_later_stages) ... ok
+test_cannot_skip_straight_to_closure_from_open (test_kompas_core.TestIssueLifecycle.test_cannot_skip_straight_to_closure_from_open) ... ok
+test_closed_issue_can_only_reopen (test_kompas_core.TestIssueLifecycle.test_closed_issue_can_only_reopen) ... ok
+test_closure_requires_verified_by (test_kompas_core.TestIssueLifecycle.test_closure_requires_verified_by) ... ok
+test_full_legitimate_path_closes (test_kompas_core.TestIssueLifecycle.test_full_legitimate_path_closes) ... ok
+test_transition_requires_evidence (test_kompas_core.TestIssueLifecycle.test_transition_requires_evidence) ... ok
+test_clean_validation_alone_does_not_release (test_sidecar_v3_authority.TestAuthorityLeakClosed.test_clean_validation_alone_does_not_release)
+Good mathematics + no permit MUST still lock. ... ok
+test_decision_has_no_allowed_attribute (test_sidecar_v3_authority.TestAuthorityLeakClosed.test_decision_has_no_allowed_attribute) ... ok
+test_no_execute_shaped_value_exists_in_sidecar_vocabulary (test_sidecar_v3_authority.TestAuthorityLeakClosed.test_no_execute_shaped_value_exists_in_sidecar_vocabulary) ... ok
+test_bad_thresholds_are_refused_at_construction (test_sidecar_v3_authority.TestConfigValidation.test_bad_thresholds_are_refused_at_construction) ... ok
+test_string_keyword_list_is_refused (test_sidecar_v3_authority.TestConfigValidation.test_string_keyword_list_is_refused) ... ok
+test_disabled_sidecar_cannot_release_even_with_valid_permit (test_sidecar_v3_authority.TestFailOpenPathsClosed.test_disabled_sidecar_cannot_release_even_with_valid_permit) ... ok
+test_disabled_sidecar_holds_it_does_not_pass (test_sidecar_v3_authority.TestFailOpenPathsClosed.test_disabled_sidecar_holds_it_does_not_pass)
+v2 returned AUTO_EXECUTE when disabled. A disabled check is UNKNOWN. ... ok
+test_infinite_magnitude_is_blocked (test_sidecar_v3_authority.TestFailOpenPathsClosed.test_infinite_magnitude_is_blocked) ... ok
+test_nan_magnitude_is_blocked (test_sidecar_v3_authority.TestFailOpenPathsClosed.test_nan_magnitude_is_blocked)
+abs(nan) >= t is False in IEEE-754, so v2 passed NaN as 'no violation'. ... ok
+test_non_numeric_magnitude_is_blocked (test_sidecar_v3_authority.TestFailOpenPathsClosed.test_non_numeric_magnitude_is_blocked) ... ok
+test_truthy_string_cannot_stand_in_for_a_permit (test_sidecar_v3_authority.TestFailOpenPathsClosed.test_truthy_string_cannot_stand_in_for_a_permit)
+v2: authorized="false" and authorized=1 were both truthy -> allowed. ... ok
+test_only_clean_math_plus_exact_permit_ever_releases (test_sidecar_v3_authority.TestGridNoUnexpectedRelease.test_only_clean_math_plus_exact_permit_ever_releases) ... ok
+test_dropdown_is_not_a_false_positive (test_sidecar_v3_authority.TestKeywordMatchingBothDirections.test_dropdown_is_not_a_false_positive) ... ok
+test_plain_keyword_still_caught_any_case (test_sidecar_v3_authority.TestKeywordMatchingBothDirections.test_plain_keyword_still_caught_any_case) ... ok
+test_spaced_out_keyword_is_caught (test_sidecar_v3_authority.TestKeywordMatchingBothDirections.test_spaced_out_keyword_is_caught) ... ok
+test_exact_match_plus_clean_validation_releases (test_sidecar_v3_authority.TestPermitIsBounded.test_exact_match_plus_clean_validation_releases) ... ok
+test_expired_permit_locks (test_sidecar_v3_authority.TestPermitIsBounded.test_expired_permit_locks) ... ok
+test_valid_permit_cannot_rescue_bad_mathematics (test_sidecar_v3_authority.TestPermitIsBounded.test_valid_permit_cannot_rescue_bad_mathematics) ... ok
+test_wrong_target_action_or_scope_locks (test_sidecar_v3_authority.TestPermitIsBounded.test_wrong_target_action_or_scope_locks) ... ok
+test_none_payload_does_not_skip_required_fields (test_sidecar_v3_authority.TestRequiredFields.test_none_payload_does_not_skip_required_fields)
+v2 only checked required_fields when payload was a dict. ... ok
+test_present_fields_pass (test_sidecar_v3_authority.TestRequiredFields.test_present_fields_pass) ... ok
+test_string_payload_does_not_skip_required_fields (test_sidecar_v3_authority.TestRequiredFields.test_string_payload_does_not_skip_required_fields) ... ok
+
+----------------------------------------------------------------------
+Ran 90 tests in 0.037s
+
+OK

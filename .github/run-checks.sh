@@ -31,6 +31,7 @@ if [ "$GROUP" = "all" ] || [ "$GROUP" = "python" ]; then
     run "$d" python3 -m pytest -q -p no:cacheprovider
   done
   run payload-policy-validator python3 -B -m unittest test_payload_policy_validator test_flag_hold_validator
+  run validation-vs-authority python3 -B -m unittest discover -p 'test_*.py'
   # The dual-pass probe: material regenerates byte-identical to the hashes locked before the runs,
   # and the recorded runs score as reported.
   run dual-pass-reading-probe bash -c 'python3 -B make_material.py >/dev/null && sha256sum -c LOCK.txt --quiet 2>/dev/null && python3 -B score.py | tail -1'
