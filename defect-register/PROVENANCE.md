@@ -17,4 +17,11 @@ Original: repository OmniSlack/omniecho-core (private), branch `claude/bro-6f3f3
 | — | — | README.md | 0af9d0cff5065dba2e4b43426ff0cc0ed9f284f5384a91036a9627387388e3d0 | new |
 | — | — | evidence/2026-10-26/* | see SHA256SUMS at the repository root | new: TESTS.txt, STATS.txt, VALIDATION.txt, ENVIRONMENT.txt |
 
+## Changed 2026-10-28
+
+| File | New SHA-256 | Change |
+|---|---|---|
+| register.json | 31884ff26bfe88aad376da73e5671ff153f993e87345bddc04790175e287b580 | B-74 and B-75: quotations and details from the owner's book manuscript removed, the lesson of each kept, an edit note added. 21/21 tests and the statistics unchanged. Why: `incidents/INCIDENTS_PORTFOLIO_WORK.md`, I-2 |
+| incidents/INCIDENTS_PORTFOLIO_WORK.md | see root SHA256SUMS | new |
+
 The translation was done in 13 part files in a scratch directory and merged by a script that checks: exactly 165 entries, ids unique and in the original order, 51 human / 114 instrument, every family key valid, zero Cyrillic (output in `evidence/2026-10-26/VALIDATION.txt`). The part files and the script are not carried.

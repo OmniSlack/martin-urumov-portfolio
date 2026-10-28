@@ -21,6 +21,10 @@ The entries are written **in the first person by the AI assistant about its own 
 
 Id prefixes: `P-` errors before the repository (July 2026, CV texts) · `#` numbered defects of the evaluator code, as in its README · `M-` Martin's own errors, recorded at his request · `B-` the running series from 19 September 2026 (the meaning of the letter is not stated in the source).
 
+## Incidents during the portfolio work
+
+Separate from the 165: [`incidents/INCIDENTS_PORTFOLIO_WORK.md`](incidents/INCIDENTS_PORTFOLIO_WORK.md) — two incidents that happened while this portfolio was being assembled (a question read as a command, 2026-10-26; book material carried into this public register, 2026-10-28). B-74 and B-75 were edited on 2026-10-28 because of the second one; every test and count is unchanged.
+
 ## How to run
 
 ```bash
