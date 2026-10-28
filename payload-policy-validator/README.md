@@ -78,7 +78,7 @@ Original package `SIDECAR_VALIDATOR_V3__2026-09-16.zip`, SHA-256 `dbc9ede6…bfb
 ## Contribution
 
 - Martin Urumov (flag copy): the rule that a downward jump is acceptance, that an upward jump raises a flag which is data and must survive evidence before it stops anything, and that a flag is not lowered under pressure.
-- Codex (outside review, 2026-10): `reference/sidecar_validator_v2_alternative.py` and `reference/test_sidecar_v2_gaps.py`, carried byte-identical.
+- Codex (outside review): `reference/sidecar_validator_v2_alternative.py` and `reference/test_sidecar_v2_gaps.py`, carried byte-identical. Both existed by 2026-09-15 (see [`validation-vs-authority/PROVENANCE.md`](../validation-vs-authority/PROVENANCE.md)); they were received here on 2026-10-26.
 
 - Martin Urumov: the questions that led to F1–F4; requirements and acceptance criteria (an adaptive baseline must not be able to hide sustained risk; every threshold must be able to change a decision; a reported "PASS" without a measurable number is a claim, not evidence); review of the findings; the decision to keep the V3 self-defect on record and V2 as a byte-identical reference.
 - AI coding assistants: running V2 and documenting F1–F4 at Martin's prompting, implementation of V3, the test suite, and the renaming/translation in this repository; on 2026-10-26 the measurement that 675 of V3's 766 sub-threshold locks on the review grid are clean payloads, and the implementation and tests of the flag copy.
